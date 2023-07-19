@@ -1,0 +1,46 @@
+{
+ "seem like a positive review": {
+  "template": "Does \"{translation.en}\" seem like a positive review to you?",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "rate positive review": {
+  "template": "Rate the positivity of this review ({\"1\"} being the lowest and {\"5\"} the highest).\\n\"{translation.en}\"",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "how positive review": {
+  "template": "How positive is the review \"{translation.en}\"? Give a score between\n      {\"0\"} and {\"5\"}.",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "scale of positive review": {
+  "template": "On a scale from {\"1\"} to {\"5\"}, how positive is the review \"{translation.en}\"?",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "think positive review": {
+  "template": "Do you think \"{translation.en}\" is a positive review?",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ }
+}

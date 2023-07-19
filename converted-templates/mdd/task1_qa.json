@@ -1,0 +1,26 @@
+{
+ "using_internet_answer": {
+  "template": "Using the internet, answer the following question:\n\n{dialogue_turns.utterance[0][0] | capitalize}{dialogue_turns.utterance[0][1:]}",
+  "choices_template": null
+ },
+ "prompt_generate_question": {
+  "template": "Given the best answer(s), \"{dialogue_turns.utterance[1]}\", generate a movie-trivia question:",
+  "choices_template": null
+ },
+ "question_answering": {
+  "template": "{dialogue_turns.utterance[0][0] | capitalize}{dialogue_turns.utterance[0][1:]}",
+  "choices_template": null
+ },
+ "question_answering_speaker": {
+  "template": "Complete this movie-trivia-related dialogue between Speaker {dialogue_turns.speaker[0]} and Speaker {dialogue_turns.speaker[1]} by answering Speaker {dialogue_turns.speaker[0]}'s question as Speaker {dialogue_turns.speaker[1]}.\n\nSpeaker {dialogue_turns.speaker[0]}: {dialogue_turns.utterance[0][0] | capitalize}{dialogue_turns.utterance[0][1:]} \n\nSpeaker {dialogue_turns.speaker[1]}:",
+  "choices_template": null
+ },
+ "generate_question": {
+  "template": "Generate a movie-trivia question for the answer(s): {dialogue_turns.utterance[1]}",
+  "choices_template": null
+ },
+ "prompt_question_answering": {
+  "template": "Answer the following question:\n\n{dialogue_turns.utterance[0][0] | capitalize}{dialogue_turns.utterance[0][1:]}",
+  "choices_template": null
+ }
+}

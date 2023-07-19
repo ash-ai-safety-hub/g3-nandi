@@ -1,0 +1,42 @@
+{
+ "Generate Question Title with meshes": {
+  "template": "Given a research abstract: {context.contexts | join(\", \")}\nAnd given keywords: {context.meshes | join(\", \")}.\n \nWhat is the question answered by the above research abstract?",
+  "choices_template": null
+ },
+ "Question Answering (Long)": {
+  "template": "Given a PubMed abstract: {context.contexts | join(\", \")}\n\nAnswer this question: \"{question}\"",
+  "choices_template": null
+ },
+ "Generate Question Title ": {
+  "template": "Given a research abstract: {context.contexts | join(\", \")}\n\nWhat is the question answered by the above research abstract?",
+  "choices_template": null
+ },
+ "Long Answer to Final Decision": {
+  "template": "Question: \"{question}\" \n\nAnswer: \"{long_answer}\"\n\nSummarize the above answer as YES, NO, or MAYBE?",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ },
+ "Context Section Type": {
+  "template": "{% set n_sections = context.contexts | length %}\n{% set choice = range(0, n_sections) | random %}\n\n\"{context.contexts[choice]}\"\n\nThe above text would most likely be found in which section of a biomedical paper:  {context.labels[:-1] | join(\", \")} or {context.labels[-1]} ?",
+  "choices_template": "{{context.labels | join(\"|||\")}}"
+ },
+ "Medical Subject Headings": {
+  "template": "Given a PubMed abstract:{context.contexts | join(\", \")}\n\nWhat are the MeSH (Medical Subject Headings) terms for this?",
+  "choices_template": null
+ },
+ "Generate Question Title with long answer": {
+  "template": "Given a research abstract: {context.contexts | join(\", \")}\nAnd given long answer of a question: {long_answer}.\n \nWhat is the question asked by this research paper?",
+  "choices_template": null
+ },
+ "Question Answering (Short)": {
+  "template": "Given a PubMed abstract: {context.contexts | join(\", \")}\n\nAnswer the question: \"{question}\" as YES, NO, MAYBE.",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ }
+}

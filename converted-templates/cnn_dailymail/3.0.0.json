@@ -1,0 +1,38 @@
+{
+ "write_an_outline": {
+  "template": "Can you write an outline of the following article in a few points?\n\nArticle: {article}",
+  "choices_template": null
+ },
+ "news_summary": {
+  "template": "Summarise the article:\n\n{article}",
+  "choices_template": null
+ },
+ "2_or_3_sentences": {
+  "template": "In 2 or 3 sentences, what are the main points one should remember from this news article?\n\nArticle: {article}",
+  "choices_template": null
+ },
+ "tldr_summary": {
+  "template": "Could you please generate a TLDR (Too Long Didn't Read) summary of the following news article?\n\nArticle: {article}",
+  "choices_template": null
+ },
+ "news_card_view": {
+  "template": "Condense the article down to the essentials to present it in the form of short cards in mobile news apps:\n\n{article}",
+  "choices_template": null
+ },
+ "generate_story": {
+  "template": "Generate a story from key plot points:\n\n{highlights}",
+  "choices_template": null
+ },
+ "sum_in_brief": {
+  "template": "Sum the following article in brief: {article}",
+  "choices_template": null
+ },
+ "news_stock": {
+  "template": "Extract key points from the article based on which the stock market could react:\n\n{article}",
+  "choices_template": null
+ },
+ "spice_up_story": {
+  "template": "What details would you include in a storyline to make it more engaging and informative?\n\n{highlights}",
+  "choices_template": null
+ }
+}

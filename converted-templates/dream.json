@@ -1,0 +1,22 @@
+{
+ "generate-last-utterance": {
+  "template": "Read the below conversation.\n\n{dialogue[:-1] | join(\"\\n\\n\")}\n\nWhat would the listener say?",
+  "choices_template": null
+ },
+ "answer-to-dialogue": {
+  "template": "Given the question \"{question}\" and the answer \"{answer}\", write a conversation that might have happened.",
+  "choices_template": null
+ },
+ "generate-first-utterance": {
+  "template": "{dialogue[1:] | join(\"\\n\\n\")}\n\nWhat was said before this conversation?",
+  "choices_template": null
+ },
+ "baseline": {
+  "template": "Dialogue:\n\n{dialogue | join(\"\\n\\n\")}\n\nQuestion: {question} \n\n- {answer_choices[0]}\n\n- {answer_choices[1]}\n\n- {answer_choices[2]}",
+  "choices_template": "{{choice | join(\"|||\")}}"
+ },
+ "read_the_following_conversation_and_answer_the_question": {
+  "template": "Read the following conversation and answer the question.\n\n{dialogue | join(\"\\n\\n\")}\n\nQuestion: {question} \n\n- {answer_choices[0]}\n\n- {answer_choices[1]}\n\n- {answer_choices[2]}",
+  "choices_template": "{{choice | join(\"|||\")}}"
+ }
+}

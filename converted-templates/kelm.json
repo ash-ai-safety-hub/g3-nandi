@@ -1,0 +1,26 @@
+{
+ "kb_to_sentence_uses_all_facts": {
+  "template": "Given facts from a knowledge base encoded in the form \"subject relation object, relation object, ...\" below (the subject and object are entities that are involved in a relationship defined by the relation), what would be a natural language sentence that uses all facts provided as input?\n\n{triple}",
+  "choices_template": null
+ },
+ "sentence_to_kb": {
+  "template": "Given a sentence below, generate knowledge base triples in the form of \"subject relation object, relation object, ...\". The subject and object are entities that are involved in a relationship defined by the relation.\n\nSentence: {sentence}",
+  "choices_template": null
+ },
+ "kb_to_sentence_easier_to_understand": {
+  "template": "How would you rephrase the following information in the format of \"subject relation object, relation object, ...\" (the subject and object are entities that are involved in a relationship defined by the relation) into something easier to understand? Give your response in a complete sentence.\n\nInformation: {triple}",
+  "choices_template": null
+ },
+ "kb_to_sentence_combine": {
+  "template": "How would you combine the following facts of the form \"subject relation object, relation object, ...\" (the subject and object are entities that are involved in a relationship defined by the relation) into a sentence?\n\n\"{triple}\"",
+  "choices_template": null
+ },
+ "kb_to_sentence_affirmative": {
+  "template": "Given knowledge base triples in the format of \"subject relation object, relation object, ...\" (the subject and object are entities that are involved in a relationship defined by the relation) generate a natural language sentence.\n\nTriple: {triple}",
+  "choices_template": null
+ },
+ "kb_to_sentence_from_notes": {
+  "template": "I am going through my notes about facts, and my notes are written in the form of \"subject relation object, relation object, ...\". The subject and object are entities that are involved in a relationship defined by the relation. I want to convert the facts into a sentence to include in my written report. What is the sentence?\n\nFacts: {triple}",
+  "choices_template": null
+ }
+}

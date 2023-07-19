@@ -1,0 +1,42 @@
+{
+ "simple_template_question_after": {
+  "template": "{question}\nWhat is the solution to the previous algebraic expression?",
+  "choices_template": null
+ },
+ "simple_template_question_one_sentence_extracting_variable_name": {
+  "template": "If {question[6:-7]}, what is the value of {question[-2]}?",
+  "choices_template": null
+ },
+ "no_question_extracting_variable_name": {
+  "template": "{question}\n{% set variable_name = question[-2] %}\n{variable_name}=",
+  "choices_template": null
+ },
+ "simple_template_question_after_extracting_variable_name": {
+  "template": "{question}\nWhat is the solution to the previous algebraic expression?\n{% set variable_name = question[-2] %}\n{variable_name}=",
+  "choices_template": null
+ },
+ "simple_template_question_one_sentence_v2": {
+  "template": "How do I solve the following algebraic equation: {question[6:-1]}?\n\n{question[-2]}=",
+  "choices_template": null
+ },
+ "simple_template_question_before_extracting_variable_name": {
+  "template": "What is the solution to the following algebraic expression?\n{question}\n{% set variable_name = question[-2] %}\n{variable_name}=",
+  "choices_template": null
+ },
+ "simple_template_question_one_sentence_extract_variable_name_v2": {
+  "template": "If {question[6:-7]}, what is the value of {question[-2]}?\n\n{question[-2]}=",
+  "choices_template": null
+ },
+ "simple_template_question_before": {
+  "template": "What is the solution to the following algebraic expression?\n{question}",
+  "choices_template": null
+ },
+ "simple_template_question_one_sentence": {
+  "template": "How do I solve the following algebraic equation: {question[6:-1]}?",
+  "choices_template": null
+ },
+ "no_question": {
+  "template": "{question}",
+  "choices_template": null
+ }
+}

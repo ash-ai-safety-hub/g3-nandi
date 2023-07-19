@@ -1,0 +1,65 @@
+{
+ "experience_good_bad": {
+  "template": "{text}\nOverall, the experience is",
+  "choices": [
+   "bad",
+   "good"
+  ]
+ },
+ "rating_high_low": {
+  "template": "{text}\nBased on that, my rating for this place is",
+  "choices": [
+   "low",
+   "high"
+  ]
+ },
+ "regret_yes_or_no": {
+  "template": "{text}\nDid I regret it?",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "come_again": {
+  "template": "{text}\nIf you ask me whether I will come again, my answer is",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "format_come_again": {
+  "template": "Review:\n{text}\n\nWill you come here again?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "like_dislike": {
+  "template": "{text}\nThat being said, I",
+  "choices": [
+   "dislike this place.",
+   "like this place."
+  ]
+ },
+ "format_good_bad": {
+  "template": "Review:\n{text}\n\nOverall rating:",
+  "choices": [
+   "Bad",
+   "Good"
+  ]
+ },
+ "place_good_bad": {
+  "template": "{text}\nIn a nutshell, this place is",
+  "choices": [
+   "bad",
+   "good"
+  ]
+ },
+ "like_dislike_2": {
+  "template": "{text}\nIf you ask me whether I like this place? The answer is",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ }
+}

@@ -1,0 +1,66 @@
+{
+ "original_sent_edit_words_qa_id": {
+  "template": "Given an original sentence \"{original1.replace(original1[original1.index(\"<\"):original1.index(\">\")+1], original1[original1.index(\"<\")+1:original1.index(\"/>\")])}\", is it more humorous to replace \"{original1[original1.index(\"<\")+1:original1.index(\"/>\")]}\" with \"{edit1}\", or to replace \"{original2[original2.index(\"<\")+1:original2.index(\"/>\")]}\" with \"{edit2}\", or are both equally hilarious?\n{answer_choices[1]}. replace \"{original1[original1.index(\"<\")+1:original1.index(\"/>\")]}\" with \"{edit1}\"\n{answer_choices[2]}. replace \"{original2[original2.index(\"<\")+1:original2.index(\"/>\")]}\" with \"{edit2}\"\n{answer_choices[0]}. both equally hilarious",
+  "choices": [
+   "C",
+   "A",
+   "B"
+  ]
+ },
+ "original_sent_edited_sentences_qa_id": {
+  "template": "Original sentence: {original1.replace(original1[original1.index(\"<\"):original1.index(\">\")+1], original1[original1.index(\"<\")+1:original1.index(\"/>\")])}.\nEdited sentence A: {original1.replace(original1[original1.index(\"<\"):original1.index(\">\")+1], edit1)}.\nEdited sentence B: {original2.replace(original2[original2.index(\"<\"):original2.index(\">\")+1], edit2)}.\nThere are two edited sentences based on the original sentence, which is more humorous ({answer_choices[1]} or {answer_choices[2]}) or are they equally humorous? \n{answer_choices[1]}. Edited sentence A\n{answer_choices[2]}. Edited sentence B\n{answer_choices[0]}. Equal",
+  "choices": [
+   "C",
+   "A",
+   "B"
+  ]
+ },
+ "original_sent_edit_words_qa_strategy_id": {
+  "template": "Given an original sentence \"{original1.replace(original1[original1.index(\"<\"):original1.index(\">\")+1], original1[original1.index(\"<\")+1:original1.index(\"/>\")])}\", we have two replacement strategies. The first is to replace \"{original1[original1.index(\"<\")+1:original1.index(\"/>\")]}\" with \"{edit1}\", and the second is to replace \"{original2[original2.index(\"<\")+1:original2.index(\"/>\")]}\" with \"{edit2}\".\nIs the first strategy more humorous or the second, or are they equally funny?\n{answer_choices[1]}. The first strategy\n{answer_choices[2]}. The second strategy\n{answer_choices[0]}. Both are equally funny",
+  "choices": [
+   "C",
+   "A",
+   "B"
+  ]
+ },
+ "only_edited_sentences_QA_id": {
+  "template": "There are two sentences:\nSentence1: {original1.replace(original1[original1.index(\"<\"):original1.index(\">\")+1], edit1)}\nSentence2: {original2.replace(original2[original2.index(\"<\"):original2.index(\">\")+1], edit2)}\nWhich sentence is more humorous?\n{answer_choices[1]}. Sentence 1\n{answer_choices[2]}. Sentence 2\n{answer_choices[0]}. Equal",
+  "choices": [
+   "C",
+   "A",
+   "B"
+  ]
+ },
+ "only_edited_sentences_id": {
+  "template": "Which of the following sentences is more humorous? If they are equally funny, please answer \"{answer_choices[0]}\".\n{answer_choices[1]}. {original1.replace(original1[original1.index(\"<\"):original1.index(\">\")+1], edit1)}\n{answer_choices[2]}. {original2.replace(original2[original2.index(\"<\"):original2.index(\">\")+1], edit2)}",
+  "choices": [
+   "equal",
+   "A",
+   "B"
+  ]
+ },
+ "only_edited_sentences_QA_text": {
+  "template": "There are two sentences:\nSentence1: {original1.replace(original1[original1.index(\"<\"):original1.index(\">\")+1], edit1)}\nSentence2: {original2.replace(original2[original2.index(\"<\"):original2.index(\">\")+1], edit2)}\nWhich sentence is more humorous?\n- {answer_choices[1]}\n- {answer_choices[2]}\n- {answer_choices[0]}",
+  "choices": [
+   "Equal",
+   "Sentence 1",
+   "Sentence 2"
+  ]
+ },
+ "original_sent_edit_words_qa_strategy": {
+  "template": "Given an original sentence \"{original1.replace(original1[original1.index(\"<\"):original1.index(\">\")+1], original1[original1.index(\"<\")+1:original1.index(\"/>\")])}\", we have two replacement strategies:\nThe first is to replace \"{original1[original1.index(\"<\")+1:original1.index(\"/>\")]}\" with \"{edit1}\".\nThe second is to replace \"{original2[original2.index(\"<\")+1:original2.index(\"/>\")]}\" with \"{edit2}\".\nWhich strategy is more humorous (respond with \"{answer_choices[1]}\" or \"{answer_choices[2]}\") or equally funny (if so, respond with \"{answer_choices[0]}\")?",
+  "choices": [
+   "Equal",
+   "First",
+   "Second"
+  ]
+ },
+ "original_sent_edited_sentences_qa": {
+  "template": "Given an original sentence \"{original1.replace(original1[original1.index(\"<\"):original1.index(\">\")+1], original1[original1.index(\"<\")+1:original1.index(\"/>\")])}\", we have two edited sentences. The first is \"{original1.replace(original1[original1.index(\"<\"):original1.index(\">\")+1], edit1)}\", and the second is \"{original2.replace(original2[original2.index(\"<\"):original2.index(\">\")+1], edit2)}\". \n\nWhich edited sentence is more humorous (answer with \"{answer_choices[1]}\" or \"{answer_choices[2]}\") or equally humorous (if so, answer 'Equally funny')?",
+  "choices": [
+   "Equally funny",
+   "First",
+   "Second"
+  ]
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "are_two_questions_duplicate": {
+  "template": "Given the question \"{questions.text.0}\" would you consider \"{questions.text.1}\" as a duplicate?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "are_two_questions_same": {
+  "template": "Is the following question \"{questions.text.0}\" the same as \"{questions.text.1}\"?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "rephrase_given_question": {
+  "template": "{% if is_duplicate == true%} Paraphrase the the following question: {% if questions.text.0|length < questions.text.1|length %}  {questions.text.0}",
+  "choices_template": null
+ },
+ "are_two_questions_different": {
+  "template": "The question \"{questions.text.0}\" is different from \"{questions.text.1}\". {\"True\"} or {\"false\"}?",
+  "choices": [
+   "True",
+   "False"
+  ]
+ },
+ "true_or_false": {
+  "template": "The question \"{questions.text.0}\" is the same as \"{questions.text.1}\". {\"True\"} or {\"false\"} ?",
+  "choices": [
+   "false",
+   "true"
+  ]
+ },
+ "yes_or_no": {
+  "template": "Two new posts asked on Quora are \"{questions.text.0}\" and \"{questions.text.1}\". I feel like they have asked the same question. Am I correct?",
+  "choices": [
+   "No, they are different questions",
+   "Yes, they are the same question"
+  ]
+ }
+}

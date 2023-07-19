@@ -1,0 +1,35 @@
+{
+ "which_correct_inverse": {
+  "template": "{question_stem}\n- {choices[\"text\"] | join(\"\\n- \")}\n\nWhich is the correct answer?",
+  "choices_template": null
+ },
+ "choices": {
+  "template": "{question_stem}\n\nChoices:\n- {choices[\"text\"] | join(\"\\n- \")}",
+  "choices_template": null
+ },
+ "pick_using_id": {
+  "template": "{question_stem}\n{% for k in range(choices[\"text\"] | length) %}\n{' -> '.join([[\"A\", \"B\", \"C\", \"D\"][k], choices[\"text\"][k]])}\n{% endfor %}\nIs the right answer {\"A, B, C or D\"} ?",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ]
+ },
+ "choose_an_answer_with_options": {
+  "template": "{question_stem}\n\nChoose an answer from this list:\n- {choices[\"text\"] | join(\"\\n- \")}",
+  "choices_template": null
+ },
+ "which_correct": {
+  "template": "{question_stem}\n\nWhich is the correct answer?\n- {choices[\"text\"] | join(\"\\n- \")}",
+  "choices_template": null
+ },
+ "only_options": {
+  "template": "{question_stem}\n- {choices[\"text\"] | join(\"\\n- \")}",
+  "choices_template": null
+ },
+ "pick_answer_with_options": {
+  "template": "{question_stem}\n\nPick the right answer from the list:\n- {choices[\"text\"] | join(\"\\n- \")}",
+  "choices_template": null
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "pick_the_most_correct_option": {
+  "template": "Pick the most correct option to answer the following question.\n\n{question}\n\nOptions:\n{% for letter, t in zip(answer_choices, choices.text) %}\n- {letter}: {t}\n{% endfor %}",
+  "choices_template": "{{choices.label | join(\"|||\")}}"
+ },
+ "qa_options": {
+  "template": "{question}\n\nOptions:\n- {answer_choices | join(\"\\n- \")}",
+  "choices_template": "{{choices.text | join(\"|||\")}}"
+ },
+ "i_am_hesitating": {
+  "template": "I am hesitating between 4 options to answer the following question, which option should I choose?\nQuestion: {question}\nPossibilities:\n- {answer_choices | join(\"\\n- \")}",
+  "choices_template": "{{choices.text | join(\"|||\")}}"
+ },
+ "multiple_choice": {
+  "template": "I gave my students this multiple choice question: {question}\n\nOnly one answer is correct among these 4 choices:\n- {answer_choices | join(\"\\n- \")}\n\nCould you tell me which one is correct?",
+  "choices_template": "{{choices.text | join(\"|||\")}}"
+ },
+ "pick_false_options": {
+  "template": "Pick and copy all the incorrect options for the following question:\n\n{question}\n\nOptions:\n- {choices[\"text\"] | join(\"\\n- \")}",
+  "choices_template": null
+ },
+ "heres_a_problem": {
+  "template": "Here's a problem to solve: {question}\n\nAmong the 4 following options, which is the correct answer?\n{% for letter, t in zip(answer_choices, choices.text) %}\n- {letter}: {t}\n {% endfor %}",
+  "choices_template": "{{choices.label | join(\"|||\")}}"
+ }
+}

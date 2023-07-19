@@ -1,0 +1,26 @@
+{
+ "basic_task_description_like": {
+  "template": "Generate a summary for the text: \n{source | join(\" \")}",
+  "choices_template": null
+ },
+ "reverse_generation": {
+  "template": "Elaborate on the given summary: \n{target |choice}\n\nStart with following sentence: {source[0]}",
+  "choices_template": null
+ },
+ "instructions_for_summary": {
+  "template": "Compress the abstract to one or two sentences. Make sure it captures the main point of the abstract. \nAbstract: {source | join(\" \")}\nSummary:",
+  "choices_template": null
+ },
+ "summarize_in_sentence": {
+  "template": "Abstract: {source | join(\" \")}\nPlease summarize the abstract in one sentence:",
+  "choices_template": null
+ },
+ "gpt_2_style": {
+  "template": "{source| join(\" \")}\nTL;DR:",
+  "choices_template": null
+ },
+ "basic_with_choice_output": {
+  "template": "{source | join(\" \")}\nPlease summarize the above paragraph.",
+  "choices_template": null
+ }
+}

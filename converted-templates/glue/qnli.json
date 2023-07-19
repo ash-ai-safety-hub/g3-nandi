@@ -1,0 +1,37 @@
+{
+ "have all you need": {
+  "template": "{sentence}\nDoes that sentence have all you need to answer the question \"{question}\"?",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "based only on": {
+  "template": "Can you answer the question \"{question}\" based only on the following:\n{sentence}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "imply": {
+  "template": "Does knowing that \"{sentence}\" imply that I know the answer to \"{question}\"",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "want to know": {
+  "template": "I want to know the answer to the following question:\n{question}\nAll the background I'm provided with is that \"{sentence}\". Is that enough to answer the question?",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "possible to answer": {
+  "template": "Consider the passage:\n{sentence}\nand the question:\n{question}\nIs it possible to answer this question based only on the information in the passage? {\"A) yes\"} or {\"B) no\"}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ }
+}

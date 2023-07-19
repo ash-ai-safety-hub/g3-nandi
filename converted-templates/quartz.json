@@ -1,0 +1,58 @@
+{
+ "use_info_from_question_paragraph": {
+  "template": "Use information from the paragraph to answer the question.\n\nQuestion:\n\n{% if '_____' in question %}\n{question | trim(\".?!\") | replace(\"_____\", answer_choices | join(\" or \"))}{\"?\"} \n{% else %}\n{question | trim(\".?!\")} {answer_choices | join(\" or \")}{\"?\"} \n{% endif %}\n\nParagraph :\n\n{para}",
+  "choices": [
+   "{choices.text | join(\"",
+   "\")}"
+  ]
+ },
+ "paragraph_question_plain_concat": {
+  "template": "{para}\n{% if '_____' in question %}\n{question | trim(\".?!\") | replace(\"_____\", answer_choices | join(\" or \"))}{\"?\"} \n{% else %}\n{question | trim(\".?!\")} {answer_choices | join(\" or \")}{\"?\"} \n{% endif %}",
+  "choices": [
+   "{choices.text | join(\"",
+   "\")}"
+  ]
+ },
+ "use_info_from_paragraph_question": {
+  "template": "Use information from the paragraph to answer the question.\n\nParagraph :\n\n{para}\n\nQuestion:\n\n{% if '_____' in question %}\n{question | trim(\".?!\") | replace(\"_____\", answer_choices | join(\" or \"))}{\"?\"} \n{% else %}\n{question | trim(\".?!\")} {answer_choices | join(\" or \")}{\"?\"} \n{% endif %}",
+  "choices": [
+   "{choices.text | join(\"",
+   "\")}"
+  ]
+ },
+ "answer_question_based_on": {
+  "template": "Answer the question based on the following text.\n\nQuestion:\n\n{% if '_____' in question %}\n{question | trim(\".?!\") | replace(\"_____\", answer_choices | join(\" or \"))}{\"?\"} \n{% else %}\n{question | trim(\".?!\")} {answer_choices | join(\" or \")}{\"?\"} \n{% endif %}\n\nText:\n\n{para}",
+  "choices": [
+   "{choices.text | join(\"",
+   "\")}"
+  ]
+ },
+ "answer_question_below": {
+  "template": "Answer the question below:\n\n{% if '_____' in question %}\n{question | trim(\".?!\") | replace(\"_____\", answer_choices | join(\" or \"))}{\"?\"} \n{% else %}\n{question | trim(\".?!\")} { answer_choices | join(\" or \")}{\"?\"} \n{% endif %}\n\nAssuming that:\n\n{para}",
+  "choices": [
+   "{choices.text | join(\"",
+   "\")}"
+  ]
+ },
+ "read_passage_below_choose": {
+  "template": "Read the passage below and choose the right answer to the following question (choices are {answer_choices | join(\" or \")} ):\n\n{para}\n\n{% if '_____' in question %}\n{question | trim(\".?!\") | replace(\"_____\", answer_choices | join(\" or \"))}{\"?\"} \n{% else %}\n{question | trim(\".?!\")} {answer_choices | join(\" or \")}{\"?\"} \n{% endif %}",
+  "choices": [
+   "{choices.text | join(\"",
+   "\")}"
+  ]
+ },
+ "having_read_above_passage": {
+  "template": "{para}\n\nHaving read the above passage, choose the right answer to the following question (choices are {answer_choices | join(\" or \")} ):\n\n{% if '_____' in question %}\n{question | trim(\".?!\") | replace(\"_____\", answer_choices | join(\" or \"))}{\"?\"} \n{% else %}\n{question | trim(\".?!\")} {answer_choices | join(\" or \")}{\"?\"} \n{% endif %}",
+  "choices": [
+   "{choices.text | join(\"",
+   "\")}"
+  ]
+ },
+ "given_the_fact_answer_the_q": {
+  "template": "Given the fact that:\n\n{para}\n\nAnswer the question:\n\n{% if '_____' in question %}\n{question | trim(\".?!\") | replace(\"_____\", answer_choices | join(\" or \"))}{\"?\"} \n{% else %}\n{question | trim(\".?!\")} {answer_choices | join(\" or \")}{\"?\"} \n{% endif %}",
+  "choices": [
+   "{choices.text | join(\"",
+   "\")}"
+  ]
+ }
+}

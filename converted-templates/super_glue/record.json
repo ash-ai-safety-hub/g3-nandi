@@ -1,0 +1,142 @@
+{
+ "Which one is the placeholder?": {
+  "template": "{passage} \n{query} \nWhich one is the \"{\"@placeholder\"}\"? {entities | join(\", \")}?",
+  "choices": [
+   "{entities | join(\"",
+   "\")}"
+  ]
+ },
+ "corrupted": {
+  "template": "The following document has been corrupted. Tell me what \"{\"@placeholder\"}\" is referring to.\n\nDocument: {passage} \n{query}",
+  "choices": [
+   "{entities | join(\"",
+   "\")}"
+  ]
+ },
+ "Summary first (continuation choices)": {
+  "template": "Summary:\n\n- {passage.split(\"@highlight\")[1:] | join(\"\\n- \")} \n\nArticle:\n\n{passage.split(\"@highlight\")[0]}",
+  "choices": [
+   "{% for entity in entities[:-1] %} {query | replace(\"@placeholder\", entity)}",
+   "{% endfor %} {query | replace(\"@placeholder\", entities[-1])}"
+  ]
+ },
+ "Add sentence after after (continuation choices)": {
+  "template": "Summary:\n\n- {passage.split(\"@highlight\")[1:] | join(\"\\n- \")} \n\nArticle:\n\n{passage.split(\"@highlight\")[0]}\n\nNow that you've read the article, please write a new sentence to add to it.",
+  "choices": [
+   "{% for entity in entities[:-1] %} {query | replace(\"@placeholder\", entity)}",
+   "{% endfor %} {query | replace(\"@placeholder\", entities[-1])}"
+  ]
+ },
+ "choose_between": {
+  "template": "{passage} \n{query} \n\nYou should decide what \"{\"@placeholder\"}\" is referring to. Choose between:\n- {answer_choices | join(\"\\n- \")}",
+  "choices": [
+   "{entities | join(\"",
+   "\")}"
+  ]
+ },
+ "GPT-3 style summary only (continuation choices)": {
+  "template": "{passage.split(\"@highlight\")[0]}\n\nSummary:\n\n- {passage.split(\"@highlight\")[1:] | join(\"\\n- \")}",
+  "choices": [
+   "{% for entity in entities[:-1] %} - {query | replace(\"@placeholder\", entity)}",
+   "{% endfor %} - {query | replace(\"@placeholder\", entities[-1])}"
+  ]
+ },
+ "GPT-3 style with labels without hyphens (continuation choices)": {
+  "template": "Article:\n\n{passage.split(\"@highlight\")[0]}\n\nHighlights:\n\n{passage.split(\"@highlight\")[1:] | join(\"\\n\")}",
+  "choices": [
+   "{% for entity in entities[:-1] %} {query | replace(\"@placeholder\", entity)}",
+   "{% endfor %} {query | replace(\"@placeholder\", entities[-1])}"
+  ]
+ },
+ "In the question above, the placeholder stands for": {
+  "template": "{passage} \n{query} \nIn the question above, the \"{\"@placeholder\"}\" stands for",
+  "choices": [
+   "{entities | join(\"",
+   "\")}"
+  ]
+ },
+ "Add sentence after (continuation choices)": {
+  "template": "After reading the article, write another sentence to add to it.\n{passage | replace(\"@highlight\", \"\\n- \")}",
+  "choices": [
+   "{% for entity in entities[:-1] %} {query | replace(\"@placeholder\", entity)}",
+   "{% endfor %} {query | replace(\"@placeholder\", entities[-1])}"
+  ]
+ },
+ "News article (continuation choices)": {
+  "template": "Please read the following news article and write another sentence to add to it.\n\n{passage | replace(\"@highlight\", \"\\n- \")}",
+  "choices": [
+   "{% for entity in entities[:-1] %} {query | replace(\"@placeholder\", entity)}",
+   "{% endfor %} {query | replace(\"@placeholder\", entities[-1])}"
+  ]
+ },
+ "What could the placeholder be?": {
+  "template": "{passage} \n{query} \nWhat could the \"{\"@placeholder\"}\" be? {entities | join(\", \")}?",
+  "choices": [
+   "{entities | join(\"",
+   "\")}"
+  ]
+ },
+ "trying_to_decide": {
+  "template": "{passage}\n{query}\n\nI am trying to decide what \"{\"@placeholder\"}\" means in the previous text.\nHelp by choosing an option between:\n- {entities | join(\"\\n- \")}",
+  "choices": [
+   "{entities | join(\"",
+   "\")}"
+  ]
+ },
+ "the placeholder refers to\u2026": {
+  "template": "{passage} \n{query} \nHere, the placeholder refers to",
+  "choices": [
+   "{entities | join(\"",
+   "\")}"
+  ]
+ },
+ "New highlight (continuation choices)": {
+  "template": "{passage.split(\"@highlight\")[0]}\n\nHighlights:\n\n- {passage.split(\"@highlight\")[1:] | join(\"\\n- \")} \n\nPlease write an additional highlight.",
+  "choices": [
+   "{% for entity in entities[:-1] %} - {query | replace(\"@placeholder\", entity)}",
+   "{% endfor %} - {query | replace(\"@placeholder\", entities[-1])}"
+  ]
+ },
+ "exercise": {
+  "template": "Exercise: Extract from the text the correct entity that \"{\"@placeholder\"}\" is referring to.\n\n{passage}\n{query}",
+  "choices": [
+   "{entities | join(\"",
+   "\")}"
+  ]
+ },
+ "pick_one_option": {
+  "template": "{passage}\n{query}\n\nPick one option, \"{\"@placeholder\"}\" refers to:\n- {answer_choices | join(\"\\n- \")}",
+  "choices": [
+   "{entities | join(\"",
+   "\")}"
+  ]
+ },
+ "GPT-3 style (continuation choices)": {
+  "template": "{passage | replace(\"@highlight\", \"\\n- \")}",
+  "choices": [
+   "{% for entity in entities[:-1] %} - {query | replace(\"@placeholder\", entity)}",
+   "{% endfor %} - {query | replace(\"@placeholder\", entities[-1])}"
+  ]
+ },
+ "GPT-3 style with labels (continuation choices)": {
+  "template": "Article:\n\n{passage.split(\"@highlight\")[0]}\n\nHighlights:\n\n- {passage.split(\"@highlight\")[1:] | join(\"\\n- \")}",
+  "choices": [
+   "{% for entity in entities[:-1] %} - {query | replace(\"@placeholder\", entity)}",
+   "{% endfor %} - {query | replace(\"@placeholder\", entities[-1])}"
+  ]
+ },
+ "Can you figure out\u2026": {
+  "template": "{passage} \n{query} \nCan you figure out what does the \"{\"@placeholder\"}\" mean? It means",
+  "choices": [
+   "{entities | join(\"",
+   "\")}"
+  ]
+ },
+ "GPT-3 style without hyphens (continuation choices)": {
+  "template": "{passage | replace(\"@highlight\", \"\\n\")}",
+  "choices": [
+   "{% for entity in entities[:-1] %} {query | replace(\"@placeholder\", entity)}",
+   "{% endfor %} {query | replace(\"@placeholder\", entities[-1])}"
+  ]
+ }
+}

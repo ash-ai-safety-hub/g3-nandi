@@ -1,0 +1,37 @@
+{
+ "offensive_question": {
+  "template": "Is this tweet {\"offensive\"}? \n\n{text}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "offensive_tweet_removed": {
+  "template": "Can the tweet be removed for being offensive? Answer with a yes or a no. \n\n{text}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "offensive_author": {
+  "template": "Is the author's tweet offensive? Answer with either yes or no.\n\n{text}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "offensive_task": {
+  "template": "Task: Identify if the tweet or text is offensive.\n\nTweet: {text}\n\nPossible answers: yes, no",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "offensive_exam": {
+  "template": "In this test, you need to answer with either yes or no.\n\nQ: Is this an offensive tweet?\n\n{text}\n\nA:",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ }
+}

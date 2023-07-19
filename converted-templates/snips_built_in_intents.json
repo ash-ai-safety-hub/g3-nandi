@@ -1,0 +1,107 @@
+{
+ "voice_intent": {
+  "template": "Here is a voice command by a user of a voice assistant: \n\n{text}.\n\nIt can be summarized by one of the following options: \n\n{answer_choices | join(\", \")}. \n\nWhich one would that be?",
+  "choices": [
+   "Compare Places",
+   "Request Ride",
+   "Get Weather",
+   "Search Place",
+   "Get Place Details",
+   "Share Current Location",
+   "Get Traffic Information",
+   "Book Restaurant",
+   "Get Directions",
+   "Share ETA"
+  ]
+ },
+ "categorize_query": {
+  "template": "Humans can ask questions or make requests related to one of the following categories: {answer_choices | join(\", \")}\n\nWhat is the best category for the following request? - \"{text}\"",
+  "choices": [
+   "Compare Places",
+   "Request Ride",
+   "Get Weather",
+   "Search Place",
+   "Get Place Details",
+   "Share Current Location",
+   "Get Traffic Information",
+   "Book Restaurant",
+   "Get Directions",
+   "Share ETA"
+  ]
+ },
+ "intent_query": {
+  "template": "{answer_choices | join(\", \")} are possible user intents.\n\nWhich of the above options best captures the intent of the following user message? \n\n{text}",
+  "choices": [
+   "Compare Places",
+   "Request Ride",
+   "Get Weather",
+   "Search Place",
+   "Get Place Details",
+   "Share Current Location",
+   "Get Traffic Information",
+   "Book Restaurant",
+   "Get Directions",
+   "Share ETA"
+  ]
+ },
+ "categorize_query_brief": {
+  "template": "Map this query \"{text}\" to one of these categories - {answer_choices | join(\", \")}",
+  "choices": [
+   "Compare Places",
+   "Request Ride",
+   "Get Weather",
+   "Search Place",
+   "Get Place Details",
+   "Share Current Location",
+   "Get Traffic Information",
+   "Book Restaurant",
+   "Get Directions",
+   "Share ETA"
+  ]
+ },
+ "query_intent": {
+  "template": "\"{text}\" is a message from a user.\n\nWhich of the following options best captures the intent of the user message written above? \n\n{answer_choices | join(\", \")}",
+  "choices": [
+   "Compare Places",
+   "Request Ride",
+   "Get Weather",
+   "Search Place",
+   "Get Place Details",
+   "Share Current Location",
+   "Get Traffic Information",
+   "Book Restaurant",
+   "Get Directions",
+   "Share ETA"
+  ]
+ },
+ "query_summarize": {
+  "template": "\"{text}\"\n\nThis message from a user can be summarized by one of these options - {answer_choices | join(\", \")}. \n\nWhat would be the best option?",
+  "choices": [
+   "Compare Places",
+   "Request Ride",
+   "Get Weather",
+   "Search Place",
+   "Get Place Details",
+   "Share Current Location",
+   "Get Traffic Information",
+   "Book Restaurant",
+   "Get Directions",
+   "Share ETA"
+  ]
+ },
+ "query_options_or": {
+  "template": "\"{text}\"\n\nIs the best category for the query above answer_choices[0]? Or is it answer_choices[1]? Other category options include {answer_choices[2]}, {answer_choices[3]}, {answer_choices[4]}, {answer_choices[5]}, {answer_choices[6]}, {answer_choices[7]}, {answer_choices[8]} and {answer_choices[9]}. What is the best answer?",
+  "choices": [
+   "Compare Places",
+   "Request Ride",
+   "Get Weather",
+   "Search Place",
+   "Get Place Details",
+   "Share Current Location",
+   "Get Traffic Information",
+   "Book Restaurant",
+   "Get Directions",
+   "Share ETA"
+  ]
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "choose_best_object_interrogative_1": {
+  "template": "Information:\n{% for support in supports %}\n- {support}\n{% endfor %}\n\n{% set question_split = question.split(' ') %}\nWhat object entity has the relation of '{question_split[0] | replace(\"_\", \" \")}' with the subject '{question_split[1:] | join(\" \")}'? \n\nChoices:\n- {answer_choices | join(\"\\n - \")}",
+  "choices_template": "{{candidates | join(\"|||\")}}"
+ },
+ "explain_relation": {
+  "template": "Information:\n{% for support in supports %}\n- {support}\n{% endfor %}\n\n{% set question_split = question.split(' ') %}\nWhat is the relationship between '{question_split[1:] | join(\" \")}' and '{answer}'?",
+  "choices_template": null
+ },
+ "generate_object": {
+  "template": "Information:\n{% for support in supports %}\n- {support}\n{% endfor %}\n\n{% set question_split = question.split(' ') %}\nWhat entity does '{question_split[1:] | join(\" \")}' has the relation '{question_split[0] | replace(\"_\", \" \")}' with?",
+  "choices_template": null
+ },
+ "generate_subject": {
+  "template": "Information:\n{% for support in supports %}\n- {support}\n{% endfor %}\n\n{% set question_split = question.split(' ') %}\nGiven the paragraphs above, decide what entity has the relation '{question_split[0] | replace(\"_\", \" \")}' with '{answer}'.",
+  "choices_template": null
+ },
+ "choose_best_object_affirmative_1": {
+  "template": "Information:\n{% for support in supports %}\n- {support}\n{% endfor %}\n\n{% set question_split = question.split(' ') %}\nGiven the information above, choose from the list below the object entity that exhibits the relation '{question_split[0] | replace(\"_\", \" \")}' with the subject '{question_split[1:] | join(\" \")}'.\n\nChoices:\n- {answer_choices | join(\"\\n - \")}",
+  "choices_template": "{{candidates | join(\"|||\")}}"
+ },
+ "choose_best_object_affirmative_3": {
+  "template": "Information:\n{% for support in supports %}\n- {support}\n{% endfor %}\n\n{% set question_split = question.split(' ') %}\nAfter reading the paragraphs above, we are interested in knowing the entity with which '{question_split[1:] | join(\" \")}' exhibits the relationship of '{question_split[0] | replace(\"_\", \" \")}'. Find the answer from the choices below.\n\nChoices:\n- {answer_choices | join(\"\\n - \")}",
+  "choices_template": "{{candidates | join(\"|||\")}}"
+ },
+ "generate_subject_and_object": {
+  "template": "Information:\n{% for support in supports %}\n- {support}\n{% endfor %}\n\n{% set question_split = question.split(' ') %}\nGiven the information, choose the subject and object entities that have the relation of '{question_split[0] | replace(\"_\", \" \")}'.",
+  "choices_template": null
+ },
+ "choose_best_object_affirmative_2": {
+  "template": "Information:\n{% for support in supports %}\n- {support}\n{% endfor %}\n\n{% set question_split = question.split(' ') %}\nAfter reading the paragraphs above, choose the best answer for the entity that related to '{question_split[1:] | join(\" \")}' with the relationship of '{question_split[0] | replace(\"_\", \" \")}'.\n\nChoices:\n- {answer_choices | join(\"\\n - \")}",
+  "choices_template": "{{candidates | join(\"|||\")}}"
+ },
+ "choose_best_object_interrogative_2": {
+  "template": "Information:\n{% for support in supports %}\n- {support}\n{% endfor %}\n\n{% set question_split = question.split(' ') %}\n'{question_split[1:] | join(\" \")}' is related to which object entity through the relation of '{question_split[0] | replace(\"_\", \" \")}'?\n\nChoices:\n- {answer_choices | join(\"\\n - \")}",
+  "choices_template": "{{candidates | join(\"|||\")}}"
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "title-prediction": {
+  "template": "Give a suitable title to the following passage:\n\n{paragraph_text}",
+  "choices_template": null
+ },
+ "closed-book-qa": {
+  "template": "{% set chosen = original_nq_answers | choice %}\nQuestion: {question} ?",
+  "choices_template": null
+ },
+ "open-book-qa": {
+  "template": "{% set chosen = original_nq_answers | choice %}\n{% if annotation['selected_sentence']['string']!=\"\" %}\nAnswer the following question given the hint.\n\nQuestion: {question}?\n\nHint: {paragraph_text}",
+  "choices_template": null
+ },
+ "extract-title-from-url": {
+  "template": "Please extract the title from the given URL (Uniform Resource Locator).\n\nURL: {url}",
+  "choices_template": null
+ },
+ "question-forming": {
+  "template": "I need to prepare for my upcoming test. Can you read the below passage and ask me a reasonable question? \n\n{paragraph_text}",
+  "choices_template": null
+ },
+ "select-sentence": {
+  "template": "{% if annotation[\"selected_sentence\"][\"string\"]  != \"\" %}\nRead the following paragraph and question A, and answer question B:\n\nParagraph: {paragraph_text}\n\nQuestion A: {question}?\n\nQuestion B: What's the most important sentence in Paragraph, in order to answer question A?",
+  "choices_template": null
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "papers_to_qn": {
+  "template": "Generate a question whose answer could be found within the following papers (only titles have been provided):\n\n{answers[\"title\"]|join(\", \")}",
+  "choices_template": null
+ },
+ "keyword_form": {
+  "template": "Provide the keyword form of the following query:\n\n{question_query}",
+  "choices_template": null
+ },
+ "answers_to_qn": {
+  "template": "Generate a possible question to the following answers:\n\n{answers[\"exact_answer\"]|join(\", \")}",
+  "choices_template": null
+ }
+}

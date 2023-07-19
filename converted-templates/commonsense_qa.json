@@ -1,0 +1,27 @@
+{
+ "answer_given_question_without_options": {
+  "template": "{% if answerKey != \"\" %}\nAnswer the following question:\n{question}",
+  "choices_template": "{{choices.text | join(\"|||\")}}"
+ },
+ "question_answering": {
+  "template": "{% if answerKey != \"\" %}\n{question}\n\n- {answer_choices | join(\"\\n- \")}",
+  "choices_template": "{{choices.text | join(\"|||\")}}"
+ },
+ "question_to_answer_index": {
+  "template": "{% if answerKey != \"\" %}\nGiven the following options, what do you think is the correct answer to the question below:\n\n{question}\n\nOptions:\n{% for letter, t in zip(answer_choices, choices.text) %}\n- {letter}: {t}\n{% endfor %}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ]
+ },
+ "most_suitable_answer": {
+  "template": "{% if answerKey != \"\" %}\nGiven the options below, select the most suitable answer for the following question:\n{question}\nOptions:\n- {answer_choices | join(\"\\n- \")}",
+  "choices_template": "{{choices.text | join(\"|||\")}}"
+ },
+ "answer_to_question": {
+  "template": "{% if answerKey != \"\" %}\nUse the following options to predict a possible question for them:\n\n{% for i in range(choices['text']|length) %}\n- {choices['text'][i]}\n{% endfor %}",
+  "choices_template": null
+ }
+}

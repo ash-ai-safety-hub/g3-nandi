@@ -1,0 +1,22 @@
+{
+ "qa_context_2": {
+  "template": "{% set question_context = Parses.TopicEntityName | choice %}\n{% set inference_context = Parses.InferentialChain | first %}\n\nThe topic of this question is: {question_context.split(\" \") | map(\"capitalize\") | join(\" \")}.\n\nThe answer to this question should be in the following category: {inference_context.split(\".\") | last | capitalize | replace(\"_\", \" \")}\n\nUsing this, answer the following question:\n\n{RawQuestion}",
+  "choices_template": null
+ },
+ "inference_chain_prompt": {
+  "template": "What category best describes the answer to the following question?\n\nQuestion: {RawQuestion}",
+  "choices_template": null
+ },
+ "qa_template_basic": {
+  "template": "Answer the following question:\n\n{RawQuestion}",
+  "choices_template": null
+ },
+ "qa_context_1": {
+  "template": "{% set context = Parses.TopicEntityName | choice %}\nThe topic of this question is: {context.split(\" \") | map(\"capitalize\") | join(\" \")}.\n\nWith that context, answer the following question:\n\n{RawQuestion}",
+  "choices_template": null
+ },
+ "inference_chain_prompt_context": {
+  "template": "{% set answer = Parses.Answers | choice %}\nFor the following question:\n\n\"{RawQuestion}\" \n\nWhat word or phrase best describes its answer, \"{answer.AnswersName[0][0].split(\" \") | map(\"capitalize\") | join(\" \")}\"?",
+  "choices_template": null
+ }
+}

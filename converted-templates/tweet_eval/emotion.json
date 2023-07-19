@@ -1,0 +1,47 @@
+{
+ "emotion_exam": {
+  "template": "{text}\n\nTo get full credit in this exam, choose the correct emotion from the following choices: {answer_choices | join(\", \")}",
+  "choices": [
+   "anger",
+   "joy",
+   "optimism",
+   "sadness"
+  ]
+ },
+ "author_emotion": {
+  "template": "Which emotion among {answer_choices | join(\", \")} best describes the feeling of the author of the following tweet?\n\n{text}",
+  "choices": [
+   "anger",
+   "joy",
+   "optimism",
+   "sadness"
+  ]
+ },
+ "which_emotion": {
+  "template": "Which emotion is best represented by the following tweet?\n{text}\n\nPossible emotions: {answer_choices | join(\", \")}",
+  "choices": [
+   "anger",
+   "joy",
+   "optimism",
+   "sadness"
+  ]
+ },
+ "emotion_with_option": {
+  "template": "{text}\n\nCategorize the tweet into one of the following options: \n(a) {answer_choices[0]}\n(b) {answer_choices[1]}\n(c) {answer_choices[2]}\n(d) {answer_choices[3]}",
+  "choices": [
+   "anger",
+   "joy",
+   "optimism",
+   "sadness"
+  ]
+ },
+ "emotion_hint": {
+  "template": "{text}\n\nWhat is the emotion of the text?\n\nHint: {answer_choices | join(\", \")}",
+  "choices": [
+   "anger",
+   "joy",
+   "optimism",
+   "sadness"
+  ]
+ }
+}

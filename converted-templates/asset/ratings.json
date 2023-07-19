@@ -1,0 +1,21 @@
+{
+ "rate-binary": {
+  "template": "{% set label = None %}\n{% set questions = None %}\n{% if rating > 50 %}\n{% set label = 1 %}\n{% else %}\n{% set label = 0 %}\n{% endif %}\n{% set questions= [ \"Does the second sentence better convey the information?\",  \"Is the second sentence more fluent?\", \"Is the second sentence simpler?\"] %}\n\nFirst sentence: {original}\n\nSecond sentence: {simplification}\n\n{questions[aspect]}. Please answer Yes or No.",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "rate-regression-simplicity": {
+  "template": "First sentence: {original}\n\nSecond sentence: {simplification}\n\nI am scoring these simplification exercises. How easier to read is the second sentence on a scale from 0 (harder to read) to 100 (easier to read)?",
+  "choices_template": null
+ },
+ "generate-text-based-on-rating": {
+  "template": "{% set label = None %}\n{% set questions = None %}\n{% if rating > 50 %}\n{% set label = 1 %}\n{% else %}\n{% set label = 0 %}\n{% endif %}\n{% if label == 1 %}\n{% set questions= [ \"Rewrite the following sentence so that it conveys the information better.\",  \"Rewrite the following sentence so that it is more fluent.\", \"Rewrite the following sentence so that it is simpler.\"] %}\n{% else %}\n{% set questions= [ \"Rewrite the following sentence so that it conveys the information more poorly.\",  \"Rewrite the following sentence so that it is less fluent.\", \"Rewrite the following sentence so that it is more complicated.\"] %}\n{% endif %}\n{questions[aspect]}\n\n{original}",
+  "choices_template": null
+ },
+ "rate-regression": {
+  "template": "{% set statements= [ \"the second sentence expresses the underlying meaning the best.\",  \"the second sentence is more fluent.\", \"the second sentence is simpler.\"] %}\n\nFirst sentence: {original}\n\nSecond sentence: {simplification}\n\nRate the following statement from 0 (strongly disagree) to 100 (strongly agree): {statements[aspect]}",
+  "choices_template": null
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "generate_related_work_from_ref_abstracts": {
+  "template": "Write the related work section of a paper which references articles with the following abstracts:\n\n{% for abs in ref_abstract[\"abstract\"] %}\n\n{ref_abstract[\"cite_N\"][loop.index-1]}: {abs}\n\n{% endfor %}",
+  "choices_template": null
+ },
+ "generate_related_work_from_abstract": {
+  "template": "Given the abstract of a paper, provide some text for related work for readers to learn further.\n{abstract}",
+  "choices_template": null
+ },
+ "given_abst_and_ref_generate_related_work": {
+  "template": "I am reading a paper with the given abstract.\n{abstract}\nFollowing are the abstracts for the articles that the paper references.\n{% for abs in ref_abstract[\"abstract\"] %}\n{ref_abstract[\"cite_N\"][loop.index-1]}: {abs}\n{% endfor %}\nCan you use the above information to come up with an appropriate text for the related work section of the paper?",
+  "choices_template": null
+ },
+ "generate_abstract_from_related_work": {
+  "template": "What would be the abstract of a paper with the following related work section?\nRelated work:\n{related_work}",
+  "choices_template": null
+ },
+ "generate_related_work_from_abst_and_ref": {
+  "template": "For a paper that uses the given abstract and refers to other papers with references as follows, summarize the related work section:\n{abstract}\nReference Abstracts:\n{% for abs in ref_abstract[\"abstract\"] %}\n{ref_abstract[\"cite_N\"][loop.index-1]}: {abs}\n{% endfor %}",
+  "choices_template": null
+ },
+ "generate_related_work_from_abstract_and_related_abstract": {
+  "template": "Given the abstract of a research work along with the abstracts of some references, generate the text for related work for readers to refer to.\n{abstract}\nReference Abstracts:\n{% for abs in ref_abstract[\"abstract\"] %}\n{ref_abstract[\"cite_N\"][loop.index-1]}: {abs}\n{% endfor %}",
+  "choices_template": null
+ },
+ "generate_abstract_from_reference": {
+  "template": "Following are the abstracts of some related work. Can you use it to generate the abstract?\n{% for abs in ref_abstract[\"abstract\"] %}\n{ref_abstract[\"cite_N\"][loop.index-1]}: {abs}\n{% endfor %}",
+  "choices_template": null
+ }
+}

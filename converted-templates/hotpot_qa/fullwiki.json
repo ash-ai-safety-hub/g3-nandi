@@ -1,0 +1,37 @@
+{
+ "generate_answer_affirmative": {
+  "template": "Answer the following question, \"{question}\", using the information provided below.\n\n{% for sents in context.sentences %}\n  - {sents | join(\"\")}\n{% endfor %}",
+  "choices_template": null
+ },
+ "generate_answer_and_explanations": {
+  "template": "{question} Answer the question and give supporting facts from the paragraphs below.  Give your response in the following format:\nAnswer: ... \nExplanations:\n- ...\n- ...\n\nParagraphs:\n{% for sents in context.sentences %}\n  - {sents | join(\"\")}\n{% endfor %}",
+  "choices_template": null
+ },
+ "generate_explanations_interrogative": {
+  "template": "In the paragraphs below, what sentence(s) support the answer of \"{answer}\" to the question \"{question}\"?\n\nInformation:\n{% for sents in context.sentences %}\n  - {sents | join(\"\")}\n{% endfor %}",
+  "choices_template": null
+ },
+ "classify_question_type": {
+  "template": "What is the type of the question \"{question}\" {answer_choices[0].capitalize()} or {answer_choices[1]}?",
+  "choices": [
+   "comparison",
+   "bridge"
+  ]
+ },
+ "generate_title_affirmative": {
+  "template": "Generate titles (separated by semi-colons) for each of the paragraphs below:\n{% for sents in context.sentences %}\n  - {sents | join(\"\")}\n{% endfor %}",
+  "choices_template": null
+ },
+ "generate_question": {
+  "template": "What is the question that begets the answer of \"{answer}\"?\n\nInformation:\n{% for sents in context.sentences %}\n  - {sents | join(\"\")}\n{% endfor %}",
+  "choices_template": null
+ },
+ "generate_explanations_affirmative": {
+  "template": "Select sentences from the paragraphs below that explain the question-answer pair. \"{question} {answer}\"\n\nInformation:\n{% for sents in context.sentences %}\n  - {sents | join(\"\")}\n{% endfor %}",
+  "choices_template": null
+ },
+ "generate_answer_interrogative": {
+  "template": "{question} \n\nHint: use the information from the paragraphs below to answer the question.\n\n{% for sents in context.sentences %}\n  - {sents | join(\"\")}\n{% endfor %}",
+  "choices_template": null
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "hate_or_noHate_sentiment_analysis": {
+  "template": "{% if label in [0, 1] %}\n{text} Is the sentiment the sentence expresses is a {answer_choices[1]} speech or {answer_choices[0]} speech?",
+  "choices": [
+   "noHate",
+   "hate"
+  ]
+ }
+}

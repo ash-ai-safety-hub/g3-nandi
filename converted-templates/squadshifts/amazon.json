@@ -1,0 +1,34 @@
+{
+ "exam_creation_help": {
+  "template": "I'm creating a final exam for my reading class. Can you please come up with a good question to quiz how well students have read the following text snippet?\n\n{context}",
+  "choices_template": null
+ },
+ "after": {
+  "template": "After reading the following paragraph, please answer this question: {question}\n\n{context}",
+  "choices_template": null
+ },
+ "exam": {
+  "template": "I'm working on the final exam for my class and am trying to figure out the answer to the question \"{question}\" I found the following info on Amazon and I think it has the answer. Can you tell me the answer?\n\n{context}",
+  "choices_template": null
+ },
+ "generate_question": {
+  "template": "Please come up with a good question to test reading comprehension about the following paragraph:\n\n{context}",
+  "choices_template": null
+ },
+ "question_num_hint_answer": {
+  "template": "{[\"Question\", \"Problem\"]  | choice} {range(1, 12) | choice}: {question}\n\nHint: {context}",
+  "choices_template": null
+ },
+ "wondered": {
+  "template": "I've always wondered: {question}\n\nI searched Amazon and this is what I found. What's the answer?\n\n{context}",
+  "choices_template": null
+ },
+ "answers_question": {
+  "template": "Use the following answers to generate a possible short passage-question pair:\n{answers[\"text\"]|join(', ')}",
+  "choices_template": null
+ },
+ "pick_one_answer": {
+  "template": "{context}\n\nWith the help of the passage, please answer the following question: \n{question}",
+  "choices_template": null
+ }
+}

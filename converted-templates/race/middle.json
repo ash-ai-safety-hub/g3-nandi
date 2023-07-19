@@ -1,0 +1,52 @@
+{
+ "Select the best answer": {
+  "template": "Read the article and select the best answer.\nArticle: {article}\nQuestion: {question}\nOptions: {\"A\"}: {options.0}\n{\"B\"}: {options.1}\n{\"C\"}: {options.2}\n{\"D\"}: {options.3}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ]
+ },
+ "Read the article and answer the question (no option)": {
+  "template": "Read the following article and answer the question.\nArticle: {article}\nQuestion: {question}\nAnswer:",
+  "choices_template": "{{ options | join(\"|||\") }}"
+ },
+ "Is this the right answer": {
+  "template": "{% set candidate = [\"A\", \"B\", \"C\", \"D\"] | choice %}\nArticle: {article}\nQuestion: {question}\nYes or no, is the answer \"{[options.0,options.1,options.2,options.3][{\"A\":0,\"B\":1,\"C\":2,\"D\":3}[candidate]]}\"?",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "Select the best answer (no instructions)": {
+  "template": "{article}\n{question}\n{\"A)\"} {options.0}\n{\"B)\"} {options.1}\n{\"C)\"} {options.2}\n{\"D)\"} {options.3}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ]
+ },
+ "Select the best answer (generate span)": {
+  "template": "Read the following article and select the best answer.\nArticle: {article}\nQuestion: {question}\n- {answer_choices | join(\"\\n- \")}",
+  "choices_template": "{{ options | join(\"|||\") }}"
+ },
+ "Write a multi-choice question (options given)": {
+  "template": "Write a multi-choice question for the following article, with the given choices and answer:\nArticle: {article}\nOptions:\n{\"A\"} {options.0}\n{\"B\"} {options.1}\n{\"C\"} {options.2}\n{\"D\"} {options.3}\nAnswer:\n{answer} {[options.0,options.1,options.2,options.3][{\"A\":0,\"B\":1,\"C\":2,\"D\":3}[answer]]}\nQuestion:",
+  "choices_template": null
+ },
+ "Write a multi-choice question for the following article": {
+  "template": "Write a multi-choice question for the following article:\nArticle: {article}",
+  "choices_template": null
+ },
+ "Taking a test": {
+  "template": "I'm taking a test and have to guess the right answer to the question after the article.\nArticle: {article}\nQuestion: {question}\nOptions: {\"A\"}: {options.0}\n{\"B\"}: {options.1}\n{\"C\"}: {options.2}\n{\"D\"}: {options.3}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ]
+ }
+}

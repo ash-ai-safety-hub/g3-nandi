@@ -1,0 +1,92 @@
+{
+ "persons_describe": {
+  "template": "Person A says something, Person B responds, and then Person A says something. Here's their conversation: \n\n\"{text}\"\n\nGiven the context and the last message, how would you best describe Person A's emotion - {\"happy\"}, {\"sad\"}, {\"angry\"}, or {\"something else\"}?",
+  "choices": [
+   "something else",
+   "happy",
+   "sad",
+   "angry"
+  ]
+ },
+ "final_message": {
+  "template": "Consider this textual dialogue of 3 messages between 2 participants who took turns to talk: \n\n\"{text}\"\"\n\nWhat would you say is the underlying emotion of the final message in this dialogue? {\"happy\"}, {\"sad\"}, {\"angry\"}, or {\"something else\"}?",
+  "choices": [
+   "something else",
+   "happy",
+   "sad",
+   "angry"
+  ]
+ },
+ "what_emotion_do_you_think": {
+  "template": "\"{text}\"\n\nWhat emotion do you think was felt by the speaker of the last utterance of this dialogue? {answer_choices[1]}, {answer_choices[2]}, {answer_choices[3]} or {answer_choices[0]}",
+  "choices": [
+   "another emotion",
+   "happiness",
+   "sadness",
+   "angriness"
+  ]
+ },
+ "emotional_state": {
+  "template": "Consider this short dialogue:\n\n{text}\n\nHow would you describe the emotional state of the last person to speak? {answer_choices[1]}, {answer_choices[2]}, {answer_choices[3]} or {answer_choices[0]}",
+  "choices": [
+   "another state",
+   "happy",
+   "sad",
+   "angry"
+  ]
+ },
+ "dialogue_between": {
+  "template": "Dialogue between speaker A and B:\n\n{text}\n\nHow would you say A feels in the last message? Is it {answer_choices[1]}, {answer_choices[2]}, {answer_choices[3]} or {answer_choices[0]}?",
+  "choices": [
+   "something else",
+   "happy",
+   "sad",
+   "angry"
+  ]
+ },
+ "persons_infer": {
+  "template": "Person A says something, Person B responds, and then Person A says something. Here's their conversation: \n\n\"{text}\"\n\nWhat emotion can be inferred from the context and Person A's last message? {\"happy\"}, {\"sad\"}, {\"angry\"}, or  {\"something else\"}?",
+  "choices": [
+   "something else",
+   "happy",
+   "sad",
+   "angry"
+  ]
+ },
+ "spoke_last": {
+  "template": "Consider this textual dialogue of 3 messages between 2 participants who took turns to talk: \n\n\"{text}\"\n\nGiven the context, what emotion can you detect in the message from the person who spoke last? {\"happy\"}, {\"sad\"}, {\"angry\"}, or {\"something else\"}?",
+  "choices": [
+   "something else",
+   "happy",
+   "sad",
+   "angry"
+  ]
+ },
+ "feel_when_last_answer": {
+  "template": "\"{text}\"\n\nIn this dialogue, what emotion was felt by the first speaker in the final answer? {answer_choices[1]}, {answer_choices[2]}, {answer_choices[3]} or {answer_choices[0]}",
+  "choices": [
+   "another feeling",
+   "happiness",
+   "sadness",
+   "angriness"
+  ]
+ },
+ "feeling": {
+  "template": "\"{text}\"\nThis was a dialogue exchange between 2 people who took turns to talk. Given the context, which of the following options best describes the emotion that the last speaker is feeling? {\"happy\"}, {\"sad\"}. {\"angry\"}, or {\"something else\"}?",
+  "choices": [
+   "something else",
+   "happy",
+   "sad",
+   "angry"
+  ]
+ },
+ "in_this_dialogue": {
+  "template": "In the dialogue below, would you say the first speaker feels {answer_choices[1]}, {answer_choices[2]}, {answer_choices[3]} or {answer_choices[0]} when the last sentence is uttered?\n{text}",
+  "choices": [
+   "something else",
+   "happy",
+   "sad",
+   "angry"
+  ]
+ }
+}

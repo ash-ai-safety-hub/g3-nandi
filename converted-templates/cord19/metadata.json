@@ -1,0 +1,22 @@
+{
+ "title_generation_from_following_abstract": {
+  "template": "Write a scientific title for the following abstract: {abstract}\nTitle:",
+  "choices_template": null
+ },
+ "abstract_generation_from_previous_title": {
+  "template": "Title: {title}\nGenerate a plausible scientific abstract for a scientific paper on Covid-19 with the previous title",
+  "choices_template": null
+ },
+ "abstract_generation_from_following_title": {
+  "template": "Write a scientific abstract for a paper on Covid-19 with the following title: {title}\nAbstract:",
+  "choices_template": null
+ },
+ "title_generation_from_previous_abstract": {
+  "template": "Abstract: \n{abstract}\nWhat could a scientific title be for this abstract on Covid-19?\nTitle:",
+  "choices_template": null
+ },
+ "abstract_generation_on_coronavirus": {
+  "template": "Write a scientific abstract for a research paper on Coronavirus disease with the following title: {title}\nAbstract:",
+  "choices_template": null
+ }
+}

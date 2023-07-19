@@ -1,0 +1,22 @@
+{
+ "Given Title Guess Author": {
+  "template": "Guess the author for the book: \"{title.split('___')[1].split('.')[:-2]|join('.')|replace('_',' ')}\"",
+  "choices_template": null
+ },
+ "Given Author Recommend Book": {
+  "template": "Suggest a book written by {title.split('___')[0]|replace('_',' ')}.",
+  "choices_template": null
+ },
+ "Who wrote": {
+  "template": "Who wrote \"{title.split('___')[1].split('.')[:-2]|join('.')|replace('_',' ')}\"?",
+  "choices_template": null
+ },
+ "Given Story Guess Author": {
+  "template": "{content}\n\nGuess the author for the above story.",
+  "choices_template": null
+ },
+ "Given Story Write Title": {
+  "template": "{content}\n\nWrite a title for the above story.",
+  "choices_template": null
+ }
+}

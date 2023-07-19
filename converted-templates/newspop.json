@@ -1,0 +1,69 @@
+{
+ "after_text_question": {
+  "template": "Title: {title} \nHeadline: {headline}\n\nIs this article about {answer_choices[0]}, {answer_choices[1]}, {answer_choices[2]} or {answer_choices[3]}?",
+  "choices": [
+   "Economy",
+   "Microsoft",
+   "Obama",
+   "Palestine"
+  ]
+ },
+ "before_text_question_no_choice": {
+  "template": "What is the following article about?\n\nTitle: {title} \nHeadline: {headline}",
+  "choices": [
+   "Economy",
+   "Microsoft",
+   "Obama",
+   "Palestine"
+  ]
+ },
+ "after_text_question_no_choice": {
+  "template": "Title: {title} \nHeadline: {headline}\n\nWhat is this news about?",
+  "choices": [
+   "Economy",
+   "Microsoft",
+   "Obama",
+   "Palestine"
+  ]
+ },
+ "topic_no_choice_in_template": {
+  "template": "{title}\n{headline}\n\nTopic:",
+  "choices": [
+   "Economy",
+   "Microsoft",
+   "Obama",
+   "Palestine"
+  ]
+ },
+ "after_text_question_title_only": {
+  "template": "Title: {title} \n\nIs this article about {answer_choices[0]}, {answer_choices[1]}, {answer_choices[2]} or {answer_choices[3]}?",
+  "choices": [
+   "Economy",
+   "Microsoft",
+   "Obama",
+   "Palestine"
+  ]
+ },
+ "after_text_question_headline_only": {
+  "template": "Headline: {headline}\n\nIs this article about {answer_choices[0]}, {answer_choices[1]}, {answer_choices[2]} or {answer_choices[3]}?",
+  "choices": [
+   "Economy",
+   "Microsoft",
+   "Obama",
+   "Palestine"
+  ]
+ },
+ "headline_to_title": {
+  "template": "Summarize the headline to a title:\n {headline}\n\nThe title is:",
+  "choices_template": null
+ },
+ "before_text_question": {
+  "template": "Is the following article about {answer_choices[0]}, {answer_choices[1]}, {answer_choices[2]} or {answer_choices[3]}?\n\nTitle: {title} \nHeadline: {headline}",
+  "choices": [
+   "Economy",
+   "Microsoft",
+   "Obama",
+   "Palestine"
+  ]
+ }
+}

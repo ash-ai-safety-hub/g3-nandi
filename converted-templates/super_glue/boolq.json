@@ -1,0 +1,72 @@
+{
+ "after_reading": {
+  "template": "Passage: {passage}\n\nAfter reading this passage, I have a question: {question}? True or False?",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "GPT-3 Style": {
+  "template": "{passage} \nQuestion: {question}\nAnswer:",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "I wonder\u2026": {
+  "template": "{passage} \n\nHaving read that, I wonder {question}?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "yes_no_question": {
+  "template": "Text: {passage}\n\nAnswer the following yes/no question: {question}? Yes or no?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "could you tell me\u2026": {
+  "template": "{passage} \n\nHaving read that, could you tell me {question}?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "exam": {
+  "template": "EXAM\n1. Answer by yes or no.\n\nDocument: {passage}\nQuestion: {question}?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "based on the following passage": {
+  "template": "Based on the following passage, {question}? {passage}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "exercise": {
+  "template": "Exercise: read the text and answer the question by True or False.\n\nText: {passage}\nQuestion: {question}?",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "based on the previous passage": {
+  "template": "{passage}\nBased on the previous passage, {question}?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "valid_binary": {
+  "template": "{passage}\n\nQ: {question}? True or False?",
+  "choices": [
+   "False",
+   "True"
+  ]
+ }
+}

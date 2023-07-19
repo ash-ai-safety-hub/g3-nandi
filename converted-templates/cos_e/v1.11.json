@@ -1,0 +1,64 @@
+{
+ "question_description_option_text": {
+  "template": "{question}\nChoose the most suitable option to answer the above question.\nOptions:\n- {answer_choices | join(\"\\n- \")}",
+  "choices_template": "{{ choices | join(\"|||\") }}"
+ },
+ "question_description_option_id": {
+  "template": "{question}\nChoose the most suitable option to answer the above question.\nOptions\uff1a\n{% for k in range(choices | length) %}\n{'. '.join([answer_choices[k], choices[k]])}\n{% endfor %}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ]
+ },
+ "rationale": {
+  "template": "Question: {question}\n\nChoices: \n- {choices | join(\"\\n- \")}\n\nThe rationale to choose \"{answer}\" as the answer is that:",
+  "choices_template": null
+ },
+ "question_option_description_text": {
+  "template": "{question}\n- {answer_choices | join(\"\\n- \")}\n\nThe best answer is",
+  "choices_template": "{{ choices | join(\"|||\") }}"
+ },
+ "aligned_with_common_sense": {
+  "template": "Here's a question and a few possible answers: \n\nQ: {question}\nPossible A: {choices | join(\", \")}\n\nWhy is \"{answer}\" an answer aligned with human common sense?",
+  "choices_template": null
+ },
+ "description_question_option_id": {
+  "template": "Pick the option in line with common sense to answer the question.\nQuestion: {question}\nOptions:\n{% for k in range(choices | length) %}\n{'. '.join([answer_choices[k], choices[k]])}\n{% endfor %}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ]
+ },
+ "explain_why_human": {
+  "template": "Question: {question}\nOptions:\n- {choices | join(\"\\n- \")}\n\nExplain why a human would choose \"{answer}\" to answer the question above:",
+  "choices_template": null
+ },
+ "generate_explanation_given_text": {
+  "template": "Question: {question}\nOptions:\n- {choices | join(\"\\n- \")}\n\nThe answer is \"{answer}\" because",
+  "choices_template": null
+ },
+ "description_question_option_text": {
+  "template": "Pick the option in line with common sense to answer the question.\nQuestions: {question}\nOptions:\n- {answer_choices | join(\"\\n- \")}",
+  "choices_template": "{{ choices | join(\"|||\") }}"
+ },
+ "i_think": {
+  "template": "Here's a question: {question}\n\nHere are possible answers to this question:\n- {choices | join(\"\\n- \")}\n\nI believe the correct choice is \"{answer}\", here's why:",
+  "choices_template": null
+ },
+ "question_option_description_id": {
+  "template": "{question}\n{% for k in range(choices | length) %}\n{'. '.join([answer_choices[k], choices[k]])}\n{% endfor %}\nThe best answer is",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ]
+ }
+}

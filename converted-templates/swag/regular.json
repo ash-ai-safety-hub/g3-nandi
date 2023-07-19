@@ -1,0 +1,51 @@
+{
+ "reversed_appropriate_continuation": {
+  "template": "{% set instance = [0, 1, 2, 3] | choice %}\nConsider the sentence: {sent2} {[ending0, ending1, ending2, ending3][instance]} \nIs it an appropriate continuation of the following situation:\n{sent1} ?\nYes or No?",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "appropriate_continuation": {
+  "template": "{% set instance = [0, 1, 2, 3] | choice %}\nConsider the sentence: {sent1}\nIs the following an appropriate continuation?\n{sent2} {[ending0, ending1, ending2, ending3][instance]}\nYes or No?",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "how_ends": {
+  "template": "{startphrase}...\nHow does the description likely end? \n(a): {ending0}\n(b): {ending1}\n(c): {ending2}\n(d): {ending3}",
+  "choices": [
+   "(a)",
+   "(b)",
+   "(c)",
+   "(d)"
+  ]
+ },
+ "first_then": {
+  "template": "First, {sent1.lower()} Then, {sent2.lower()}... \nComplete with an appropriate ending:\n(a) {ending0}\n(b) {ending1}\n(c) {ending2}\n(d) {ending3}",
+  "choices": [
+   "(a)",
+   "(b)",
+   "(c)",
+   "(d)"
+  ]
+ },
+ "first_then_key": {
+  "template": "First, {sent1.lower()} Then, {sent2.lower()}... \nChoose the key with an appropriate ending:\n(a) {ending0}\n(b) {ending1}\n(c) {ending2}\n(d) {ending3}",
+  "choices": [
+   "(a)",
+   "(b)",
+   "(c)",
+   "(d)"
+  ]
+ },
+ "generate_start": {
+  "template": "{% set endings = [ending0, ending1, ending2, ending3] %}\nGenerate the starting sentence with the ending: {endings[label]}",
+  "choices_template": null
+ },
+ "open_completion": {
+  "template": "Complete the sentence: {sent1} {sent2}",
+  "choices_template": null
+ }
+}

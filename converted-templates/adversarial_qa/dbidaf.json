@@ -1,0 +1,22 @@
+{
+ "based_on": {
+  "template": "{% if metadata.split != \"test\" %}\nExtract the answer to the question from the following context.\nQuestion: {question}\nContext: {context}",
+  "choices_template": null
+ },
+ "answer_the_following_q": {
+  "template": "{% if metadata.split != \"test\" %}\nGiven the following passage\n\n\"{context}\",\n\nanswer the following question. Note that the answer is present within the text.\n\nQuestion: {question}",
+  "choices_template": null
+ },
+ "generate_question": {
+  "template": "I want to test the ability of students to read a passage and answer questions about it. Could you please come up with a good question for the passage \"{context}\"?",
+  "choices_template": null
+ },
+ "tell_what_it_is": {
+  "template": "{% if metadata.split != \"test\" %}\nI know that the answer to the question \"{question}\" is in \"{context}\". Can you tell me what it is?",
+  "choices_template": null
+ },
+ "question_context_answer": {
+  "template": "{% if metadata.split != \"test\" %}\nQuestion: \"{question}\"\n\nContext: \"{context}\"\n\nAnswer:",
+  "choices_template": null
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "split_complex_to_simple_affirmative_simplify": {
+  "template": "The following sentence is pretty complex to understand.\n\n\"{complex_sentence|replace(\"' '' \",\"\")}\"\n\nSimplify the sentence above into two simpler sentences.",
+  "choices_template": null
+ },
+ "split_complex_to_simple_interrogative_represent": {
+  "template": "Given the sentence below, how would you use two simple sentences to represent its meaning?\n\nSentence: {complex_sentence|replace(\"' '' \",\"\")}",
+  "choices_template": null
+ },
+ "split_complex_to_simple_affirmative_break_down": {
+  "template": "Break down \"{complex_sentence|replace(\"' '' \",\"\")}\" into two simpler sentences.",
+  "choices_template": null
+ },
+ "split_complex_to_simple_interrogative_textbook": {
+  "template": "You are trying to teach sixth-grade students with complex sentences. You ask them to break down the following sentence into two simpler sentences. What are those sentences? \n\nSentence: {complex_sentence|replace(\"' '' \",\"\")}",
+  "choices_template": null
+ },
+ "split_complex_to_simple_interrogative_repeat": {
+  "template": "You are talking to your friend on Zoom, but the internet is choppy. Your friend asks you to repeat the sentence \"{complex_sentence|replace(\"' '' \",\"\")}\". You want to repeat it with two shorter sentences. What would you say?",
+  "choices_template": null
+ },
+ "find_A_given_B_and_C": {
+  "template": "The sentence \"{complex_sentence|replace(\"' '' \",\"\")}\" can be broken down into two simpler sentences. One of it is \"{simple_sentence_1|replace(\"' '' \",\"\")}\". What is the other sentence?",
+  "choices_template": null
+ },
+ "combine": {
+  "template": "Combine these two sentences \"{simple_sentence_1|replace(\"' '' \",\"\")}\" and \"{simple_sentence_2|replace(\"' '' \",\"\")}\" into a complex sentence.",
+  "choices_template": null
+ }
+}

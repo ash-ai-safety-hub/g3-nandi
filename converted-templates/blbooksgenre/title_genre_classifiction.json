@@ -1,0 +1,30 @@
+{
+ "multi-choice": {
+  "template": "Given the title: {title}, which of the following genres is the book?\n(a) {answer_choices[0]}\n(b) {answer_choices[1]}",
+  "choices": [
+   "Fiction",
+   "Non-fiction"
+  ]
+ },
+ "premise_context_first": {
+  "template": "{title} is the title of a fictional book, True or False?\nAnswer:",
+  "choices": [
+   "True",
+   "False"
+  ]
+ },
+ "premise": {
+  "template": "The following is the title of a fictional book, True or False?\n{title}\nAnswer:",
+  "choices": [
+   "True",
+   "False"
+  ]
+ },
+ "classify": {
+  "template": "The genre of the book \"{title}\" is",
+  "choices": [
+   "Fiction",
+   "Non-fiction"
+  ]
+ }
+}

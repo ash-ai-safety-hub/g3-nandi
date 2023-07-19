@@ -1,0 +1,9 @@
+{
+ "Another Yes/No Entailment Framing": {
+  "template": "Given that {sentence1} Does it follow that {sentence2}\n{answer_choices | join(' or ')}?",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ }
+}

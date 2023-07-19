@@ -1,0 +1,50 @@
+{
+ "atheism_guess_passive": {
+  "template": "{text} Where does the above sentence stand on atheism?",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "atheism_how_describe": {
+  "template": "How would you describe the stance used in this tweet? {answer_choices|join(\", \")}\n\n{text}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "atheism_option": {
+  "template": "What option among, {\"neutral\"}, {\"against\"}, {\"in favor\"}, best describes the stance of this tweet regarding atheism?\n\n{text}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "atheism_predict_stance": {
+  "template": "Does the author express any stance about atheism in the following text?\n\n{text}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "atheism": {
+  "template": "Is this tweet neutral, in favor of, or against atheism?\n\n{text}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "atheism_guess_passive_author": {
+  "template": "{text} Where does the author of the above sentence stand on atheism?",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ }
+}

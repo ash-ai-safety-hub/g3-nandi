@@ -1,0 +1,24 @@
+{
+ "simplify": {
+  "template": "{% set real_simplifications = [] %}{% for text in simplifications %}{% if text|length < original|length %}{real_simplifications.append(text) | default(\"\", True)}{% endif %}{% endfor %}\n{% if real_simplifications %}\nSimplify the below sentence.\n\n{original}",
+  "choices_template": null
+ },
+ "choose-verbose": {
+  "template": "{% set real_simplifications = [] %}{% for text in simplifications %}{% if text|length < original|length %}{real_simplifications.append(text) | default(\"\", True)}{% endif %}{% endfor %}\n{% if real_simplifications %}\nRead the below two texts and answer the question.\n{% if range(0,2) | choice %}\nText A: {original}\n\nText B: {real_simplifications | choice}\n\nOne of the texts above is more verbose than the other. Which one is the verbose one? Your answer should be either \"Text A\" or \"Text B\".",
+  "choices": [
+   "Text A",
+   "Text B"
+  ]
+ },
+ "make-verbose": {
+  "template": "{% set real_simplifications = [] %}{% for text in simplifications %}{% if text|length < original|length %}{real_simplifications.append(text) | default(\"\", True)}{% endif %}{% endfor %}\n{% if real_simplifications %}\nMake the following sentence more verbose.\n\n{real_simplifications | choice}",
+  "choices_template": null
+ },
+ "choose-simplification": {
+  "template": "{% set real_simplifications = [] %}{% for text in simplifications %}{% if text|length < original|length %}{real_simplifications.append(text) | default(\"\", True)}{% endif %}{% endfor %}\n{% if real_simplifications %}\n{% if range(0,2) | choice %}\nText A: {original}\n\nText B: {real_simplifications | choice}\n\nOne of the texts above is a simplification of the other. Which one is the simplified one? Your answer should be either \"Text A\" or \"Text B\".",
+  "choices": [
+   "Text A",
+   "Text B"
+  ]
+ }
+}

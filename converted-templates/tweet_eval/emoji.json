@@ -1,0 +1,77 @@
+{
+ "emoji_option": {
+  "template": "Which emoji among {answer_choices | join(\", \")} best describes the sentiment of the following tweet?\n\n{text}",
+  "choices": [
+   "\u2764",
+   "\ud83d\ude0d",
+   "\ud83d\ude02",
+   "\ud83d\udc95",
+   "\ud83d\udd25",
+   "\ud83d\ude0a",
+   "\ud83d\ude0e",
+   "\u2728",
+   "\ud83d\udc99",
+   "\ud83d\ude18",
+   "\ud83d\udcf7",
+   "\ud83c\uddfa\ud83c\uddf8",
+   "\u2600",
+   "\ud83d\udc9c",
+   "\ud83d\ude09",
+   "\ud83d\udcaf",
+   "\ud83d\ude01",
+   "\ud83c\udf84",
+   "\ud83d\udcf8",
+   "\ud83d\ude1c"
+  ]
+ },
+ "emoji_reply": {
+  "template": "Which emoji among {answer_choices | join(\", \")} would be the best comment to the following tweet?\n\n{text}",
+  "choices": [
+   "\u2764",
+   "\ud83d\ude0d",
+   "\ud83d\ude02",
+   "\ud83d\udc95",
+   "\ud83d\udd25",
+   "\ud83d\ude0a",
+   "\ud83d\ude0e",
+   "\u2728",
+   "\ud83d\udc99",
+   "\ud83d\ude18",
+   "\ud83d\udcf7",
+   "\ud83c\uddfa\ud83c\uddf8",
+   "\u2600",
+   "\ud83d\udc9c",
+   "\ud83d\ude09",
+   "\ud83d\udcaf",
+   "\ud83d\ude01",
+   "\ud83c\udf84",
+   "\ud83d\udcf8",
+   "\ud83d\ude1c"
+  ]
+ },
+ "emoji": {
+  "template": "Which emoji best describes the sentiment of the following tweet?\n\n{text}",
+  "choices": [
+   "\u2764",
+   "\ud83d\ude0d",
+   "\ud83d\ude02",
+   "\ud83d\udc95",
+   "\ud83d\udd25",
+   "\ud83d\ude0a",
+   "\ud83d\ude0e",
+   "\u2728",
+   "\ud83d\udc99",
+   "\ud83d\ude18",
+   "\ud83d\udcf7",
+   "\ud83c\uddfa\ud83c\uddf8",
+   "\u2600",
+   "\ud83d\udc9c",
+   "\ud83d\ude09",
+   "\ud83d\udcaf",
+   "\ud83d\ude01",
+   "\ud83c\udf84",
+   "\ud83d\udcf8",
+   "\ud83d\ude1c"
+  ]
+ }
+}

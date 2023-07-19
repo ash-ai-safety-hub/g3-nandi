@@ -1,0 +1,52 @@
+{
+ "clarification_needed": {
+  "template": "Given the request \"{initial_request}\", would a search system need clarification to answer it?",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "score_give_number": {
+  "template": "Can you give me a number from {answer_choices[0]} to {answer_choices[3]} that denotes how much the request \"{initial_request}\" needs clarification, where {answer_choices[0]} means clarification absolutely not needed and {answer_choices[3]} means clarification absolutely needed?",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ]
+ },
+ "ambiguous": {
+  "template": "Would the request \"{initial_request}\" be ambiguous for an informational retrieval system?",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "self_contained": {
+  "template": "Is the request \"{initial_request}\" to a information retrieval system self-contained?",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "directly_answer": {
+  "template": "Would a search system directly be able to answer this request unambiguously: \"{initial_request}\"?",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "generate_clarif_question": {
+  "template": "{% if clarification_need >= 3 and question != \"\" %}\nHere's a request: \"{initial_request}\".\nThe request is ambiguous in the sense that an information retrieval system could return multiple appropriate answers to the request.\nGenerate a clarifying question to the request.",
+  "choices_template": null
+ },
+ "score_how_much": {
+  "template": "Request \"{initial_request}\", how ambiguous is this request? ({answer_choices[0]} means it would not need any clarification, and {answer_choices[3]} means it is absolutely ambiguous, making it impossible to guess the user's right intent before answering)",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ]
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "answer_question_given_context": {
+  "template": "Refer to the passage below and answer the following question:\n\nPassage: {context}\n\nQuestion: {question}",
+  "choices_template": null
+ },
+ "given_context_answer_question_variation": {
+  "template": "{context}\n\nQ: {question}\n\nA:",
+  "choices_template": null
+ },
+ "given_context_generate_question": {
+  "template": "{context}\n\nGenerate a question from the above passage :",
+  "choices_template": null
+ },
+ "jeopardy": {
+  "template": "{context}\n\nFrom the above passage, a reasonable question with \"{answers[\"text\"][0]}\" as the answer would be:",
+  "choices_template": null
+ },
+ "answer_the_question": {
+  "template": "{context}\n\nWith reference to the above context, {question}",
+  "choices_template": null
+ },
+ "answer_given_context_and_question": {
+  "template": "{context}\n\nQ: {question}\n\nReferring to the passage above, the correct answer to the given question is",
+  "choices_template": null
+ }
+}

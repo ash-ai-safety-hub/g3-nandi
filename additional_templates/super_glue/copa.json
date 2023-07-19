@@ -1,0 +1,9 @@
+{
+ "consider": {
+  "template": "Consider the following premise: \"{premise}\" Choice 1: {choice1} Choice 2: {choice2} Q: Which one is more likely to be the {question}, choice 1 or choice 2?",
+  "choices": [
+    "{choice1}",
+    "{choice2}"
+  ]
+ }
+}

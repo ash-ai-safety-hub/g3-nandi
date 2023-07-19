@@ -1,0 +1,50 @@
+{
+ "Hillary_predict_stance": {
+  "template": "Does the author express any stance about Hillary in the following text?\n\n{text}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "Hillary_option": {
+  "template": "What option among, {\"neutral\"}, {\"against\"}, {\"in favor\"}, best describes the stance of this tweet regarding Hillary?\n\n{text}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "Hillary": {
+  "template": "Is this tweet neutral, in favor of, or against Hillary?\n\n{text}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "Hillary_guess_passive": {
+  "template": "{text} Where does the above sentence stand on Hillary?",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "Hillary_guess_passive_author": {
+  "template": "{text} Where does the author of the above sentence stand on Hillary?",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "Hillary_how_describe": {
+  "template": "How would you describe the stance used in this tweet? {answer_choices|join(\", \")}\n\n{text}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ }
+}

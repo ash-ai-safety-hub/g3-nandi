@@ -1,0 +1,44 @@
+{
+ "consider_does_it_follow_a_hyperpartisan_argumentation": {
+  "template": "Consider this news article text:\n\n\"{text}\"\n\nDoes it follow a hyperpartisan argumentation? \"{answer_choices[0]}\" or \"{answer_choices[1]}\"?",
+  "choices": [
+   "True",
+   "False"
+  ]
+ },
+ "follows_hyperpartisan_argumentation": {
+  "template": "\"{text}\"\n\nThe news article text above follows a hyperpartisan argumentation. {answer_choices[0]}\" or \"{answer_choices[1]}\"?",
+  "choices": [
+   "True",
+   "False"
+  ]
+ },
+ "consume_with_caution": {
+  "template": "\"{text}\"\n\nWe must consume the news article above with caution as it exhibits prejudiced allegiance towards one group or cause. \"{answer_choices[0]}\" or \"{answer_choices[1]}\"?",
+  "choices": [
+   "True",
+   "False"
+  ]
+ },
+ "extreme_left_wing_or_right_wing": {
+  "template": "\"{text}\"\n\nThe news article above takes an extreme left-wing or right-wing standpoint. \"{answer_choices[0]}\" or \"{answer_choices[1]}\"?",
+  "choices": [
+   "True",
+   "False"
+  ]
+ },
+ "publisher_has_reported_strongly": {
+  "template": "\"{text}\"\n\nThe publisher of the news piece above has reported strongly in favor of one political side and seems to have ignored the other side. \"{answer_choices[0]}\" or \"{answer_choices[1]}\"?",
+  "choices": [
+   "True",
+   "False"
+  ]
+ },
+ "consider_it_exhibits_extreme_one_sidedness": {
+  "template": "Consider this news piece:\n\n\"{text}\"\n\nIt exhibits extreme one-sidedness to a single group of individuals or cause. \"{answer_choices[0]}\" or \"{answer_choices[1]}\"?",
+  "choices": [
+   "True",
+   "False"
+  ]
+ }
+}

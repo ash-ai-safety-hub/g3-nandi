@@ -1,0 +1,22 @@
+{
+ "who": {
+  "template": "Facts:\n{% for n in range (input_text[\"table\"][\"column_header\"]|length) %}\n{% if input_text[\"table\"][\"column_header\"][n] != \"article_title\" %}\n- {input_text[\"table\"][\"column_header\"][n].replace(\"_\",\" \")}: {input_text[\"table\"][\"content\"][n]}\n{% endif %}\n{% endfor %}\nBased on these bullet points, write a short biography describing the life of {input_text[\"context\"]}.",
+  "choices_template": null
+ },
+ "comprehension": {
+  "template": "Read the bio below and try to give details on {input_text[\"context\"]}'s: \n{% for n in range (input_text[\"table\"][\"column_header\"]|length) %} {% if input_text[\"table\"][\"column_header\"][n] != \"article_title\" %}\n- {input_text[\"table\"][\"column_header\"][n].replace(\"_\",\" \")} \n{% endif %} {% endfor %}\n\nBio: {target_text}",
+  "choices_template": null
+ },
+ "what_content": {
+  "template": "What type of details about {input_text[\"context\"]} can be gathered from the following bio?\n\nBio: {target_text}",
+  "choices_template": null
+ },
+ "guess_person": {
+  "template": "{% for n in range (input_text[\"table\"][\"column_header\"]|length) %}\n{% if input_text[\"table\"][\"column_header\"][n] != \"article_title\" and input_text[\"table\"][\"column_header\"][n] !=\"name\" %}\n- {input_text[\"table\"][\"column_header\"][n].replace(\"_\",\" \")} is {input_text[\"table\"][\"content\"][n]}\n{% endif %}\n{% endfor %}\n\nGiven the details above, guess who could this information be about.",
+  "choices_template": null
+ },
+ "key_content": {
+  "template": "What key details about {input_text[\"context\"]} can be extracted from the following bio?\n\nBio: {target_text}",
+  "choices_template": null
+ }
+}

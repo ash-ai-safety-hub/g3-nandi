@@ -1,0 +1,122 @@
+{
+ "can we infer": {
+  "template": "Suppose {premise} Can we infer that \"{hypothesis}\"? Yes, no, or maybe?",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ },
+ "based on the previous passage": {
+  "template": "{premise} Based on the previous passage, is it true that \"{hypothesis}\"? Yes, no, or maybe?",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ },
+ "claim true/false/inconclusive": {
+  "template": "{premise} Based on that information, is the claim: \"{hypothesis}\" {\"true\"}, {\"false\"}, or {\"inconclusive\"}?",
+  "choices": [
+   "True",
+   "False",
+   "Inconclusive"
+  ]
+ },
+ "does it follow that": {
+  "template": "Given that {premise} Does it follow that {hypothesis} Yes, no, or maybe?",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ },
+ "justified in saying": {
+  "template": "{premise} Are we justified in saying that \"{hypothesis}\"? Yes, no, or maybe?",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ },
+ "always/sometimes/never": {
+  "template": "Suppose it's true that {premise} Then, is \"{hypothesis}\" {\"always\"}, {\"sometimes\"}, or {\"never\"} true?",
+  "choices": [
+   "Always",
+   "Never",
+   "Sometimes"
+  ]
+ },
+ "GPT-3 style": {
+  "template": "{premise}\nQuestion: {hypothesis} True, False, or Neither?",
+  "choices": [
+   "True",
+   "False",
+   "Neither"
+  ]
+ },
+ "consider always/sometimes/never": {
+  "template": "{premise} \n\nKeeping in mind the above text, consider: {hypothesis} Is this {\"always\"}, {\"sometimes\"}, or {\"never\"} correct?",
+  "choices": [
+   "Always",
+   "Never",
+   "Sometimes"
+  ]
+ },
+ "guaranteed true": {
+  "template": "Given {premise} Is it guaranteed true that \"{hypothesis}\"? Yes, no, or maybe?",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ },
+ "must be true": {
+  "template": "Given that {premise} Therefore, it must be true that \"{hypothesis}\"? Yes, no, or maybe?",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ },
+ "guaranteed/possible/impossible": {
+  "template": "Assume it is true that {premise} \n\nTherefore, \"{hypothesis}\" is {\"guaranteed\"}, {\"possible\"}, or {\"impossible\"}?",
+  "choices": [
+   "Guaranteed",
+   "Impossible",
+   "Possible"
+  ]
+ },
+ "does this imply": {
+  "template": "{premise} \n\nQuestion: Does this imply that \"{hypothesis}\"? Yes, no, or maybe?",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ },
+ "MNLI crowdsource": {
+  "template": "{premise} Using only the above description and what you know about the world, \"{hypothesis}\" is definitely correct, incorrect, or inconclusive?",
+  "choices": [
+   "Correct",
+   "Incorrect",
+   "Inconclusive"
+  ]
+ },
+ "should assume": {
+  "template": "Given {premise} Should we assume that \"{hypothesis}\" is true? Yes, no, or maybe?",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ },
+ "take the following as truth": {
+  "template": "Take the following as truth: {premise}\nThen the following statement: \"{hypothesis}\" is {\"true\"}, {\"false\"}, or {\"inconclusive\"}?",
+  "choices": [
+   "True",
+   "False",
+   "Inconclusive"
+  ]
+ }
+}

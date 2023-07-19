@@ -1,0 +1,22 @@
+{
+ "find-drug": {
+  "template": "Read the below text and answer the question.\n\nText: {text}\n\nQuestion: What drug has an effect of {effect}?",
+  "choices_template": null
+ },
+ "drug-and-effect-to-text": {
+  "template": "{drug} has an effect of {effect}. Please write a short medical report about this.",
+  "choices_template": null
+ },
+ "find-effect": {
+  "template": "Read the below text and answer the question.\n\nText: {text}\n\nQuestion: What effect does {drug} have?",
+  "choices_template": null
+ },
+ "find-drug-and-effect": {
+  "template": "Read the below text and answer the question.\n\nText: {text}\n\nQuestion: What are the drug and its effect of the above text?\n\nYou should answer in the \"drug\" and \"effect\" format (e.g., alcohol and high blood pressure)",
+  "choices_template": null
+ },
+ "find-drug-and-effect-two-questions": {
+  "template": "Read the below text and answer the two following questions.\n\nText: {text}\n\nQuestion 1: What is the drug in the above text?\n\nQuestion 2: What is the effect of it?\n\nYou should answer in the \"drug\" and \"effect\" format (e.g., alcohol and high blood pressure)",
+  "choices_template": null
+ }
+}

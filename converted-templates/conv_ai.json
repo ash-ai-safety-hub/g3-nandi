@@ -1,0 +1,46 @@
+{
+ "engagement_alice_interested": {
+  "template": "{% if 0 < (thread | selectattr(\"userId\", \"equalto\", \"Alice\") | list | length) %} {context}\n\n{% for utterance in thread %}\n- {utterance[\"userId\"]}: {utterance[\"text\"]}\n{% endfor %}\n\nAlice's utterances in the previous conversation show that she was interested in the context, {answer_choices[0]} or {answer_choices[1]}?",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "engagement_bob_real": {
+  "template": "{% if 0 < (thread | selectattr(\"userId\", \"equalto\", \"Bob\") | list | length) %} \"{context}\"\n\nGiven the previous context, would you say Bob's engagement is real in this conversation:\n{% for utterance in thread %}\n- {utterance[\"userId\"]}: {utterance[\"text\"]}\n{% endfor %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "engagement_question_before": {
+  "template": "{% set alice = (evaluation|selectattr(\"userId\", \"equalto\", \"Alice\")|first)[\"engagement\"] %} {% set bob = (evaluation|selectattr(\"userId\", \"equalto\", \"Bob\")|first)[\"engagement\"] %} {% if (0 < (thread | selectattr(\"userId\", \"equalto\", \"Bob\") | list | length)) and (0 < (thread | selectattr(\"userId\", \"equalto\", \"Alice\") | list | length)) %} {context}\n\nGiven the previous context, who do you think is more engaged in this conversation ({answer_choices[0]}, {answer_choices[1]}, or {answer_choices[2]}):\n{% for utterance in thread %}\n- {utterance[\"userId\"]}: {utterance[\"text\"]}\n{% endfor %}",
+  "choices": [
+   "Alice",
+   "Bob",
+   "both"
+  ]
+ },
+ "engagement_bob_interested": {
+  "template": "{% if 0 < (thread | selectattr(\"userId\", \"equalto\", \"Bob\") | list | length) %}{context}\n\nGiven the preceding context, do Bob's following utterances show that he was interested in the context?\n{% for utterance in thread %}\n{% if \"Bob\" == utterance[\"userId\"] %}\n- \"{utterance[\"text\"]}\",\n{% endif %}{% endfor %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "engagement_alice_really": {
+  "template": "{% if 0 < (thread | selectattr(\"userId\", \"equalto\", \"Alice\") | list | length) %} context:\n\n{context}\n\nconversation:\n{% for utterance in thread %}\n- {utterance[\"userId\"]}: {utterance[\"text\"]}\n{% endfor %}\nWas Alice really into this conversation?",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "engagement_question_after": {
+  "template": "{% set alice = (evaluation|selectattr(\"userId\", \"equalto\", \"Alice\")|first)[\"engagement\"] %} {% set bob = (evaluation|selectattr(\"userId\", \"equalto\", \"Bob\")|first)[\"engagement\"] %} {% if (0 < (thread | selectattr(\"userId\", \"equalto\", \"Bob\") | list | length)) and (0 < (thread | selectattr(\"userId\", \"equalto\", \"Alice\") | list | length)) %} Context: {context}\nConversation: {% for utterance in thread %}\n{utterance[\"userId\"]}: {utterance[\"text\"]}\n{% endfor %}\nGiven the previous context and conversation, who do you think is more engaged in this conversation ({answer_choices[0]}, {answer_choices[1]}, or {answer_choices[2]}):",
+  "choices": [
+   "Alice",
+   "Bob",
+   "both"
+  ]
+ }
+}

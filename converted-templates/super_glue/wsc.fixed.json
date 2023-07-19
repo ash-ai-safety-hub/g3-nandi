@@ -1,0 +1,72 @@
+{
+ "does the pronoun refer to": {
+  "template": "{text} In the previous sentence, does the pronoun \"{span2_text.lower()}\" refer to {span1_text}? Yes or no?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "by p they mean": {
+  "template": "{text} Here, by \"{span2_text}\" they mean \"{span1_text}\". Yes or no?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "in other words": {
+  "template": "{text} \n\nIn other words, {text.split(\" \")[span2_index:] | join(\" \") | replace(span2_text, span1_text)} True or false?",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "I think they mean": {
+  "template": "{text} I think they mean \"{text.split(\" \")[span2_index:] | join(\" \") | replace(span2_text, span1_text)}\" Yes or no?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "does p stand for": {
+  "template": "{text} Here, does \"{span2_text.lower()}\" stand for {span1_text}? Yes or no?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "GPT-3 Style": {
+  "template": "Passage: {text} \n\nQuestion: In the passage above, does the pronoun \"{span2_text}\" refer to {span1_text}?\n\nAnswer:",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "replaced with": {
+  "template": "{text} In the previous sentence, can the pronoun \"{span2_text}\" be replaced with \"{span1_text}\"? Yes or no?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "p is/are r": {
+  "template": "Context: {text} \n\n{% if span2_text.lower()  == \"they\" or span2_text.lower() == \"them\" %}\nQuestion: \"{span2_text}\" are {span1_text}. True or false?\n{% else %}\nQuestion: \"{span2_text}\" is {span1_text}. True or false?\n{% endif %}\n\nAnswer:",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "the pronoun refers to": {
+  "template": "{text} \nIn the passage above, the pronoun \"{span2_text}\" refers to {span1_text}. True or false?",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "Who or what is/are": {
+  "template": "{text} \n{% if span2_text.lower()  == \"they\" or span2_text.lower() == \"them\" %}\nQuestion: Who or what are \"{span2_text.lower()}\"? {span1_text}?\n{% else %}\nQuestion: Who or what is \"{span2_text.lower()}\"? Is it {span1_text}?\n{% endif %}\nAnswer:",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ }
+}

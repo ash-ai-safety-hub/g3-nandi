@@ -1,0 +1,28 @@
+{
+ "answer_to_question": {
+  "template": "Use the following options to predict a possible question for them:\n\n{% for i in range(choices['text']|length) %}\n- {choices['text'][i]}\n{% endfor %}",
+  "choices_template": null
+ },
+ "most_suitable_answer": {
+  "template": "Given the options below, select the most suitable answer for the following question:\n{question}\nOptions:\n- {answer_choices | join(\"\\n- \")}",
+  "choices_template": "{{choices.text | join(\"|||\")}}"
+ },
+ "answer_given_question_without_options": {
+  "template": "Answer the following question:\n{question}",
+  "choices_template": "{{choices.text | join(\"|||\")}}"
+ },
+ "question_to_answer_index": {
+  "template": "Given the following options, what do you think is the correct answer to the question below:\n\n{question}\n\nOptions:\n{% for letter, t in zip(answer_choices, choices.text) %}\n- {letter}: {t}\n{% endfor %}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ]
+ },
+ "question_answering": {
+  "template": "{question}\n\n- {answer_choices | join(\"\\n- \")}",
+  "choices_template": "{{choices.text | join(\"|||\")}}"
+ }
+}

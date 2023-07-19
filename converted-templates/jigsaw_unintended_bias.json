@@ -1,0 +1,61 @@
+{
+ "online_comment": {
+  "template": "Online comments can sometimes be toxic. For instance, they might be insulting, threatening, racist or many other issues. If 0 corresponds to a very civil comment, and 100 to a highly toxic one, how would you grade the following comment?\n\"{comment_text}\"",
+  "choices_template": null
+ },
+ "moderator": {
+  "template": "You are the moderator of the comments section on a website. You want to remove uncivil comments. Would you {answer_choices[1]} or {answer_choices[0]} the following comment?\n\"{comment_text}\"",
+  "choices": [
+   "keep",
+   "remove"
+  ]
+ },
+ "annotators_rated": {
+  "template": "{toxicity_annotator_count} annotators where tasked with assessing the toxicity of the following comment:\n\n\"{comment_text}\"\n\nOn a scale of 0 to 1, what do you think their average prediction was?",
+  "choices_template": null
+ },
+ "modified_scale": {
+  "template": "How toxic is this comment is on a scale from 0 to 5? \"{comment_text}\"",
+  "choices_template": null
+ },
+ "hired_to_review": {
+  "template": "You were hired to evaluate the toxicity of online comments. You find the following comment:\n\"{comment_text}\"\nHow would you grade its toxicity from 0 to 1?",
+  "choices_template": null
+ },
+ "browsing": {
+  "template": "You are browsing the comment section of a website. You read the following comment:\n\"{comment_text}\"\nWould you classify that comment as {answer_choices[0]} or {answer_choices[1]}?",
+  "choices": [
+   "civil",
+   "toxic"
+  ]
+ },
+ "binary_pred": {
+  "template": "Someone posted the following comment online:\n\n\"{comment_text}\"\n\nWould you classify it as {answer_choices[0]} or {answer_choices[1]}?",
+  "choices": [
+   "civil",
+   "toxic"
+  ]
+ },
+ "threatening": {
+  "template": "On a scale of 0 to 1, how threatening is the below comment?\n{comment_text}",
+  "choices_template": null
+ },
+ "yes_or_no": {
+  "template": "\"{comment_text}\" Someone posted this comment online. Do you find it toxic?",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "yes_or_no_remove": {
+  "template": "\"{comment_text}\"\nShould this online comment be removed for its toxicity? {answer_choices[1]} or {answer_choices[0]}?",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "how_toxic": {
+  "template": "How toxic is the below comment on a scale of 0 to 1?\n\n\"{comment_text}\"",
+  "choices_template": null
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "found_this_answer": {
+  "template": "{paragraph}\n\nQuestion: {question}\nI found this answer \"{answer}\". Is that correct? Yes or no?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "is\u2026 a correct answer?": {
+  "template": "{paragraph}\nBased on the previous passage, {question} \nIs \"{answer}\" a correct answer?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "grading": {
+  "template": "{paragraph}\nQuestion: {question}\n\nI am grading my students' exercises. Is the answer \"{answer}\" correct?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "Would it be good to answer\u2026": {
+  "template": "{paragraph}\n{question} \nWould it be good to answer \"{answer}\"?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "paragraph\u2026 question\u2026 is it\u2026 ?": {
+  "template": "{paragraph}\nQuestion: {question} \nIs it {answer}?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "decide_valid": {
+  "template": "{paragraph}\n\nDecide whether \"{answer}\" is a valid answer to the following question: {question}\nAnswer yes or no.",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "is the correct answer\u2026": {
+  "template": "{paragraph}\nQuestion: {question} \nIs the correct answer {answer}?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "correct": {
+  "template": "Is \"{answer}\" a correct answer to the following question?\nQuestion: {question}\n\nRely on the following text: {paragraph}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "confirm": {
+  "template": "{paragraph}\n\nQuestion: {question}\nI think \"{answer}\" is a valid answer. Could you confirm? Yes or no?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "I was going to say\u2026": {
+  "template": "{paragraph}\n{question} \nI was going to say \"{answer}\". Does that sound right?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ }
+}

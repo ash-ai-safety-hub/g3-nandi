@@ -1,0 +1,37 @@
+{
+ "spam_label": {
+  "template": "What is the spam label for the following sms message? {sms}",
+  "choices": [
+   "not spam",
+   "spam"
+  ]
+ },
+ "ham_True_False": {
+  "template": "Is this sms message considered {\"ham\"} (i.e. not spam)? \n{sms}",
+  "choices": [
+   "True",
+   "False"
+  ]
+ },
+ "is_the_label": {
+  "template": "Is the label for the following sms message {\"ham\"} (not spam) or {\"spam\"}? {sms}",
+  "choices": [
+   "ham",
+   "spam"
+  ]
+ },
+ "marked as": {
+  "template": "The following sms message should be marked as \"spam\" or \"not spam\"? {sms}",
+  "choices": [
+   "not spam",
+   "spam"
+  ]
+ },
+ "spam_True_False": {
+  "template": "Is this sms message considered {\"spam\"}? \n{sms}",
+  "choices": [
+   "False",
+   "True"
+  ]
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "Is_this_review": {
+  "template": "Title: {title}\nReview: {content}\nIs the review positive or negative?",
+  "choices": [
+   "Negative",
+   "Positive"
+  ]
+ },
+ "User_recommend_this_product": {
+  "template": "Based on this review, would the user recommend this product?\n===\nReview: {content}\nAnswer:",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "Is_this_product_review_positive": {
+  "template": "Is this product review positive?\nTitle: {title}\nReview: {content}\nAnswer:",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "Is_this_review_negative": {
+  "template": "Title: {title}\nReview: {content}\nIs this product review negative?",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "convey_negative_or_positive_sentiment": {
+  "template": "Title: {title}\nReview: {content}\nDoes this product review convey a negative or positive sentiment?",
+  "choices": [
+   "Negative",
+   "Positive"
+  ]
+ },
+ "negative_or_positive_tone": {
+  "template": "Is there a negative or positive tone to this product review?\n===\nTitle: {title}\nReview: {content}\nAnswer:",
+  "choices": [
+   "Negative",
+   "Positive"
+  ]
+ },
+ "user_satisfied": {
+  "template": "Here is a review left by a customer on a product. Would you say he was {answer_choices[1]} or {answer_choices[0]}?\nTitle: {title}\nReview: {content}",
+  "choices": [
+   "dissatisfied",
+   "satisfied"
+  ]
+ },
+ "would_you_buy": {
+  "template": "You are considering whether to buy a product. You look at the reviews. Would the following review {answer_choices[0]} or {answer_choices[1]} the chances of you buying the product?\nReview title: {title}\nProduct review: {content}",
+  "choices": [
+   "decrease",
+   "increase"
+  ]
+ },
+ "flattering_or_not": {
+  "template": "Title: {title}\nProduct review: {content}\nWould you say this review depicts the product in a {answer_choices[1]} or {answer_choices[0]} light?",
+  "choices": [
+   "unflattering",
+   "flattering"
+  ]
+ }
+}

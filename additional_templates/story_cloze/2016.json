@@ -1,0 +1,16 @@
+{
+ "consider with choices": {
+  "template": "Consider the following story: \"{input_sentence_1} {input_sentence2} {input_sentence_3} {input_sentence_4}\" Choice 1: {sentence_quiz1} Choice 2: {sentence_quiz2} Which is the more plausible ending of this story, choice 1 or choice 2?",
+  "choices": [
+   "Choice 2",
+   "Choice 1"
+  ]
+ },
+ "consider without choices": {
+  "template": "Consider the following story: \"{input_sentence_1} {input_sentence2} {input_sentence_3} {input_sentence_4}\" Choice 1: {sentence_quiz1} Choice 2: {sentence_quiz2} Which is the more plausible ending of this story?",
+  "choices": [
+   "Choice 2",
+   "Choice 1"
+  ]
+ }
+}

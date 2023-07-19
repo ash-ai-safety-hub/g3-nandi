@@ -1,0 +1,58 @@
+{
+ "in_the_context": {
+  "template": "In the context of healthcare questionnaires, it is often necessary to find out if two questions are paraphrases of one another. Given the following question:\n\nQuestion 1: {question_1}\n\nIs the following question a {answer_choices[1]} or {answer_choices[0]}?\n\nQuestion 2: {question_2}",
+  "choices": [
+   "different",
+   "paraphrase"
+  ]
+ },
+ "true_or_false": {
+  "template": "Question 1: {question_1}\n\nand\n\nQuestion 2: {question_2}\n\n Is it {answer_choices[1]} or {answer_choices[0]} that the two questions above are paraphrases of each other?",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "yes_or_no_in_the_context": {
+  "template": "Question: In the context of healthcare do the following questions mean the same thing?\n\nQuestion 1: {question_1}\n\nQuestion 2: {question_2}\n\n{answer_choices[1]} or {answer_choices[0]}?",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "duplicates": {
+  "template": "Question 1: {question_1}\n\nQuestion 2: {question_2}\n\n Pick one of the following options:\n Questions are {answer_choices[1]} or {answer_choices[0]}",
+  "choices": [
+   "not duplicates",
+   "duplicates"
+  ]
+ },
+ "same_question": {
+  "template": "Question 1: {question_1}\n\nQuestion 2: {question_2}\n\nQuestion: Is Question 1 asking the same question as Question 2? {answer_choices[1]} or {answer_choices[0]}?",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "possible_way": {
+  "template": "Question 1: {question_1}\n\nOne possible way of paraphrasing the same question is: \n\nQuestion 2: {question_2}\n\n{answer_choices[1]} or {answer_choices[0]}?",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "rewrite_or_related": {
+  "template": "Original question: {question_1}\nGiven this question, doctors were asked to either: - Rewrite the question so that it kept the same intent - Create a related question for which the original answer is unrelated or wrong\nIs the following question a {answer_choices[1]} or {answer_choices[0]}?\nNew question: {question_2}",
+  "choices": [
+   "related question",
+   "rewrite"
+  ]
+ },
+ "similar_dissimilar": {
+  "template": "These two questions are either {answer_choices[1]} or {answer_choices[0]}. \n\n{question_1} \n\nand\n\n{question_2}\n\nWhich is it?",
+  "choices": [
+   "dissimilar",
+   "similar"
+  ]
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "function body generation": {
+  "template": "{prompt}\nGiven the following docstring, what is the function body?",
+  "choices_template": null
+ },
+ "function call return value generation": {
+  "template": "{% set ns = namespace(tests=[])%}\n{% set lines = test.split('\\n') %}\n{% set test_ = \"\" %}\n{% set args = \"\" %}\n{% set return_val = \"\" %}\n\n{% for line in lines %}\n    {% if line.strip().startswith('assert') and \"==\" in line.strip() %}\n        {% set ns.tests = ns.tests + [line.split('assert')[1]] %}\n    {% endif %}\n{% endfor %}\n{% if (ns.tests | length) > 0 %}\n    {% set test_ = ns.tests | choice  %}\n\n    {% set return_val = test_.split(\"==\")[1].split(\", \\\"\")[0].strip() %}\n    {% set args = (test_.split('(')[1:] | join(\"\")).split(\"==\")[0].strip() %}\n    {prompt}\n    {canonical_solution}\n    {entry_point}({args} =",
+  "choices_template": null
+ }
+}
