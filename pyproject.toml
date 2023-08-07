@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "ccstools"
+version = "0.0.1"
+authors = [
+  { name="Ian Fan", email="ianfan0@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.8"
