@@ -1,0 +1,30 @@
+{
+ "generate_question": {
+  "template": "Generate a plausible question that has the following answers based on the context:\n\nContext: {{sentence}}\n\nAnswers: {{answers | join(\", \")}} |||\n{{question | join(\" \") | replace(\"_ \", \"\")}} ",
+  "choices": null
+ },
+ "deconstruct_sentence": {
+  "template": "The English teacher deconstructed an example sentence that contained the verb \"{{predicate}}\": {{sentence}}\n\n{{question | join(\" \") | replace(\"_ \", \"\")}}|||\n{{answers | choice}}",
+  "choices": null
+ },
+ "identify_predicate": {
+  "template": "Identify the predicate (the part of a sentence or clause containing a verb and stating something about the subject) in this sentence:\n\n{{sentence}} |||\n{{predicate}}",
+  "choices": null
+ },
+ "sentence_question_concatenation": {
+  "template": "{{sentence}}\n{{question|join(\" \")|replace(\"_ \", \"\")}} |||\n{{answers | choice}}",
+  "choices": null
+ },
+ "linguistic_problem": {
+  "template": "Here's a linguistic problem: you have to correctly identify the part of the sentence that answers the following {{\"W\"}} question.\nSentence: {{sentence}}\nQuestion: {{question | join(\" \") | replace(\"_ \", \"\")}}|||\n{{answers | choice}}",
+  "choices": null
+ },
+ "parse_structure": {
+  "template": "Help me parse the structure of the following sentence constructed around the verb \"{{predicate}}\": {{sentence}}\n\n{{question | join(\" \") | replace(\"_ \", \"\")}}|||\n{{answers | choice}}",
+  "choices": null
+ },
+ "answer_question": {
+  "template": "{{sentence}}\n\nThe previous sentence contains the verb \"{{predicate}}\". Answer this question about it: {{question|join(\" \")|replace(\"_ \", \"\")}}|||\n{{answers | choice}}",
+  "choices": null
+ }
+}

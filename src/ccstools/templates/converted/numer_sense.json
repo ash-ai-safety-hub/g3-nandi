@@ -1,0 +1,61 @@
+{
+ "fill_in_the_blank_with_choices_after": {
+  "template": "Fill in the blank in the following sentence using world knowledge:\n\n{{sentence | replace(\"<mask>\", \"__________\")}}\n\nChose from the following options:\n\n{{ ', '.join(answer_choices) }}\n\n||| \n\n{{target}}",
+  "choices": [
+   "nine",
+   "three",
+   "four",
+   "zero",
+   "two",
+   "six",
+   "eight",
+   "one",
+   "five",
+   "ten",
+   "no",
+   "seven"
+  ]
+ },
+ "fill_in_the_blank_with_instruction": {
+  "template": "The following sentence needs to be filled with a word which is a number word or \"no\". Using common sense and world knowledge fill in the blanks.\n\n{{sentence | replace(\"<mask>\", \"__________\")}}\n\nWhich is it?\n\n|||\n\n{{target}}",
+  "choices": null
+ },
+ "fill_in_the_blank_with_choices_before": {
+  "template": "Using common sense reasoning of the world and only the following options, how would you fill in the blank?:\n\n{{ ', '.join(answer_choices) }}\n\n{{sentence | replace(\"<mask>\", \"__________\")}}\n\n|||\n\n{{target}}",
+  "choices": [
+   "nine",
+   "three",
+   "four",
+   "zero",
+   "two",
+   "six",
+   "eight",
+   "one",
+   "five",
+   "ten",
+   "no",
+   "seven"
+  ]
+ },
+ "fill_in_the_blank_before_sentence": {
+  "template": "Fill in the blanks:\n\n{{sentence | replace(\"<mask>\", \"__________\")}}\n\nThe correct answer is:\n\n|||\n\n{{target}}",
+  "choices": null
+ },
+ "fill_in_the_blank_with_instruction_and_choices": {
+  "template": "{{sentence | replace(\"<mask>\", \"__________\")}}\n\nUsing only the following options, what answer would make the most sense in the blank above?\n\n{{ ', '.join(answer_choices) }}\n\n||| \n\n{{target}}",
+  "choices": [
+   "nine",
+   "three",
+   "four",
+   "zero",
+   "two",
+   "six",
+   "eight",
+   "one",
+   "five",
+   "ten",
+   "no",
+   "seven"
+  ]
+ }
+}

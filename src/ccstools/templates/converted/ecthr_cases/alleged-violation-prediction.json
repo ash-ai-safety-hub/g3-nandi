@@ -1,0 +1,54 @@
+{
+ "implicit_advice_number": {
+  "template": "{{facts | join(\"\\n\")}}\n\nThese facts show potential violation of European Convention on Human Rights articles. The number of violated articles is\n|||\n{{ answer_choices[{1:0,2:1,3:2,4:3}[[4,labels | length] | min]]}}",
+  "choices": [
+   "one",
+   "two",
+   "three",
+   "four or more"
+  ]
+ },
+ "ecthr_alleged_articles_declaration_at_end": {
+  "template": "The following facts relate to a claim brought before the European Court of Human Rights (ECtHR). \nQuestion: How many substantive articles in the European Convention on Human Rights could have been breached on these facts? If more than three substantive articles are breached, answer \"{{'several'}}\".\n\n{{facts | join(\"\\n\")}}\n\nAnswer:\n|||\n{{ answer_choices[{1:0,2:1,3:2,4:3}[[4,labels | length] | min]]}}",
+  "choices": [
+   "one",
+   "two",
+   "three",
+   "several"
+  ]
+ },
+ "ecthr_alleged_articles_question_at_start": {
+  "template": "Question: Have {{\"one\"}}, {{\"two\"}}, {{\"three\"}}, or {{\"several\"}} articles of the European Convention on Human Rights (ECHR) been violated on the facts above?\n\n{{facts | join(\"\\n\")}}\n\nAnswer:\n|||\n{{ answer_choices[{1:0,2:1,3:2,4:3}[[4,labels | length] | min]]}}",
+  "choices": [
+   "one",
+   "two",
+   "three",
+   "several"
+  ]
+ },
+ "implicit_judgment_paragraph": {
+  "template": "{{facts | join(\"\\n\")}}\n\nIn ruling on this case I have needed to carefully consider the submissions of the parties. The plaintiffs allege breaches at the European Court of Human Rights - the number of sections allegedly breached is\n|||\n{{ answer_choices[{1:0,2:1,3:2,4:3}[[4,labels | length] | min]]}}.",
+  "choices": [
+   "one",
+   "two",
+   "three",
+   "more than three"
+  ]
+ },
+ "confirm number of violated articles": {
+  "template": "Question: Is it true that the facts in this case indicate more than two sections of the European Human Rights Convention were allegedly violated? Answer \"{{\"yes\"}}\" or \"{{\"no\"}}\"\n\n{{facts | join(\"\\n\")}}\n\nAnswer:\n|||\n{{ answer_choices[{1:1 ,2:1 ,3:0 ,4:0}[[4,labels | length] | min]] }} ",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "silver_rationales": {
+  "template": "The following is an extract of facts from a judgment handed down by the European Court of Human Rights.\nQuestion: Have {{\"one\"}}, {{\"two\"}}, {{\"three\"}}, or {{\"several\"}} articles of the European Court of Human Rights (ECHR) been violated on these facts?\n\n{{facts[:10] | join(\"\\n\")}}\n\n{% if silver_rationales | length > 0 %}\nAdditionally, the court cited the following facts elsewhere in the decision\n{% for loc in silver_rationales[:10] %}\n{{facts[loc]}}\n{% endfor %}\n{% endif %}\n\nAnswer:\n|||\n{{ answer_choices[{1:0,2:1,3:2,4:3}[[4,labels | length] | min]]}}",
+  "choices": [
+   "one",
+   "two",
+   "three",
+   "several"
+  ]
+ }
+}

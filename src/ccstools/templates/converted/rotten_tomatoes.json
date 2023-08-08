@@ -1,0 +1,72 @@
+{
+ "Reviewer Opinion bad good choices": {
+  "template": "{{text}} Did the reviewer find this movie {{\"good or bad\"}}? ||| {{ answer_choices [label] }}",
+  "choices": [
+   "bad",
+   "good"
+  ]
+ },
+ "Text Expressed Sentiment": {
+  "template": "{{text}} What is the sentiment expressed in this text? ||| {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive"
+  ]
+ },
+ "Sentiment with choices ": {
+  "template": "{{text}} \nIs this review {{\"positive or negative\"}}? ||| \n{{answer_choices[label] }}",
+  "choices": [
+   "negative",
+   "positive"
+  ]
+ },
+ "Reviewer Enjoyment Yes No": {
+  "template": "{{text}} Did the reviewer enjoy the movie? ||| {{ answer_choices [label] }}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "Reviewer Enjoyment": {
+  "template": "{{text}} How does the reviewer feel about the movie? ||| {{ answer_choices [label] }}",
+  "choices": [
+   "They didn't like it",
+   "They loved it"
+  ]
+ },
+ "Movie Expressed Sentiment": {
+  "template": "{{text}} The sentiment expressed for the movie is ||| {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive"
+  ]
+ },
+ "Writer Expressed Sentiment": {
+  "template": "{{text}} What sentiment does the writer express for the movie? ||| {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive"
+  ]
+ },
+ "Movie Expressed Sentiment 2": {
+  "template": "The following movie review expresses what sentiment? {{text}} ||| {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive"
+  ]
+ },
+ "Reviewer Expressed Sentiment": {
+  "template": "{{text}} What is the sentiment expressed by the reviewer for the movie? ||| {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive"
+  ]
+ },
+ "Reviewer Sentiment Feeling": {
+  "template": "{{text}} How does the viewer feel about the movie? ||| {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive"
+  ]
+ }
+}

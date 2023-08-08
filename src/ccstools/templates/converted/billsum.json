@@ -1,0 +1,34 @@
+{
+ "Write a bill: (title, summary->text)": {
+  "template": "Given the title: \"{{title}}\" and the summary of a bill: {{summary}}.\nWrite this bill based on the title and summary.\n|||\n{{text}}",
+  "choices": null
+ },
+ "Summarize this bill in one sentence: (text-> title)": {
+  "template": "Given a state bill: {{text}}. \nPlease write the title of this bill in one sentence.\n|||\n{{title}}",
+  "choices": null
+ },
+ "Write a bill: (summary-> text)": {
+  "template": "Given a summary of a bill: {{summary}}.\nWrite this bill.\n|||\n{{text}}",
+  "choices": null
+ },
+ "Write a bill: (title-> text)": {
+  "template": "Given a title: \"{{title}}\" of a bill.\nWrite this bill based on this title.\n|||\n{{text}}",
+  "choices": null
+ },
+ "Summarize this bill: (text-> summary)": {
+  "template": "Given this bill: {{text}}.\nWrite a summary of this bill.\n|||\n{{summary}}",
+  "choices": null
+ },
+ "Generate title from summary": {
+  "template": "Given a summary: {{summary}}, we want to generate a title from this summary.\n|||\n{{title}}",
+  "choices": null
+ },
+ "Summarize: (text -> summary )": {
+  "template": "Summarize this US bill: {{text}}\n|||\n{{summary}}",
+  "choices": null
+ },
+ "Summarize: (summary -> title)": {
+  "template": "Given a summary of a bill: {{summary}}.\nPlease write the title of this summary.\n|||\n{{title}}",
+  "choices": null
+ }
+}

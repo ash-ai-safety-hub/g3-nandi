@@ -1,0 +1,30 @@
+{
+ "categorize_rating_using_review": {
+  "template": "Given this review: \"{{review}}\"\nWould you recommend this app to a friend? {{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}}, {{answer_choices[3]}}, or {{answer_choices[4]}}?\n|||\n{{answer_choices[star-1]}}",
+  "choices": [
+   "Not at all",
+   "No",
+   "Maybe",
+   "Yes",
+   "Definitely"
+  ]
+ },
+ "generate_review": {
+  "template": "Generate a {{star}}-star review (1 being lowest and 5 being highest) about an app with package {{package_name}}.\n|||\n{{review}}",
+  "choices": null
+ },
+ "convert_to_star_rating": {
+  "template": "What would be the \u2605-rating of this review (\u2605 being the lowest and \u2605\u2605\u2605\u2605\u2605 being the highest)? \"{{review}}\"\n|||\n{{answer_choices[star-1]}}",
+  "choices": [
+   "\u2605",
+   "\u2605\u2605",
+   "\u2605\u2605\u2605",
+   "\u2605\u2605\u2605\u2605",
+   "\u2605\u2605\u2605\u2605\u2605"
+  ]
+ },
+ "convert_to_rating": {
+  "template": "On a scale of 1-5 (with 1 being least favorable and 5 being most favorable), how would you rate this review? \"{{review}}\"\n|||\n{{star}}",
+  "choices": null
+ }
+}

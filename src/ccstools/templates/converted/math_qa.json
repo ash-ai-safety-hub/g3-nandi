@@ -1,0 +1,63 @@
+{
+ "choose_correct_variant": {
+  "template": "You will receive full credit if you solve the following word problem:\n{{Problem}}\n\n{{options}}|||\n{{correct}}",
+  "choices": [
+   "a",
+   "b",
+   "c",
+   "d",
+   "e"
+  ]
+ },
+ "choose_correct_og": {
+  "template": "Given the following problem:\n{{Problem}}\n===\nand the following options, select the correct option\n{{options}}|||\n{{correct}}",
+  "choices": [
+   "a",
+   "b",
+   "c",
+   "d",
+   "e"
+  ]
+ },
+ "pick_the_correct": {
+  "template": "Solve the problem by choosing the correct answer: \n{{Problem}}\n\n{{options}}|||\n{{correct}}",
+  "choices": [
+   "a",
+   "b",
+   "c",
+   "d",
+   "e"
+  ]
+ },
+ "first_choice_then_problem": {
+  "template": "One of the five choices are correctly answers the math problem. Can you choose the right one? \n\n{{options}}\n\nProblem: {{Problem}}\n|||\n{{correct}}",
+  "choices": [
+   "a",
+   "b",
+   "c",
+   "d",
+   "e"
+  ]
+ },
+ "problem_set_type": {
+  "template": "Given the problem below, in what category would you classify it?\n===\n{{Problem}} \n\nCategories:\n{{answer_choices | join(\"\\n\")}}\n|||\n{{category}}\n",
+  "choices": [
+   "general",
+   "physics",
+   "gain",
+   "geometry",
+   "probability",
+   "other"
+  ]
+ },
+ "gre_problem": {
+  "template": "Solve this advanced GRE problem: \n{{Problem}}\n\n{{options}}|||\n{{correct}}",
+  "choices": [
+   "a",
+   "b",
+   "c",
+   "d",
+   "e"
+  ]
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "complex_question": {
+  "template": "{% if output %}\nHere's a complex question that requires someone to reason about the input, can you answer it?\n{{input}}\n|||\n{{output | map(attribute=\"answer\") | list | choice}}\n{% endif %}",
+  "choices": null
+ },
+ "combining_facts": {
+  "template": "{% if output %}\nCombine facts and answer this: {{input}}\n|||\n{{output | map(attribute=\"answer\") | list | choice}}\n{% endif %}",
+  "choices": null
+ },
+ "formulate": {
+  "template": "{% if output %}\nFormulate an answer to this elaborate question: {{input}}\n|||\n{{output | map(attribute=\"answer\") | list | choice}}\n{% endif %}",
+  "choices": null
+ },
+ "final_exam": {
+  "template": "{% if output %}\nFINAL EXAM\n\nQuestion 1. {{input}}\n|||\n{{output | map(attribute=\"answer\") | list | choice}}\n{% endif %}",
+  "choices": null
+ },
+ "straighforward_qa": {
+  "template": "{% if output %}\n{{input}}\n|||\n{{output | map(attribute=\"answer\") | list | choice}}\n{% endif %}",
+  "choices": null
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "simple_question_asking_response_as_text": {
+  "template": "What are the diseases mentioned in the following text?\n{{ tokens | join(\" \") | replace(\" .\", \".\") | replace(\" ,\", \",\") | replace(\" ;\", \";\") | replace(\" :\", \":\") | replace(\" -\", \"-\") }}\n|||\n{% set diseases = {\"list\": [], \"disease_started\": False} %}\n{% set disease_token = \"\"  %}\n{% for ner_tag in ner_tags %}\n{% if ner_tag > 0 %}\n{{ diseases.update({\"disease_started\": True}) |default(\"\", True)}}\n{% set disease_token = tokens[loop.index - 1]  %}\n{{ diseases.list.append(\" \") |default(\"\", True)}}\n{{ diseases.list.append((disease_token[0]|upper) + disease_token[1:] if ner_tag == 1 else disease_token) |default(\"\", True)}}\n{% elif diseases.disease_started %}\n{{ diseases.update({\"disease_started\": False}) |default(\"\", True)}}\n{{ diseases.list.append(\",\") |default(\"\", True)}}\n{% endif %}\n{% endfor %}\n{{diseases.list | join | trim(\",\") if (diseases.list | length) > 0 else \"None\"}}",
+  "choices": null
+ },
+ "identify_diseases_names_mentioned": {
+  "template": "Identify the names of diseases mentioned in the following text (if no diseases are mentioned, output {{\"None\"}}):\n{{ tokens | join(\" \") | replace(\" .\", \".\") | replace(\" ,\", \",\") | replace(\" ;\", \";\") | replace(\" :\", \":\") | replace(\" -\", \"-\") }}\n|||\n{% set diseases = {\"list\": [], \"disease_started\": False} %}\n{% set disease_token = \"\"  %}\n{% for ner_tag in ner_tags %}\n{% if ner_tag > 0 %}\n{{ diseases.update({\"disease_started\": True}) |default(\"\", True)}}\n{% set disease_token = tokens[loop.index - 1]  %}\n{{ diseases.list.append(\" \") |default(\"\", True)}}\n{{ diseases.list.append((disease_token[0]|upper) + disease_token[1:] if ner_tag == 1 else disease_token) |default(\"\", True)}}\n{% elif diseases.disease_started %}\n{{ diseases.update({\"disease_started\": False}) |default(\"\", True)}}\n{{ diseases.list.append(\",\") |default(\"\", True)}}\n{% endif %}\n{% endfor %}\n{{diseases.list | join | trim(\",\") if (diseases.list | length) > 0 else \"None\"}}",
+  "choices": null
+ },
+ "question_asking_diseases_presence": {
+  "template": "Are there diseases mentioned in the following text?\n{{ tokens | join(\" \") | replace(\" .\", \".\") | replace(\" ,\", \",\") | replace(\" ;\", \";\") | replace(\" :\", \":\") | replace(\" -\", \"-\") }}\n|||\n{% set vars = {'no_disease': True} %}\n{% for ner_tag in ner_tags %}\n{% if ner_tag > 0 %}\n{{ vars.update({'no_disease': False}) | default(\"\", True) }}\n{% endif %}\n{% endfor %}\n\n{{answer_choices[0] if vars.no_disease else answer_choices[1]}}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "list_diseases_mentioned_after_text": {
+  "template": "{{ tokens | join(\" \") | replace(\" .\", \".\") | replace(\" ,\", \",\") | replace(\" ;\", \";\") | replace(\" :\", \":\") | replace(\" -\", \"-\") }}\nList the diseases mentioned in the previous text.\n|||\n{% set diseases = {\"list\": [], \"disease_started\": False} %}\n{% set disease_token = \"\"  %}\n{% for ner_tag in ner_tags %}\n{% if ner_tag > 0 %}\n{{ diseases.update({\"disease_started\": True}) |default(\"\", True)}}\n{% set disease_token = tokens[loop.index - 1]  %}\n{{ diseases.list.append(\" \") |default(\"\", True)}}\n{{ diseases.list.append((disease_token[0]|upper) + disease_token[1:] if ner_tag == 1 else disease_token) |default(\"\", True)}}\n{% elif diseases.disease_started %}\n{{ diseases.update({\"disease_started\": False}) |default(\"\", True)}}\n{{ diseases.list.append(\",\") |default(\"\", True)}}\n{% endif %}\n{% endfor %}\n{{diseases.list | join | trim(\",\") if (diseases.list | length) > 0 else \"None\"}}",
+  "choices": null
+ },
+ "list_diseases_mentioned": {
+  "template": "List the diseases mentioned in the following text (write {{\"None\"}} if no disease is mentioned):\n{{ tokens | join(\" \") | replace(\" .\", \".\") | replace(\" ,\", \",\") | replace(\" ;\", \";\") | replace(\" :\", \":\") | replace(\" -\", \"-\") }}\n|||\n{% set diseases = {\"list\": [], \"disease_started\": False} %}\n{% set disease_token = \"\"  %}\n{% for ner_tag in ner_tags %}\n{% if ner_tag > 0 %}\n{{ diseases.update({\"disease_started\": True}) |default(\"\", True)}}\n{% set disease_token = tokens[loop.index - 1]  %}\n{{ diseases.list.append(\" \") |default(\"\", True)}}\n{{ diseases.list.append((disease_token[0]|upper) + disease_token[1:] if ner_tag == 1 else disease_token) |default(\"\", True)}}\n{% elif diseases.disease_started %}\n{{ diseases.update({\"disease_started\": False}) |default(\"\", True)}}\n{{ diseases.list.append(\",\") |default(\"\", True)}}\n{% endif %}\n{% endfor %}\n{{diseases.list | join | trim(\",\") if (diseases.list | length) > 0 else \"None\"}}",
+  "choices": null
+ },
+ "simple_question_asking_response_as_text_after_text": {
+  "template": "{{ tokens | join(\" \") | replace(\" .\", \".\") | replace(\" ,\", \",\") | replace(\" ;\", \";\") | replace(\" :\", \":\") | replace(\" -\", \"-\") }}\nWhat are the diseases mentioned in the previous text?\n|||\n{% set diseases = {\"list\": [], \"disease_started\": False} %}\n{% set disease_token = \"\"  %}\n{% for ner_tag in ner_tags %}\n{% if ner_tag > 0 %}\n{{ diseases.update({\"disease_started\": True}) |default(\"\", True)}}\n{% set disease_token = tokens[loop.index - 1]  %}\n{{ diseases.list.append(\" \") |default(\"\", True)}}\n{{ diseases.list.append((disease_token[0]|upper) + disease_token[1:] if ner_tag == 1 else disease_token) |default(\"\", True)}}\n{% elif diseases.disease_started %}\n{{ diseases.update({\"disease_started\": False}) |default(\"\", True)}}\n{{ diseases.list.append(\",\") |default(\"\", True)}}\n{% endif %}\n{% endfor %}\n{{diseases.list | join | trim(\",\") if (diseases.list | length) > 0 else \"None\"}}",
+  "choices": null
+ },
+ "question_asking_diseases_presence_after_text": {
+  "template": "{{ tokens | join(\" \") | replace(\" .\", \".\") | replace(\" ,\", \",\") | replace(\" ;\", \";\") | replace(\" :\", \":\") | replace(\" -\", \"-\") }}\nAre there diseases mentioned in the previous text?\n|||\n{% set vars = {'no_disease': True} %}\n{% for ner_tag in ner_tags %}\n{% if ner_tag > 0 %}\n{{ vars.update({'no_disease': False}) | default(\"\", True) }}\n{% endif %}\n{% endfor %}\n\n{{answer_choices[0] if vars.no_disease else answer_choices[1]}}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ }
+}

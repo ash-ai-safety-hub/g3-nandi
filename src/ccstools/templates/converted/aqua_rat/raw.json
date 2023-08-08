@@ -1,0 +1,50 @@
+{
+ "select_the_best_option": {
+  "template": "Given the problem:\n{{question}}\n\nand the options:\n{% for i in range(options|length) %}\n{{options[i].replace(')', ') ')}}\n{% endfor %}\n\nThe correct answer is\n |||\n{{correct}}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ]
+ },
+ "generate_rational_and_correct_choice": {
+  "template": "You will now be given a question and a set of options. Choose the correct option and provide a rationale for the same.\n\nQuestion:\n{{question}}\n\nOptions:\n{% for i in range(options|length) %}\n- {{options[i].replace(')', ') ')}}\n{% endfor %}\n\n|||\n{{correct}}\n\n{{rationale}}\n",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ]
+ },
+ "generate_rationale": {
+  "template": "Answer the given question by providing the correct rationale:\n\n{{question}}\n{% for i in range(options|length) %}\n   {{options[i].replace(')', ') ')}}\n{%endfor%}\n|||\n{{rationale}}",
+  "choices": null
+ },
+ "answer_quiz": {
+  "template": "{{question}}\n\nThe above question was asked in a Math test. Given the following options, can you choose the correct one?\n\n{% for i in range(options|length) %}\n- {{options[i].replace(')', ') ')}}\n{% endfor %}\n|||\n{{correct}}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ]
+ },
+ "Answer questions from options": {
+  "template": "Solve the following question and choose the correct option.\n\n{{question}} \n{% for i in range(options|length) %}\n- {{options[i].replace(')', ') ')}}\n{%endfor%}\n||| \n{{correct}}\n\n",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ]
+ },
+ "answer_question_with_rationale": {
+  "template": "Question: \n{{question}}\n\nOptions: \n{% for i in range(options|length) %}\n- {{options[i].replace(')', ') ')}}\n{% endfor %}\n\nThis is how I solved the above question:\n|||\n{{rationale}}\n",
+  "choices": null
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "first_qa_turn": {
+  "template": "Answer the question based on the information contained in the passage.\nQ: {{questions[0]}} \n\nPassage: {{story}}\n\nA: ||| {{answers[\"input_text\"][0]}}",
+  "choices": null
+ },
+ "last_qa_turn": {
+  "template": "Answer the last question based on the hint.\n{% for question, answer in zip(questions[:-1], answers[\"input_text\"][:-1]) %}\nQ: {{question}}\n\nA:{{answer}}\n{%endfor %}\n\nQ: {{questions[-1]}}\n\nHint: {{story}}\n\nA:|||\n{{answers[\"input_text\"][-1]}}\n",
+  "choices": null
+ },
+ "generate_dialogue": {
+  "template": "Can you form a set of {{questions | length}} question-answer pairs about the passage below?\n\nPassage: {{story}}|||\n{% for question, answer in zip(questions, answers[\"input_text\"]) %}\nQ: {{question}}\n\nA: {{answer}}\n\n{% endfor %}",
+  "choices": null
+ },
+ "extract_answer_first_qa_turn": {
+  "template": "In the passage below, extract the part which answers the question:\n\nQ: {{questions[0]}}\nPassage: {{story}} |||\n{{story[answers[\"answer_start\"][0] : answers[\"answer_end\"][0] ]}}",
+  "choices": null
+ },
+ "missing_answer": {
+  "template": "{% set missing_idx = range(questions|length)|choice %}\n\n{% for i in range(questions|length) %}\nQ: {{questions[i] }}\n\nA:  {% if i !=missing_idx %}\n{{answers[\"input_text\"][i]}}\n{%endif%}\n{%endfor%}\n\nGiven the above conversation, give a suitable response to the missing answer\n\nHint: {{story}}\n||| \n{{answers[\"input_text\"][missing_idx]}}",
+  "choices": null
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "premise_agree_hypothesis": {
+  "template": "Does the premise: \"{{premise}}\" agree with the hypothesis: \"{{hypothesis}}\" ? ||| {{answer_choices[entailment_judgment]}}",
+  "choices": [
+   "No clear answer",
+   "yes",
+   "no"
+  ]
+ },
+ "related_rate": {
+  "template": "How related are the two sentences : \"{{hypothesis}}\" and \"{{premise}}\" ? Rate it from 1-5, where  1 is completely unrelated and 5 is very related.\n||| {{(((10*relatedness_score)|round)/10)}}",
+  "choices": null
+ },
+ "entailing_or_contradicting": {
+  "template": "Sentence 1: \"{{hypothesis}}\" \nSentence 2: \"{{premise}}\"\nAre the two sentences {{answer_choices[1]}} or {{answer_choices[2]}} each other? If none of these options are valid, answer \"{{answer_choices[0]}}\".\n||| {{answer_choices[entailment_judgment]}}",
+  "choices": [
+   "neither",
+   "entailing",
+   "contradicting"
+  ]
+ },
+ "entailment_relation": {
+  "template": "Given the following hypothesis: {{hypothesis}}.\nAs well as the premise: {{premise}}, \nPredict the Entailment relation between the premise and hypothesis from the labels {{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}} |||\n {{answer_choices[entailment_judgment]}}\n",
+  "choices": [
+   "Neutral",
+   "Entailment",
+   "Contradiction"
+  ]
+ },
+ "entailment_label": {
+  "template": "Given the hypothesis: {{hypothesis}} and the premise: {{premise}}. Out of the options, {{answer_choices[0]}}, {{answer_choices[1]}} and {{answer_choices[2]}} what is the entailment label? ||| {{answer_choices[entailment_judgment]}}",
+  "choices": [
+   "Neutral",
+   "Entailment",
+   "Contradiction"
+  ]
+ },
+ "related_score": {
+  "template": "Given the following hypothesis: {{hypothesis}}.\nAs well as the premise: {{premise}}, \nGive a score on how related the hypothesis and premise were, from the scale 1 to 5, where  1 is completely unrelated and 5 is very related: |||   {{(((10*relatedness_score)|round)/10)}}\n\n",
+  "choices": null
+ },
+ "premise_imply_hypothesis": {
+  "template": "Does {{premise}} imply that {{hypothesis}}?  Please answer yes, no, or unclear. ||| {{answer_choices[entailment_judgment]}}",
+  "choices": [
+   "unclear",
+   "yes",
+   "no"
+  ]
+ }
+}

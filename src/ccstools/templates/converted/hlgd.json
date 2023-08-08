@@ -1,0 +1,76 @@
+{
+ "is_same_event_with_time_interrogative_related": {
+  "template": "On {{date_a}}, the article \"{{headline_a}}\" is published.\nOn {{date_b}}, the article \"{{headline_b}}\" is published. \nAre they related to the same event? Answer {{ answer_choices[0] }} or {{ answer_choices[1] }}.\n|||\n{% if label %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "is_same_event_interrogative_talk": {
+  "template": "Do the following headlines talk about the same event? \n{{headline_a}}\n{{headline_b}}\n|||\n{% if label %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "is_same_event_read": {
+  "template": "Barbara just finished reading an article titled \"{{headline_a}}\". She then came across another article \"{{headline_b}}\". Is the second article describing the same event as the first article?\n|||\n{% if label %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "generate_another_headline": {
+  "template": "Given the headline: \"{{headline_a}}\", what would be another headline for the same event? \n|||\n{% if label %}\n{{headline_b}}\n{% endif %}",
+  "choices": null
+ },
+ "is_same_event_describe_rel": {
+  "template": "Which one of the following choices \"{{ answer_choices[0] }}\" or \"{{ answer_choices[1] }}\" best describe the relationship between these two pieces of news? \nNews Title A: {{headline_a}}\nNews Title B: {{headline_b}}\n|||\n{% if label %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "same event",
+   "different event"
+  ]
+ },
+ "is_same_event_refer": {
+  "template": "Headline 1: \"{{headline_a}}\" \nHeadline 2: \"{{headline_b}}\"\nDo they refer to the same event? \n|||\n{% if label %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "is_same_event_discuss": {
+  "template": "Both headlines \"{{headline_a}}\" and \"{{headline_b}}\" are discussing the same event.  Do you {{ answer_choices[0] }} or {{ answer_choices[1] }}?\n|||\n{% if label %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "agree",
+   "disagree"
+  ]
+ },
+ "is_same_event_replace": {
+  "template": "Can \"{{headline_a}}\" replace \"{{headline_b}}\"? Here, a headline is replaceable by another headline if the latter headline describes the same event as the former.\n|||\n{% if label %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "is_same_event_editor_asks": {
+  "template": "The editor asks James to create a headline that describes the same event as \"{{headline_a}}\". James comes up with \"{{headline_b}}\". Does the new headline satisfy the editor's requirement? Answer {{ answer_choices[0] }} or {{ answer_choices[1] }}.\n|||\n{% if label %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "is_same_event_with_time_affirmative": {
+  "template": "On {{date_a}}, the article \"{{headline_a}}\" is published.\nOn {{date_b}}, the article \"{{headline_b}}\" is published. \nAnswer {{ answer_choices[0] }} if the second article's headline is a paraphrase of the first; otherwise, answer {{ answer_choices[1] }}.\n|||\n{% if label %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "is_same_event_with_time_interrogative_talk": {
+  "template": "Does the headline \"{{headline_a}}\" published on {{date_a}} talk about the same event as \"{{headline_b}}\" published on {{date_b}} ?  Answer {{ answer_choices[0] }} or {{ answer_choices[1] }}.\n|||\n{% if label %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "after_reading": {
+  "template": "Passage: {{passage}}\n\nAfter reading this passage, I have a question: {{question}}? True or False? |||\n{% if label != -1 %}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "GPT-3 Style": {
+  "template": "{{ passage }} \nQuestion: {{ question }}\nAnswer: ||| \n{% if label != -1 %}\n{{ answer_choices[label] }}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "I wonder\u2026": {
+  "template": "{{ passage }} \n\nHaving read that, I wonder {{ question }}? |||\n{% if label != -1 %}\n{{ answer_choices[label] }} \n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "yes_no_question": {
+  "template": "Text: {{passage}}\n\nAnswer the following yes/no question: {{question}}? Yes or no? |||\n{% if label != -1 %}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "could you tell me\u2026": {
+  "template": "{{ passage }} \n\nHaving read that, could you tell me {{ question }}? ||| {% if label != -1 %}{{ answer_choices[label] }}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "exam": {
+  "template": "EXAM\n1. Answer by yes or no.\n\nDocument: {{passage}}\nQuestion: {{question}}? ||| \n{% if label != -1 %}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "based on the following passage": {
+  "template": "Based on the following passage, {{ question }}? {{ passage }}\n\n|||\n{% if label != -1 %}\n{{ answer_choices[label] }}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "exercise": {
+  "template": "Exercise: read the text and answer the question by True or False.\n\nText: {{passage}}\nQuestion: {{question}}? |||\n{% if label != -1 %}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "based on the previous passage": {
+  "template": "{{ passage }}\nBased on the previous passage, {{ question }}? ||| {% if label != -1 %}{{ answer_choices[label] }}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "valid_binary": {
+  "template": "{{passage}}\n\nQ: {{question}}? True or False? |||\n{% if label != -1 %}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "False",
+   "True"
+  ]
+ }
+}

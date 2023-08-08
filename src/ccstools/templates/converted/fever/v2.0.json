@@ -1,0 +1,42 @@
+{
+ "cbqa_fever_postprompt": {
+  "template": "{{claim}} Is this true?\n|||\n{% if label != \"\" %}\n{{\n{\"SUPPORTS\": \"Yes\",\n \"REFUTES\": \"No\",\n\"NOT ENOUGH INFO\": \"Not sure\"\n}[label]\n}}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No",
+   "Not sure"
+  ]
+ },
+ "cbqa_fever_dialog_style_surrounded_all_class": {
+  "template": "I've heard that {{claim}} Is this correct? Yes, No or Not Sure?\n|||\n{% if label != \"\" %}\n{{\n{\"SUPPORTS\": \"Yes\",\n \"REFUTES\": \"No\",\n\"NOT ENOUGH INFO\": \"Not Sure\"\n}[label]\n}}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No",
+   "Not Sure"
+  ]
+ },
+ "cbqa_fever_preprompt": {
+  "template": "Is this statement correct? {{claim}} ||| \n{% if label != \"\" %}\n{{\n{\"SUPPORTS\": \"Yes\",\n \"REFUTES\": \"No\",\n\"NOT ENOUGH INFO\": \"Unsure\"\n}[label]\n}}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No",
+   "Unsure"
+  ]
+ },
+ "cbqa_fever_short": {
+  "template": "\"{{claim}}\" Yes, no, maybe?\n|||\n{% if label != \"\" %}\n{{\n{\"SUPPORTS\": \"Yes\",\n \"REFUTES\": \"No\",\n\"NOT ENOUGH INFO\": \"Maybe\"\n}[label]\n}}\n{% endif %}\n",
+  "choices": [
+   "Yes",
+   "No",
+   "Maybe"
+  ]
+ },
+ "cbqa_fever_dialog_style_postprompt_all_class": {
+  "template": "\"{{claim}}\", I have heard. Is this Correct? Yes, No or Not Sure?\n|||\n{% if label != \"\" %}\n{{\n{\"SUPPORTS\": \"Yes\",\n \"REFUTES\": \"No\",\n\"NOT ENOUGH INFO\": \"Not Sure\"\n}[label]\n}}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No",
+   "Not Sure"
+  ]
+ }
+}

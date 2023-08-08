@@ -1,0 +1,30 @@
+{
+ "Summarize this dialogue:": {
+  "template": "Summarize this dialogue: {{dialogue}} |||\n{{summary}}",
+  "choices": null
+ },
+ "Given the above dialogue write a summary": {
+  "template": "{{dialogue}}\nGiven the above dialogue, write a summary. |||\n{{summary}}",
+  "choices": null
+ },
+ "Summarize:": {
+  "template": "Summarize: {{dialogue}}|||\n{{summary}}",
+  "choices": null
+ },
+ "To sum up this dialog": {
+  "template": "{{dialogue}}\nTo sum up this dialog:\n|||{{summary}}",
+  "choices": null
+ },
+ "Generate a summary for this dialogue": {
+  "template": "Generate a summary for this dialogue:\n{{dialogue}}\n|||{{summary}}",
+  "choices": null
+ },
+ "Write a dialogue that match this summary": {
+  "template": "Write a dialogue that matches this summary: {{summary}} |||\n{{dialogue}}",
+  "choices": null
+ },
+ "Sum up the following dialogue": {
+  "template": "Sum up the following dialogue: \n{{dialogue}}\n|||{{summary}}",
+  "choices": null
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "generate_summary_for_this": {
+  "template": "{{document}}\n\n===\n\nGenerate a title for this article: ||| {{summary}}",
+  "choices": null
+ },
+ "reverse_writing": {
+  "template": "Title: {{summary}}\n\n||| {{document}}",
+  "choices": null
+ },
+ "make_a_title": {
+  "template": "Make a title for this article: {{document}} |||\n\n{{summary}}",
+  "choices": null
+ },
+ "first_sentence_title": {
+  "template": "First sentence of the article: {{document}}\n\nTitle: ||| {{summary}}",
+  "choices": null
+ },
+ "TLDR": {
+  "template": "{{document}}\n\nTL;DR: ||| {{summary}}",
+  "choices": null
+ },
+ "write_its_sentence": {
+  "template": "{{document}}\n\n===\n\nGiven the above sentence, write its title: ||| {{summary}}",
+  "choices": null
+ },
+ "write_a_title_for_this_sentence": {
+  "template": "Write a title for this sentence: {{document}} \n\nTitle: ||| {{summary}}",
+  "choices": null
+ },
+ "in_a_nutshell": {
+  "template": "{{document}} In a nutshell, ||| {{summary}}",
+  "choices": null
+ },
+ "write_an_article": {
+  "template": "Title: {{summary}}\n\n===\n\nWrite an article with the given title: ||| {{document}}",
+  "choices": null
+ }
+}

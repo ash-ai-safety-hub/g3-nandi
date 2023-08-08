@@ -1,0 +1,58 @@
+{
+ "Use title and summary to generate news": {
+  "template": "What could be the content of a news article with the following title and summary?\n\nTitle: {{title}}\n\nSummary: {{description}}\n|||\n{{text}}",
+  "choices": null
+ },
+ "Generate description using text": {
+  "template": "{{ text }} \n\nGive a brief description of the above text.\n|||\n{{ description }}",
+  "choices": null
+ },
+ "Generate title using text": {
+  "template": "{{ text }}\n\nWhat title would you choose for the text above?\n|||\n{{ title }}",
+  "choices": null
+ },
+ "Use title and description to generate text": {
+  "template": "Suggest the content of a news article entitled:\n\n{{ title }},\n\nregarding:\n\n{{ description }}\n|||\n{{ text }}",
+  "choices": null
+ },
+ "Write brief summary": {
+  "template": "Write a brief summary of the text below: \n\n{{ text }}\n|||\n{{ description }}",
+  "choices": null
+ },
+ "Use title and description to generate news article": {
+  "template": "Use the description below to write a news article entitled:\n{{ title }}.\n\nDescription: {{ description }}\n|||\n{{ text }}",
+  "choices": null
+ },
+ "Choose a title for text": {
+  "template": "Choose a title for the text below: \n\n{{ text }}\n|||\n{{ title }}",
+  "choices": null
+ },
+ "Summarize text using description": {
+  "template": "{{ text }}\n\nSummarize the essential ideas of the above piece of news.\n|||\n{{ description }}",
+  "choices": null
+ },
+ "Generate title using news text": {
+  "template": "{{ text }} \n\nWhat title suits best the above piece of news?\n|||\n{{ title }}",
+  "choices": null
+ },
+ "Summarize ideas from news": {
+  "template": "Summarize the essential ideas of the following piece of news: \n\n{{ text }}\n|||\n{{ description }}",
+  "choices": null
+ },
+ "Use title and description to generate news": {
+  "template": "Write a piece of news expanding the following ideas:\n\n{{ description }},\n\nentitled:\n\n{{ title }}\n|||\n{{ text }}",
+  "choices": null
+ },
+ "Give text a title": {
+  "template": "Give this text a title: \n\n{{ text }}\n|||\n{{ title }}",
+  "choices": null
+ },
+ "Given brief description of text": {
+  "template": "Give a brief description of the following text: \n\n{{ text }}\n|||\n{{ description }}",
+  "choices": null
+ },
+ "Text summarized using description ": {
+  "template": "{{ text }} \n\nThe above text can be summarized as follows:\n|||\n{{ description }}",
+  "choices": null
+ }
+}

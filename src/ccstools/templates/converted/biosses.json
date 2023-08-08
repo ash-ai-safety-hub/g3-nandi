@@ -1,0 +1,58 @@
+{
+ "similarity with question first": {
+  "template": "How similar are the following two sentences? {{sentence1}} {{sentence2}}\n\nGive the answer on a scale from 0 - 4, where 0 is \"not similar at all\" and 4 is \"means the same thing\". |||\n\n{{(((5*score)|round)/5)}}",
+  "choices": null
+ },
+ "compare one sentence to another": {
+  "template": "On a scale from 0 to 4, where 0 is \"not similar\" and 4 is \"very similar\", how similar is the sentence \"{{sentence1}}\" to the sentence {{sentence2}}\"? ||| {{(((5*score)|round)/5)}}",
+  "choices": null
+ },
+ "similarity with sentences first": {
+  "template": "Sentence 1: {{sentence1}} \nSentence 2: {{sentence2}}\n\nFrom 0 to 4 (0 = \"no meaning overlap\" and 4 = \"means the same thing\"), how similar are the two sentences? |||\n\n{{(((5*score)|round)/5)}}",
+  "choices": null
+ },
+ "resemblance": {
+  "template": "{{sentence1}} {{sentence2}}\n\nOn a scale from 0 to 4, where 0 is \"no meaning overlap\" and 4 is \"means the same thing\", how closely does the first sentence resemble the second one? |||\n\n{{(((5*score)|round)/5)}}",
+  "choices": null
+ },
+ "same thing scoring": {
+  "template": "Do the following sentences say the same thing? {{sentence1}} {{sentence2}}\n\nReturn your answer on a scale from 0 to 4, where 0 is \"not similar\" and 5 is \"very similar\". |||\n\n{{(((5*score)|round)/5)}}",
+  "choices": null
+ },
+ "same info binary": {
+  "template": "(1) {{sentence1}} \n(2) {{sentence2}}\n\nDo these two sentences convey the same information? |||\n\n{{answer_choices[0 if score < 2.5 else 1]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "rate with sentences first": {
+  "template": "{{sentence1}} {{sentence2}}\n\nRate the textual similarity of these two sentences on a scale of {{\"0.0\"}} and {{\"4.0\"}}, where 0 is \"no relation\" and 4 is \"equivalent\". |||\n\n{{(((5*score)|round)/5)}}",
+  "choices": null
+ },
+ "same meaning binary": {
+  "template": "Please check if these have the same meaning. Answer \"yes\" if they do, otherwise \"no\". {{sentence1}} {{sentence2}} ||| {{answer_choices[0 if score < 2.5 else 1]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "similarity binary": {
+  "template": "Do \"{{sentence1}}\" and \"{{sentence2}}\" seem similar to you ? ||| {{answer_choices[0 if score < 2.5 else 1]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "rate with question first": {
+  "template": "Rate the similarity of these two sentences: ({{\"0.0\"}} being the lowest and {{\"4.0\"}} the highest) \"{{sentence1}}\" and \"{{sentence2}}\" |||\n\n{{(((5*score)|round)/5)}}",
+  "choices": null
+ },
+ "same thing binary": {
+  "template": "Do you think \"{{sentence1}}\" and \"{{sentence2}}\" express the same thing? ||| {{answer_choices[0 if score < 2.5 else 1]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "do_not_use": {
+  "template": "Question: {{question}}\n\nDo not use {{\"A\"}} and {{\"B\"}} to answer the question but instead, choose between \"{{answer_choices[0]}}\" and  \"{{answer_choices[1]}}\".\n|||\n{{answer_choices[answer_index]}}",
+  "choices": [
+   "{{world_literals.world1[0]}}",
+   "{{world_literals.world2[0]}}"
+  ]
+ },
+ "logic_test": {
+  "template": "Here's a logic test: {{question}}\n\nChoose the answer between \"{{answer_choices[0]}}\" and \"{{answer_choices[1]}}\".\n|||\n{{answer_choices[answer_index]}}",
+  "choices": [
+   "{{world_literals.world1[0]}}",
+   "{{world_literals.world2[0]}}"
+  ]
+ },
+ "heres_a_story": {
+  "template": "Here's a short story: {{question}}.\n\nWhat is the most sensical answer between \"{{answer_choices[0]}}\" and  \"{{answer_choices[1]}}\"?\n|||\n{{answer_choices[answer_index]}}",
+  "choices": [
+   "{{world_literals.world1[0]}}",
+   "{{world_literals.world2[0]}}"
+  ]
+ },
+ "choose_between": {
+  "template": "Choose between \"{{answer_choices[0]}}\" and  \"{{answer_choices[1]}}\".\nQuestion: {{question}}\n|||\n{{answer_choices[answer_index]}}",
+  "choices": [
+   "{{world_literals.world1[0]}}",
+   "{{world_literals.world2[0]}}"
+  ]
+ },
+ "testing_students": {
+  "template": "I am testing my students' logic.\nWhat is the answer they should choose between \"{{answer_choices[0]}}\" and \"{{answer_choices[1]}}\"?\nLogic test: {{question}}\n|||\n{{answer_choices[answer_index]}}",
+  "choices": [
+   "{{world_literals.world1[0]}}",
+   "{{world_literals.world2[0]}}"
+  ]
+ }
+}

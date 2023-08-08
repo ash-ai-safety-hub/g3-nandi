@@ -1,0 +1,72 @@
+{
+ "question-context-meaning-with-label": {
+  "template": "Does the word \"{{word}}\" have the same meaning in these two sentences? Yes, No?\n{{sentence1}}\n{{sentence2}}\n||| {% if label != -1%}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "question-context-meaning": {
+  "template": "Does the word \"{{word}}\" have the same meaning in these two sentences?\n{{sentence1}}\n{{sentence2}}\n||| {% if label != -1%}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "grammar_homework": {
+  "template": "Homework\n\nDecide whether the word \"{{word}}\" is used with the same meaning in the two following sentences. Answer by yes or no.\n{{sentence1}}\n{{sentence2}}\n||| {% if label != -1%}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "affirmation_true_or_false": {
+  "template": "Sentence A: {{sentence1}}\nSentence B: {{sentence2}}\n\n\"{{word}}\" has a similar meaning in sentences A and B. True or False?\n||| {% if label != -1%}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "GPT-3-prompt": {
+  "template": "{{sentence1}}\n{{sentence2}}\nQuestion: Is the word '{{word}}' used in the same sense in the two sentences above?\n||| {% if label != -1%}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "same_sense": {
+  "template": "Sentence 1: {{sentence1}}\nSentence 2: {{sentence2}}\n\nDetermine whether the word \"{{word}}\" is used in the same sense in both sentences. Yes or no?\n||| {% if label != -1%}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "question-context": {
+  "template": "Determine if the word '{{word}}' is used in the same way in the two sentences below. \n{{sentence1}}\n{{sentence2}}\n||| {% if label != -1%}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "GPT-3-prompt-with-label": {
+  "template": "{{sentence1}}\n{{sentence2}}\nQuestion: Is the word '{{word}}' used in the same sense in the two sentences above? Yes, No?\n||| {% if label != -1%}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "polysemous": {
+  "template": "The word \"{{word}}\" has multiple meanings. Does it have the same meaning in sentences 1 and 2? Yes or no?\n\nSentence 1: {{sentence1}}\nSentence 2: {{sentence2}}\n||| {% if label != -1%}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "similar-sense": {
+  "template": "{{sentence1}}\n{{sentence2}}\nSimilar sense of {{word}}?\n||| {% if label != -1%}\n{{answer_choices[label]}}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ }
+}

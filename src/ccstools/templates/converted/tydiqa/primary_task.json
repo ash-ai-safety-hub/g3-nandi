@@ -1,0 +1,61 @@
+{
+ "heres_what_I_found": {
+  "template": "{% if language == \"english\" %}\nI wonder {{question_text}}.\nHelp me answer this question with \"{{answer_choices[0]}}\" or \"{{answer_choices[1]}}\" or \"{{answer_choices[2]}}\" if none of the first two answers apply.\nHere's what I found on the internet:\nTopic: {{document_title}}\nArticle: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0] | capitalize}}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No",
+   "None"
+  ]
+ },
+ "yes_no_none": {
+  "template": "{% if language == \"english\" %} \nQuestion: {{question_text}}\nAnswer the question with {{\"Yes\"}} or {{\"No\"}}. If it is not possible then answer {{\"None\"}}.\nHint: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0] | capitalize}}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No",
+   "None"
+  ]
+ },
+ "open_domain_qa_without_choices": {
+  "template": "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0] == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nAnswer the question about {{document_title}}. {{question_text}}\n||| \n{{annotations.yes_no_answer[0] | capitalize}} \n    {% endif %} \n{% endif %} ",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "yes_no_question": {
+  "template": "{% if language == \"english\" %}\n{{question_text}}\nIs this a \"Yes/No\" question?\n|||\n{% if annotations. yes_no_answer[0] == \"NONE\" %}\nNo\n{% else %}\nYes\n{% endif %}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "read_and_answer": {
+  "template": "{% if language == \"english\" %}\nAnswer the following question with \"{{answer_choices[0]}}\" or \"{{answer_choices[1]}}\" or \"{{answer_choices[2]}}\" if none of the first two answers apply.\nQuestion: {{question_text}}\nTopic: {{document_title}}\nArticle: {{document_plaintext}}\n|||\n{{annotations.yes_no_answer[0] | capitalize}}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No",
+   "None"
+  ]
+ },
+ "after_reading_the_text": {
+  "template": "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0] == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nAfter reading the following text snippet from Wikipedia, please answer the question: {{question_text}} \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "open_domain_qa": {
+  "template": "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0] == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nAnswer the question about {{document_title}}.\nQuestion: {{question_text}}. Yes or No?\n||| \n{{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "based_on_the_text": {
+  "template": "{% if language == \"english\" %} \n    {% if annotations.yes_no_answer[0] == \"YES\" or annotations.yes_no_answer[0] == \"NO\" %} \nBased on the following text snippet, {{question_text}} \n{{document_plaintext}}\n||| \n{{annotations.yes_no_answer[0] | capitalize}}\n    {% endif %}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ }
+}

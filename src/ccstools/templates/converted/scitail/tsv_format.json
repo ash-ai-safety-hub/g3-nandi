@@ -1,0 +1,37 @@
+{
+ "\u2026 Therefore, we're licensed to say that\u2026": {
+  "template": "{{premise}} Therefore, we are licensed to say that {{hypothesis}}  {{ answer_choices | join(' or ') }}|||\n{% if label == \"entails\" %} \n{{answer_choices[0]}}\n{% else %}\n{{answer_choices[1]}}\n{% endif %}",
+  "choices": [
+   "true",
+   "false"
+  ]
+ },
+ "Suppose\u2026 Can we infer that\u2026": {
+  "template": "Suppose {{premise}} Can we infer that {{hypothesis}}? ||| {{label}}",
+  "choices": [
+   "neutral",
+   "entails"
+  ]
+ },
+ "\u2026does the previous passage support the claim that": {
+  "template": "{{premise}} Does the previous passage support the claim that {{hypothesis}}? |||{% if label == \"entails\" %} \n{{answer_choices[0]}}\n{% else %}\n{{answer_choices[1]}}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "given\u2026 does it follow that\u2026 ": {
+  "template": "Given that {{premise}} Does it follow that {{hypothesis}}  {{ answer_choices | join(' or ') }} |||\n{% if label == \"entails\" %} \n{{answer_choices[0]}}\n{% else %}\n{{answer_choices[1]}}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "does S1 entail S2?": {
+  "template": "Sentence 1: {{premise}}\n\nSentence 2: {{hypothesis}}\n\nQuestion: Does Sentence 1 entail Sentence 2?  {{ answer_choices | join(' or ') }} |||\n{% if label == \"entails\" %} \n{{answer_choices[0]}}\n{% else %}\n{{answer_choices[1]}}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ }
+}

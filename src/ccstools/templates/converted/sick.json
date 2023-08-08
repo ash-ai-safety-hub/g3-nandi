@@ -1,0 +1,36 @@
+{
+ "sentences relation score": {
+  "template": "How related are the following sentences?\nGive a score on a scale of 1 to 5.\n\n{{sentence_A}}\n\n{{sentence_B}} |||\n\n{{(((5*relatedness_score)|round)/5)}}\n\n",
+  "choices": null
+ },
+ "B entails_netural_contradict A?": {
+  "template": "Does sentence B entail, contradict, or is neutral with respect to sentence A?\n\nSentence A: {{sentence_A}}\n\nSentence B: {{sentence_B}} |||\n{{ answer_choices[label] }}",
+  "choices": [
+   "entail",
+   "is neutral",
+   "contradict"
+  ]
+ },
+ "A entails_neutral_contradict B?": {
+  "template": "Does sentence A entail, contradict, or is neutral with respect to sentence B?\n\nSentence A: {{sentence_A}}\n\nSentence B: {{sentence_B}}|||\n{{\n{\"A_entails_B\": answer_choices[0], \"A_neutral_B\": answer_choices[1], \"A_contradicts_B\": answer_choices[2]}[entailment_AB]\n}}",
+  "choices": [
+   "entail",
+   "is neutral",
+   "contradict"
+  ]
+ },
+ "B entails A?": {
+  "template": "Does the sentence, \"{{sentence_B}}\", entail the sentence, \"{{sentence_A}}\" ? |||\n{{\n[answer_choices[0], answer_choices[1], answer_choices[1]][label]\n}}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "A entails B?": {
+  "template": "Does the sentence, \"{{sentence_A}}\", entail the sentence, \"{{sentence_B}}\" ? |||\n{{\n{\"A_entails_B\": answer_choices[0], \"A_neutral_B\": answer_choices[1], \"A_contradicts_B\": answer_choices[1]}[entailment_AB]\n}}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ }
+}

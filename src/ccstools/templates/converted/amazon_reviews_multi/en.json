@@ -1,0 +1,54 @@
+{
+ "generate_title": {
+  "template": "Write a title for the review below:\n===\n{{review_body}} |||\n{{review_title}}",
+  "choices": null
+ },
+ "prompt_title_to_star": {
+  "template": "Rate the product by the number of stars based on the review title below: (1 being the lowest and 5 the highest)\n===\n{{review_title}} |||\n{{answer_choices[stars-1]}}",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "prompt_review_to_star": {
+  "template": "Rate the product by the number of stars based on the review body below: (1 being the lowest and 5 the highest)\n===\n{{review_body}} |||\n{{answer_choices[stars-1]}}",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "prompt_body_title_to_star": {
+  "template": "Rate the product by the number of stars based on the review below: (1 being the lowest and 5 the highest)\n===\n{{review_title}}. {{review_body}} |||\n{{answer_choices[stars-1]}}",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "prompt_review_to_category": {
+  "template": "Guess the product category from the following review:\n===\n{{review_body}} |||\n{{product_category}}",
+  "choices": null
+ },
+ "prompt_body_title_category_to_star": {
+  "template": "Rate the product by the number of stars based on the review below: (1 being the lowest and 5 the highest)\n===\n{{review_title}}. {{review_body}} Product category: {{product_category}}|||\n{{answer_choices[stars-1]}}",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "prompt_title_to_product_category": {
+  "template": "Guess the product category from the review title below:\n===\n{{review_title}} |||\n{{product_category}}",
+  "choices": null
+ }
+}

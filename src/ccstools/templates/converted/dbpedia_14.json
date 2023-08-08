@@ -1,0 +1,78 @@
+{
+ "given_list_what_category_does_the_paragraph_belong_to": {
+  "template": "{{content}} Given a list of categories: {{\"company, educational institution, artist, athlete, office holder, mean of transportation, building, natural place, village, animal, plant, album, film or written work\"}}, what category does the paragraph belong to? ||| {{ answer_choices[label] }}\n\n",
+  "choices": [
+   "Company",
+   "Educational Institution",
+   "Artist",
+   "Athlete",
+   "Office Holder",
+   "Mean Of Transportation",
+   "Building",
+   "Natural Place",
+   "Village",
+   "Animal",
+   "Plant",
+   "Album",
+   "Film",
+   "Written Work"
+  ]
+ },
+ "pick_one_category_for_the_following_text": {
+  "template": "Pick one category for the following text. The options are - {{\"company, educational institution, artist, athlete, office holder, mean of transportation, building, natural place, village, animal, plant, album, film or written work\"}}. {{title}} - {{content}} ||| {{ answer_choices[label] }}",
+  "choices": [
+   "Company",
+   "Educational Institution",
+   "Artist",
+   "Athlete",
+   "Office Holder",
+   "Mean Of Transportation",
+   "Building",
+   "Natural Place",
+   "Village",
+   "Animal",
+   "Plant",
+   "Album",
+   "Film",
+   "Written Work"
+  ]
+ },
+ "given_a_choice_of_categories ": {
+  "template": "{{title}} - {{content}} Given a choice of categories {{\"company, educational institution, artist, athlete, office holder, mean of transportation, building, natural place, village, animal, plant, album, film or written work\"}}, the text refers to which one? ||| {{ answer_choices[label] }}",
+  "choices": [
+   "Company",
+   "Educational Institution",
+   "Artist",
+   "Athlete",
+   "Office Holder",
+   "Mean Of Transportation",
+   "Building",
+   "Natural Place",
+   "Village",
+   "Animal",
+   "Plant",
+   "Album",
+   "Film",
+   "Written Work"
+  ]
+ },
+ "given_a_list_of_category_what_does_the_title_belong_to": {
+  "template": "\"{{title}}\", given a list of categories: {{\"company, educational institution, artist, athlete, office holder, mean of transportation, building, natural place, village, animal, plant, album, film or written work\"}}, what category does the title belong to? ||| {{ answer_choices[label] }}\n\n",
+  "choices": [
+   "Company",
+   "Educational Institution",
+   "Artist",
+   "Athlete",
+   "Office Holder",
+   "Mean Of Transportation",
+   "Building",
+   "Natural Place",
+   "Village",
+   "Animal",
+   "Plant",
+   "Album",
+   "Film",
+   "Written Work"
+  ]
+ }
+}

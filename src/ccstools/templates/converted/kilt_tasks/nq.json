@@ -1,0 +1,30 @@
+{
+ "formal_description": {
+  "template": "{% if output %}\nThe goal is to predict an English answer string for an input English question. All questions can be answered using the contents of English Wikipedia.\nQuestion: {{input}}\nAnswer:\n|||\n{{output|selectattr(\"answer\")|map(attribute='answer')|reject(\"equalto\", \"\")|list|choice }}\n{% endif %}",
+  "choices": null
+ },
+ "search query": {
+  "template": "{% if output %}\nSearch query: {{input}}\nResponse:\n|||\n{{output|selectattr(\"answer\")|map(attribute='answer')|reject(\"equalto\", \"\")|list|choice }}\n{% endif %}",
+  "choices": null
+ },
+ "question_with_multiple_answer": {
+  "template": "{% if output %}\nQuestion : {{input}}\nAnswer :\n|||\n{{output|selectattr(\"answer\")|map(attribute='answer')|reject(\"equalto\", \"\")|list|join(', ') }}\n{% endif %}",
+  "choices": null
+ },
+ "guess_question": {
+  "template": "{% if output %}\nGuess a question that has the answer \"{{output|selectattr(\"answer\")|map(attribute='answer')|reject(\"equalto\", \"\")|list|choice }}\"\n|||\n{{input}}?\n{% endif %}",
+  "choices": null
+ },
+ "question_answer": {
+  "template": "{% if output %}\nQuestion : {{input}}\nAnswer :\n|||\n{{output|selectattr(\"answer\")|map(attribute='answer')|reject(\"equalto\", \"\")|list|choice }}\n{% endif %}",
+  "choices": null
+ },
+ "first_person_context": {
+  "template": "{% if output %}\nI've always wondered: {{input}}\n|||\n{{output|selectattr(\"answer\")|map(attribute='answer')|reject(\"equalto\", \"\")|list|choice }}\n{% endif %}",
+  "choices": null
+ },
+ "question_with_instruction": {
+  "template": "{% if output %}\nAnswer the following question.\n{{input}}\n|||\n{{output|selectattr(\"answer\")|map(attribute='answer')|reject(\"equalto\", \"\")|list|choice }}\n{% endif %}",
+  "choices": null
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "irony_question": {
+  "template": "Is this tweet is ironic? \n\n{{text}} |||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "irony_yes_no": {
+  "template": "Is this tweet ironic? Answer with either yes or no. \n\n{{text}} |||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "irony_exam": {
+  "template": "In this test, you need to answer with either yes or no. \n\nQ: Is this an ironic tweet? \n{{text}}\n\nA: \n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "irony_option": {
+  "template": "Does this tweet contain {{\"irony\"}} or {{\"non-irony\"}}?\n\n{{text}} |||\n{{answer_choices[label]}}",
+  "choices": [
+   "non-irony",
+   "irony"
+  ]
+ },
+ "irony_author": {
+  "template": "Does this tweet convey the author's irony towards something or someone?\n\n{{text}}\n|||\n{{answer_choices[label]}}\n",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ }
+}

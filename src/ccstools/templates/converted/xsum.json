@@ -1,0 +1,42 @@
+{
+ "DOC_write_summary_of_above": {
+  "template": "{{document}}\n\n===\n\nWrite a summary of the text above : ||| {{summary}}",
+  "choices": null
+ },
+ "article_DOC_summary": {
+  "template": "Article: {{document}}\n\nSummary: ||| {{summary}}",
+  "choices": null
+ },
+ "DOC_how_would_you_rephrase_few_words": {
+  "template": "{{document}}\nHow would you rephrase that in a few words? ||| {{summary}}",
+  "choices": null
+ },
+ "college_roommate_asked_DOC_so_I_recap": {
+  "template": "My college roommate asked me what this article means:\n\n{{document}}\n\nSo I recapped it in layman's terms: ||| {{summary}}",
+  "choices": null
+ },
+ "DOC_boils_down_to_simple_idea_that": {
+  "template": "{{document}}\nThis boils down to the simple idea that ||| {{summary}}",
+  "choices": null
+ },
+ "summarize_DOC": {
+  "template": "Summarize: {{document}}|||\n{{summary}}",
+  "choices": null
+ },
+ "summarize_this_DOC_summary": {
+  "template": "Summarize this document: {{document}}\nSummary: ||| {{summary}}",
+  "choices": null
+ },
+ "DOC_given_above_write_one_sentence": {
+  "template": "{{document}}\n\n===\n\nGiven the above document, write one sentence to summarize: ||| {{summary}}",
+  "choices": null
+ },
+ "read_below_DOC_write_abstract": {
+  "template": "First, please read the article below.\n\n{{document}}\n\nNow, can you write me an extremely short abstract for it?  ||| {{summary}}",
+  "choices": null
+ },
+ "DOC_tldr": {
+  "template": "{{document}}\n\nTL;DR: ||| {{summary}}",
+  "choices": null
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "Answer Given options": {
+  "template": "{{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}} What is a possible continuation for the story given the following options ? - {{answer_choices | join(\"\\n- \")}} ||| {{answer_choices[answer_right_ending -1]}}",
+  "choices": [
+   "{{sentence_quiz1}}",
+   "{{sentence_quiz2}}"
+  ]
+ },
+ "Choose Story Ending": {
+  "template": "Read the following story :\n\n{{input_sentence_1}}\n{{input_sentence_2}}\n{{input_sentence_3}}\n{{input_sentence_4}}\n\nChoose a possible ending for the previous story from the following options: \n- {{answer_choices | join(\"\\n- \")}}\n|||\n\n{{answer_choices[answer_right_ending -1]}}",
+  "choices": [
+   "{{sentence_quiz1}}",
+   "{{sentence_quiz2}}"
+  ]
+ },
+ "Movie What Happens Next": {
+  "template": "Yesterday, I watched a movie. Here's what happened: {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}} What happens next? - {{answer_choices | join(\"\\n- \")}} ||| {{answer_choices[answer_right_ending -1]}}",
+  "choices": [
+   "{{sentence_quiz1}}",
+   "{{sentence_quiz2}}"
+  ]
+ },
+ "Story Continuation and Options": {
+  "template": "What is a possible continuation for the following story ? \n\n{{input_sentence_1}}\n{{input_sentence_2}}\n{{input_sentence_3}}\n{{input_sentence_4}}\n\nChoose from the following options:\n- {{answer_choices | join(\"\\n- \")}}\n|||\n\n{{answer_choices[answer_right_ending -1]}}",
+  "choices": [
+   "{{sentence_quiz1}}",
+   "{{sentence_quiz2}}"
+  ]
+ },
+ "Generate Ending": {
+  "template": "Generate a possible ending for the following story: {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}} ||| {{answer_choices[answer_right_ending -1]}}",
+  "choices": [
+   "{{sentence_quiz1}}",
+   "{{sentence_quiz2}}"
+  ]
+ },
+ "Novel Correct Ending": {
+  "template": "I read the following novel: {{input_sentence_1}} {{input_sentence_2}} {{input_sentence_3}} {{input_sentence_4}} What do you think is the most probable ending? You can choose from the following options: - {{answer_choices | join(\"\\n- \")}} ||| {{answer_choices[answer_right_ending -1]}}",
+  "choices": [
+   "{{sentence_quiz1}}",
+   "{{sentence_quiz2}}"
+  ]
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "extract_relation": {
+  "template": "The following question is asking about a specific relation. What is this relation?\nQuestion: {{question}} |||\n{{relation}}",
+  "choices": null
+ },
+ "based_on_context": {
+  "template": "Based on the context below, please answer the question: \"{{question.replace(\"XXX\",subject)}}\". If the context is not sufficient to answer, please write \"unanswerable\" instead.\nContext: {{context}}\n|||\n{% if answers|length > 0 %}\n{{answers|choice}}\n{% else %}\nunanswerable\n{% endif %} ",
+  "choices": null
+ },
+ "subject": {
+  "template": "What does \"XXX\" represent in the following context-question pair?\n\n{{context}}\n{{question}} |||\n{{subject}}",
+  "choices": null
+ },
+ "relation2": {
+  "template": "Extract the appropriate relation from the following question about {{subject}}\n\n{{question|replace(\"XXX\",subject)}} |||\n{{relation}}",
+  "choices": null
+ },
+ "qa_including_unanswerable": {
+  "template": "\nYou will find below a context and a question. Please answer the question or write \"unanswerable\" if the question cannot be answered using the context.\nContext: {{context}}\nQuestion: {{question.replace(\"XXX\",subject)}} |||\n{% if answers|length > 0 %}\n{{answers|choice}}\n{% else %}\nunanswerable\n{% endif %} ",
+  "choices": null
+ },
+ "using_a_passage": {
+  "template": " Question: {{question.replace(\"XXX\",subject)}}\nContext: {{context}}\nPlease answer the question above using a passage present in the context. If no passage is a good answer for the question, please write \"unanswerable\" instead.\n|||\n{% if answers|length > 0 %}\n{{answers|choice}}\n{% else %}\nunanswerable\n{% endif %} ",
+  "choices": null
+ },
+ "copy_the_span": {
+  "template": " Question: {{question.replace(\"XXX\",subject)}}\nContext: {{context}}\nPlease copy the span in the context that best answers the question. If there is no such span, please output \"unanswerable\" instead.\n|||\n{% if answers|length > 0 %}\n{{answers|choice}}\n{% else %}\nunanswerable\n{% endif %} ",
+  "choices": null
+ },
+ "may_contain": {
+  "template": " Question: {{question.replace(\"XXX\",subject)}}\nContext: {{context}}\nThe following context may contain an answer to the question. If it does, please copy the span that best answers it. If it does not, mention that the question is \"unanswerable\" using the context.\n|||\n{% if answers|length > 0 %}\n{{answers|choice}}\n{% else %}\nunanswerable\n{% endif %} ",
+  "choices": null
+ }
+}

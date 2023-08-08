@@ -1,0 +1,34 @@
+{
+ "Generate review headline based on review body": {
+  "template": "Give a short sentence describing the following product review:\n{{review_body}} \n|||\n{{review_headline}}",
+  "choices": null
+ },
+ "Generate review based on rating and category": {
+  "template": "Generate a {{star_rating}}-star review (1 being lowest and 5 being highest) about this product {{product_title}}.        |||        {{review_body}}",
+  "choices": null
+ },
+ "Given the review headline return a categorical rating": {
+  "template": "Given the following review headline \n{{review_headline}}\npredict the the associated rating from the following choices\n- {{ answer_choices | join('\\n- ') }} \n(1 being lowest and 5 being highest)\n|||\n{{answer_choices[star_rating-1]}}",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "Generate review headline based on rating": {
+  "template": "Generate a {{star_rating}}-star review headline (1 being lowest and 5 being highest) about this product: \n{{product_title}}        \n|||        \n{{review_headline}}",
+  "choices": null
+ },
+ "Given the review body return a categorical rating": {
+  "template": "Given the following review:\n{{review_body}}\npredict the associated rating from the following choices (1 being lowest and 5 being highest)\n- {{ answer_choices | join('\\n- ') }} \n|||\n{{answer_choices[star_rating-1]}}",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ }
+}

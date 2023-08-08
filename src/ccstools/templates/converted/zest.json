@@ -1,0 +1,29 @@
+{
+ "concat_quest_context": {
+  "template": "{{context}}\n{{question}}|||\n{% if answer != []%}\n{% if answer[0] == \"n/a\" %}\nI don't know\n{% else %}\n{{answer | choice |replace(\"|\", \" or \")}}\n{% endif %}\n{% endif %}",
+  "choices": null
+ },
+ "answerable_or_not": {
+  "template": "Decide whether the question \"{{question}}\" is answerable solely based on this passage:\n{{context}}\nAnswer: |||\n{% if answer != []%}\n{% if answer[0] == \"n/a\" %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "ask_question_as_kid": {
+  "template": "My daughter is asking me a question about {{domain | replace(\"_\", \" \")}}: \"{{question}}\"\nHere's what I found on the internet: {{context}}\nWhat's the answer?\nAnswer: |||\n{% if answer != []%}\n{% if answer[0] == \"n/a\" %}\nCan't answer\n{% else %}\n{{answer | choice |replace(\"|\", \" or \")}}\n{% endif %}\n{% endif %}",
+  "choices": null
+ },
+ "gpt3_instruct_format": {
+  "template": "Answer the question based on the context. If the question is not answerable with the context alone, say \"Can't answer\".\n{{context}}\n{{question}}|||\n{% if answer != []%}\n{% if answer[0] == \"n/a\" %}\nCan't answer\n{% else %}\n{{answer | choice |replace(\"|\", \" or \")}}\n{% endif %}\n{% endif %}",
+  "choices": null
+ },
+ "gpt3_instruct_format_with_domain": {
+  "template": "Answer the question about {{domain | replace(\"_\", \" \")}} based on the context below. If the question is not answerable with the context alone, say \"Can't answer\".\nContext:\n{{context}}\nQuestion:\n{{question}}|||\n{% if answer != []%}\n{% if answer[0] == \"n/a\" %}\nCan't answer\n{% else %}\n{{answer | choice |replace(\"|\", \" or \")}}\n{% endif %}\n{% endif %}",
+  "choices": null
+ },
+ "ask_question_as_teacher": {
+  "template": "I am giving my students the following question about {{domain | replace(\"_\", \" \")}}: \"{{question}}\".\nWhat should be their answer based on this context: {{context}}|||\n{% if answer != []%}\n{% if answer[0] == \"n/a\" %}\nI don't know\n{% else %}\n{{answer | choice |replace(\"|\", \" or \")}}\n{% endif %}\n{% endif %}",
+  "choices": null
+ }
+}

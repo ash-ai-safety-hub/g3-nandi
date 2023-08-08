@@ -1,0 +1,26 @@
+{
+ "next_utterance_4_for_6": {
+  "template": "{% if dialogue_turns.utterance|length==6%}\nComplete this movie-trivia-related dialogue between Speaker {{ dialogue_turns.speaker[0] }} and Speaker {{ dialogue_turns.speaker[1] }} by answering Speaker {{ dialogue_turns.speaker[0] }}'s question as Speaker {{ dialogue_turns.speaker[1] }}.\n\nSpeaker {{ dialogue_turns.speaker[0] }}: {{dialogue_turns.utterance[0]}}\n\nSpeaker {{ dialogue_turns.speaker[1] }}: {{dialogue_turns.utterance[1]}}\n\nSpeaker {{ dialogue_turns.speaker[2] }}: {{dialogue_turns.utterance[2]}}\n\nSpeaker {{ dialogue_turns.speaker[3] }}:\n|||\n{{dialogue_turns.utterance[3]}}\n{% endif %}",
+  "choices": null
+ },
+ "recommend_movie_first_round": {
+  "template": "{{ [\"Someone said:\", \"He said:\", \"She said:\", \"They said:\", \"A friend asked me:\", \"A colleague asked me:\"] | choice  }} \"{{dialogue_turns.utterance[0]}}\" Which movie will you recommend?\n|||\n{{dialogue_turns.utterance[1]}}",
+  "choices": null
+ },
+ "recommend_movie_second_round": {
+  "template": " {% set context_init = [\"\", \"Someone said:\", \"He said:\", \"She said:\", \"They asked:\", \"A friend asked me:\", \"A colleague asked me:\"]|choice %} {% set pronoun = \"he\" %}\n{% if dialogue_turns.utterance|length==6 %}\n{% if \"He\" in context_init %}\n{% set pronoun = \"he\" %}\n{% elif \"She\" in context_init %}\n{% set pronoun = \"she\" %}\n{% elif \"They\" in context_init or \"Someone\" in context_init%}\n{% set pronoun = \"they\" %}\n{% elif \"colleague\" in context_init or \"friend\" in context_init %}\n{% set pronoun = [\"he\",\"she\",\"they\"]|choice %} {%endif%}\n{{context_init}}{% if context_init==\"\" %}{{dialogue_turns.utterance[4]}}|||{{dialogue_turns.utterance[5]}}\n{% else %} \"{{dialogue_turns.utterance[4]}}\". Which movie do you think {{pronoun}} will like?|||{{dialogue_turns.utterance[5]}}{% endif %}\n{% else %}\n|||\n{% endif %}",
+  "choices": null
+ },
+ "recommend_movie_second_round_with_context": {
+  "template": " {% set context_init= [\"I am aware\", \"Someone is aware\", \"He is aware\", \"She is aware\", \"They are aware\", \"A friend is aware\", \"A colleague is aware\", \"A person is aware\", \"I know\", \"Someone knows\", \"He knows\", \"She knows\", \"They know\", \"A friend knows\", \"A colleague knows\", \"A person knows\"]|choice %}\n{% set pronoun = \"he\" %} {% set pronoun_2 = \"him\" %} {% set choice_idx = 0 %}\n{% if dialogue_turns.utterance|length==6 %}\n{% if \"He\" in context_init %}\n{% set pronoun = \"he\" %}\n{% set pronoun_2 = \"him\" %}\n{% elif \"I\" in context_init %}\n{% set pronoun = \"I\" %}\n{% set pronoun_2 = \"me\" %}\n{% elif \"She\" in context_init %}\n{% set pronoun = \"she\" %}\n{% set pronoun_2 = \"her\" %}\n{% elif \"They\" in context_init or \"Someone\" in context_init or \"person\" in context_init%}\n{% set pronoun = \"they\" %}\n{% set pronoun_2 = \"them\" %}\n{% elif \"colleague\" in context_init or \"friend\" in context_init %}\n{% set choice_idx = range(3)|list|choice %}\n{% set pronoun = [\"he\",\"she\",\"they\"][choice_idx] %}\n{% set pronoun_2 = [\"him\",\"her\",\"them\"][choice_idx] %}\n{%endif%}\n{{context_init}} that the movie {{dialogue_turns.utterance[1]}}, is related to {{dialogue_turns.utterance[3]}}.\nAlso, {% if pronoun!=\"I\" %}{{pronoun}} said: \"{{dialogue_turns.utterance[4]}}\". Can you recommend a movie for {{pronoun_2}} please?|||{{dialogue_turns.utterance[5]}}{%else%}{{dialogue_turns.utterance[4]}}|||{{dialogue_turns.utterance[5]}}{% endif %}\n{% else %}\n|||\n{% endif %}",
+  "choices": null
+ },
+ "next_utterance_4_and_6": {
+  "template": "Complete this movie-trivia-related dialogue between Speaker {{ dialogue_turns.speaker[0] }} and Speaker {{ dialogue_turns.speaker[1] }} by answering Speaker {{ dialogue_turns.speaker[0] }}'s question as Speaker {{ dialogue_turns.speaker[1] }}.\n\nSpeaker {{ dialogue_turns.speaker[0] }}: {{dialogue_turns.utterance[0]}}\n\nSpeaker {{ dialogue_turns.speaker[1] }}: {{dialogue_turns.utterance[1]}}\n\nSpeaker {{ dialogue_turns.speaker[2] }}: {{dialogue_turns.utterance[2]}}\n\n{% if dialogue_turns.utterance|length==6 %}Speaker {{ dialogue_turns.speaker[3] }}: {{dialogue_turns.utterance[3]}}\n\nSpeaker {{ dialogue_turns.speaker[4] }}: {{dialogue_turns.utterance[4]}}\n\n{% endif %}Speaker {{ dialogue_turns.speaker[5] }}:|||\n{{dialogue_turns.utterance[-1]}}",
+  "choices": null
+ },
+ "qa_about movie": {
+  "template": "Answer the following question about movie {{dialogue_turns.utterance[1]}}:\n\n{{dialogue_turns.utterance[2]}}\n|||\n{{dialogue_turns.utterance[3]}}",
+  "choices": null
+ }
+}

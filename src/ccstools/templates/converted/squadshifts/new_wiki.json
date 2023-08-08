@@ -1,0 +1,38 @@
+{
+ "after": {
+  "template": "After reading the following paragraph, please answer this question: {{question}}\n\n{{context}}\n\n|||\n{{answers['text'] | most_frequent | choice}}",
+  "choices": null
+ },
+ "answers_question": {
+  "template": "Use the following answers to generate a possible short passage-question pair:\n{{answers[\"text\"]|join(', ')}} |||\n{{context}}\n{{question}}\n",
+  "choices": null
+ },
+ "wondered": {
+  "template": "I've always wondered: {{question}}\n\nI searched Wikipedia and this is what I found. What's the answer?\n\n{{context}}\n\n|||\n{{answers['text'] | most_frequent | choice}}",
+  "choices": null
+ },
+ "question_num_hint_answer": {
+  "template": "{{[\"Question\", \"Problem\"]  | choice}} {{range(1, 12) | choice}}: {{question}}\n\nHint: {{context}}\n\n|||\n{{answers[\"text\"] | most_frequent | choice}}",
+  "choices": null
+ },
+ "exam_creation_help": {
+  "template": "I'm creating a final exam for my reading class. Can you please come up with a good question to quiz how well students have read the following text snippet?\n\n{{context}}\n\n|||\n\n{{question}}",
+  "choices": null
+ },
+ "title": {
+  "template": "Generate a title for the following short passage:\n\n{{context}} |||\n{{title|replace(\"_\",\" \")}}\n",
+  "choices": null
+ },
+ "pick_one_answer": {
+  "template": "{{context}}\n\nWith the help of the passage, please answer the following question: \n{{question}} |||\n{{answers[\"text\"]|choice}}\n",
+  "choices": null
+ },
+ "generate_question": {
+  "template": "Please come up with a good question to test reading comprehension about the following paragraph:\n\n{{context}}\n\n|||\n\n{{question}}",
+  "choices": null
+ },
+ "exam": {
+  "template": "I'm working on the final exam for my class and am trying to figure out the answer to the question \"{{question}}\" I found the following info on Wikipedia and I think it has the answer. Can you tell me the answer?\n\n{{context}}\n\n|||\n{{answers['text'] | most_frequent | choice}}",
+  "choices": null
+ }
+}

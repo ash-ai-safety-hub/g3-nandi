@@ -1,0 +1,61 @@
+{
+ "positive_pairs": {
+  "template": "Question: {{question}} \nSentence: {{sentence}} \nAre the question and the sentence positive pairs where positive pairs means that the sentence answers the question? ||| {{answer_choices[label]}}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "question_from_sentence": {
+  "template": "{% if label == 1 %}\n\nWhat is a question that someone might ask that the following sentence can answer?\n\n {{sentence}}\n\n|||\n\n{{question}}\n{% endif %}\n",
+  "choices": null
+ },
+ "write_question": {
+  "template": "{% if label == 1 %}\n\nWrite a question based on this sentence: {{sentence}}\n\n|||\n\n{{question}}\n{% endif %}\n",
+  "choices": null
+ },
+ "answer_infer_question": {
+  "template": "Can the answer \"{{sentence}}\" be inferred from the question \"{{question}}\" ? ||| {{answer_choices[label]}}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "Does_sentence_answer_question": {
+  "template": "Does this sentence \"{{sentence}}\"  answer this question \"{{question}}\" ? ||| {{answer_choices[label]}}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "answer question with a sentence": {
+  "template": "{% if label == 1 %}\n\nGenerate a one-sentence answer to the following question: {{question}}?\n\n|||\n\n{{sentence}}\n{% endif %}\n",
+  "choices": null
+ },
+ "give me a full sentence answer": {
+  "template": "{% if label == 1 %}\n\nGiven the following question: {{question}}? Can you give me a full sentence answer?\n\n|||\n\n{{sentence}}\n{% endif %}\n",
+  "choices": null
+ },
+ "answer question as a sentence": {
+  "template": "{% if label == 1 %}\nAnswer this question as a full sentence: {{question}}?\n|||\n{{sentence}}\n{% endif %}\n",
+  "choices": null
+ },
+ "yes_vs_no": {
+  "template": "Can this question: \"{{question}}\" be answered as follow: \"{{sentence}}\" \\ \\ please answer yes or no.  ||| {{answer_choices[label]}}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "write_a_question": {
+  "template": "{% if label == 1 %}\n\nHere is a sentence:\n\n {{sentence}}\n\nWrite a question to which this sentence is an answer.\n\n|||\n\n{{question}}\n{% endif %}\n",
+  "choices": null
+ },
+ "right_answer": {
+  "template": "Does the following sentence \"{{sentence}}\" seem a right answer for the following question : {{question}} ||| {{answer_choices[label]}}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ }
+}

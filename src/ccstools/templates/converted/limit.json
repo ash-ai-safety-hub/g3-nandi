@@ -1,0 +1,59 @@
+{
+ "last_moving_entity": {
+  "template": "{{sentence}}\n\nWhat is the last entity in motion mentioned in the sentence if any? Otherwise, respond with \"No entity in motion\".\n|||\n{% if (motion_entities  | length) > 0 %}\n{{ (motion_entities | sort(attribute=\"start_index\") | last)[\"entity\"] }}\n{% else %}\n{{\"No entity in motion\"}}\n{% endif %}",
+  "choices": null
+ },
+ "any_entity": {
+  "template": "{{sentence}}\n\nAre there any entities in motion in the sentence?\n\n|||\n\n{% if motion == \"yes\" %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "find_entities_question": {
+  "template": "{{sentence}}\n\nWhat are the entities in motion in the previous sentence? Return {{\"'No entity'\"}} if you can't find any. If there are multiple entities, use a comma to join them.\n\n|||\n{% if (motion_entities  | length) == 0 %}\n{{ \"No entity\" }}\n{% else %}\n{{motion_entities | map(attribute=\"entity\") | join(\", \")}}\n{% endif %}",
+  "choices": null
+ },
+ "more_than_one": {
+  "template": "Extract: {{sentence}}\n\nIs there more than one mention of a moving entity in the extract? \n\n|||\n{% if (motion_entities  | length) > 1 %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "count_entities": {
+  "template": "{{sentence}}\nHow many moving entities are mentioned in the sentence above?\n|||\n{{motion_entities | length}}",
+  "choices": null
+ },
+ "find_entities_list_out": {
+  "template": "List out the entities in motion in the following sentence (if there are multiple entities, use a comma to join them). Respond {{\"'No entity'\"}} if you can't find any. \n\n{{sentence}}\n\n|||\n\n{% if (motion_entities | length) == 0 %}\n{{\"No entity\"}}\n{% else %}\n{{motion_entities | map(attribute=\"entity\") | join(\", \")}}\n{% endif %}",
+  "choices": null
+ },
+ "find_entities_moving_in_video": {
+  "template": "Sam has watched a video described as \"{{sentence}}\". What are the entities moving in the video? \n\nList the entities separated by commas. Return {{\"'No entity'\"}} if there isn't any.\n\n|||\n{% if (motion_entities  | length) == 0 %}\n{{ \"No entity\" }}\n{% else %}\n{{motion_entities | map(attribute=\"entity\") | join(\", \")}}\n{% endif %}",
+  "choices": null
+ },
+ "first_moving_entity": {
+  "template": "{{sentence}}\n\nName the first entity in motion mentioned in the sentence if any. Otherwise, respond with \"No entity in motion\".\n\n|||\n\n{% if (motion_entities  | length) > 0 %}\n{{ (motion_entities | sort(attribute=\"start_index\") | first)[\"entity\"] }}\n{% else %}\n{{\"No entity in motion\"}}\n{% endif %}",
+  "choices": null
+ },
+ "count_entities_affirm": {
+  "template": "Count the number of moving entities in the following sentence.\n{{sentence}}\n|||\n{{motion_entities | length}}",
+  "choices": null
+ },
+ "any_entity_reference": {
+  "template": "Is there any reference to movement in the following sentence?\n\n{{sentence}}\n\n|||\n\n{% if motion == \"yes\" %}\n{{ answer_choices[0] }}\n{% else %}\n{{ answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "find_entities_extract": {
+  "template": "Extract: {{sentence}}\n\nCan you find all mentions of moving entities in the extract? Return {{\"'No entity'\"}} if you can't find any.  If there are multiple entities, use a comma to join them.\n\n|||\n{% if (motion_entities  | length) == 0 %}\n{{ \"No entity\" }}\n{% else %}\n{{motion_entities | map(attribute=\"entity\") | join(\", \")}}\n{% endif %}",
+  "choices": null
+ },
+ "find_entities_dynamic": {
+  "template": "What are the dynamic entities in the following sentence (if there are multiple entities, use a comma to join them)? Dynamic entities refer to objects in motion. Respond {{\"'No entity'\"}} if you can't find any. \n\n{{sentence}}\n\n|||\n\n{% if (motion_entities | length) == 0 %}\n{{\"No entity\"}}\n{% else %}\n{{motion_entities | map(attribute=\"entity\") | join(\", \")}}\n{% endif %}",
+  "choices": null
+ }
+}

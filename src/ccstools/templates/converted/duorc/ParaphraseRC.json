@@ -1,0 +1,38 @@
+{
+ "build_story_around_qa": {
+  "template": "{% if no_answer == false%}\nBuild a movie plot around this: {{ question }} {{answers|choice}}\n|||\n{{ plot }}\n{% endif %}",
+  "choices": null
+ },
+ "decide_worth_it": {
+  "template": "I am trying to decide whether it's worth it to invest in this film proposal. Can you help me answer a few questions? If you can't, please say \"{{\"No I can't\"}}\".\n\nQuestion: {{question}}\nMovie title: {{title}}\nMovie plot: {{plot}}\n|||\n{% if no_answer %}\nNo I can't\n{% else %}\n{{answers|choice}}\n{% endif %}",
+  "choices": null
+ },
+ "question_answering": {
+  "template": "Question: {{question}}\nIf there is no answer, please output \"{{\"Insufficient information to provide an answer.\"}}\".\nMovie title: {{title}}\nContext: {{plot}}\n|||\n{% if no_answer %}\nInsufficient information to provide an answer.\n{% else %}\n{{answers|choice}}\n{% endif %}",
+  "choices": null
+ },
+ "movie_director": {
+  "template": "I am a movie director and I just received the following movie plot. Could you help me answer this question? If not, let me know by writing \"{{\"Not answerable\"}}\".\n\nPlot title: {{title}}\nMovie plot: {{plot}}\nMy question: {{question}}\n|||\n{% if no_answer %}\nNot answerable\n{% else %}\n{{answers|choice}}\n{% endif %}",
+  "choices": null
+ },
+ "generate_question": {
+  "template": "Generate a question about the following movie plot: {{ plot }}\n|||\n{{ question }}",
+  "choices": null
+ },
+ "extract_answer": {
+  "template": "Extract the answer to the following question from the movie plot. If the question isn't answerable, please output \"{{\"Can't answer\"}}\".\nQuestion: {{question}}\nTitle: {{title}}\nMovie plot: {{plot}}\n|||\n{% if no_answer %}\nCan't answer\n{% else %}\n{{answers | choice }}\n{% endif %}",
+  "choices": null
+ },
+ "title_generation": {
+  "template": "Suggest a movie title for the following movie plot: {{plot}}\n|||\n{{title}}",
+  "choices": null
+ },
+ "answer_question": {
+  "template": "Please answer the following question about this movie plot. If it's un-answerable, please output \"{{\"No answer\"}}\".\n\nQuestion: {{question}}\nMovie plot title: {{title}}\nMovie plot: {{plot}}\n|||\n{% if no_answer %}\nNo answer\n{% else %}\n{{answers | choice }}\n{% endif %}",
+  "choices": null
+ },
+ "generate_question_by_answer": {
+  "template": "{% if no_answer == false%}\nGenerate a question that has the following answer: \n{{answers|choice}} \nfor the following movie plot: \n{{plot}}\n|||\n{{question}}\n{% endif %}",
+  "choices": null
+ }
+}

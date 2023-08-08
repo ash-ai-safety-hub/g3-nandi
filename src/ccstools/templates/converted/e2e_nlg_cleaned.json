@@ -1,0 +1,50 @@
+{
+ "generate_gramatically_correct_text": {
+  "template": "Combine all of the following data into a concise and grammatically correct text:\n{% for feature in meaning_representation.split(\"]\") %} {% set key = feature.split(\"[\")[0].replace(\",\",\"\") %} {% set value = feature.replace(\",\",\"\").replace(key+\"[\", '''') %}\n{% if value != \"\" %} {{key}} : {{value}} {% endif %}\n{%- endfor %}\n||| {{human_reference}}",
+  "choices": null
+ },
+ "eat_type_qa": {
+  "template": "{% set vars = {'key':\"eatType\", 'value':\"\"} %}\n{% for feature in meaning_representation.split(\"]\") if vars['key']  in feature %}\n{% set temp = vars.update({'value':feature.replace(\",\",\"\").replace(vars['key']+\"[\", '')}) %}\n{%- endfor %}\n{% if vars[\"value\"]|length > 0 %}\n{{human_reference}} What type of restaurant is the passage talking about?  ||| {{vars['value']}}\n{% endif %}\n\n",
+  "choices": null
+ },
+ "food_qa": {
+  "template": "{% set vars = {'key':\"food\", 'value':\"\"} %}\n{% for feature in meaning_representation.split(\"]\") if vars['key']  in feature %}\n{% set temp = vars.update({'value':feature.replace(\",\",\"\").replace(vars['key']+\"[\", '')}) %}\n{%- endfor %}\n{% if vars[\"value\"]|length > 0 %}\n{{human_reference}}\nFrom the passage given above, what type of food do you think is served at this restaurant?  ||| {{vars['value']}}\n{% endif %}\n\n",
+  "choices": null
+ },
+ "generate_text_restaurant": {
+  "template": "Given the following data about a restaurant:\n{% for feature in meaning_representation.split(\"]\") %} {% set key = feature.split(\"[\")[0].replace(\",\",\"\") %} {% set value = feature.replace(\",\",\"\").replace(key+\"[\", '''') %}\n{% if value != \"\" %} {{key}} : {{value}} {% endif %}\n{%- endfor %}\nGenerate some text about this restaurant. ||| {{human_reference}}",
+  "choices": null
+ },
+ "area_qa": {
+  "template": "{% set vars = {'key':\"area\", 'value':\"\"} %}\n{% for feature in meaning_representation.split(\"]\") if vars['key']  in feature %}\n{% set temp = vars.update({'value':feature.replace(\",\",\"\").replace(vars['key']+\"[\", '')}) %}\n{%- endfor %}\n{% if vars[\"value\"]|length > 0 %}\n{{human_reference}}\nFrom the passage given above, where is the location of the restaurant?  ||| {{vars['value']}}\n{% endif %}\n\n",
+  "choices": null
+ },
+ "family_friendly_yes_no": {
+  "template": "{% set vars = {'key':\"familyFriendly\", 'value':\"\"} %}\n{% for feature in meaning_representation.split(\"]\") if vars['key']  in feature %}\n{% set temp = vars.update({'value':feature.replace(\",\",\"\").replace(vars['key']+\"[\", '')}) %}\n{%- endfor %}\n{% if vars[\"value\"]|length > 0 %}\n{{human_reference}} Is the restaurant from the passage family friendly?  ||| {{vars['value']}}\n{% endif %}\n\n",
+  "choices": null
+ },
+ "near_qa": {
+  "template": "{% set vars = {'key':\"near\", 'value':\"\"} %}\n{% for feature in meaning_representation.split(\"]\") if vars['key']  in feature %}\n{% set temp = vars.update({'value':feature.replace(\",\",\"\").replace(vars['key']+\"[\", '')}) %}\n{%- endfor %}\n{% if vars[\"value\"]|length > 0 %}\n{{human_reference}}\nName one landmark that is close to the restaurant in the given passage.  ||| {{vars['value']}}\n{% endif %}\n\n",
+  "choices": null
+ },
+ "create_text_for_me": {
+  "template": "How would we create an appropriate text out of the following data?\n{{meaning_representation}}\n\n||| {{human_reference}}",
+  "choices": null
+ },
+ "name_qa": {
+  "template": "{% set vars = {'key':\"name\", 'value':\"\"} %}\n{% for feature in meaning_representation.split(\"]\") if vars['key']  in feature %}\n{% set temp = vars.update({'value':feature.replace(\",\",\"\").replace(vars['key']+\"[\", '')}) %}\n{%- endfor %}\n{% if vars[\"value\"]|length > 0 %}\n{{human_reference}}\nFrom the passage given above, what is the name of the dinery?  ||| {{vars['value']}}\n{% endif %} ",
+  "choices": null
+ },
+ "rating_qa": {
+  "template": "{% set vars = {'key':\"customer rating\", 'value':\"\"} %}\n{% for feature in meaning_representation.split(\"]\") if vars['key']  in feature %}\n{% set temp = vars.update({'value':feature.replace(\",\",\"\").replace(vars['key']+\"[\", '')}) %}\n{%- endfor %}\n{% if vars[\"value\"]|length > 0 %}\n{{human_reference}}\nAccording to this passage, what is the rating given to this restaurant?  ||| {{vars['value']}}\n{% endif %}\n\n",
+  "choices": null
+ },
+ "coherent_text": {
+  "template": "Please generate a restaurant description from the information given below:\n\n{{meaning_representation}} ||| {{human_reference}}",
+  "choices": null
+ },
+ "price_range_qa": {
+  "template": "{% set vars = {'key':\"priceRange\", 'value':\"\"} %}\n{% for feature in meaning_representation.split(\"]\") if vars['key']  in feature %}\n{% set temp = vars.update({'value':feature.replace(\",\",\"\").replace(vars['key']+\"[\", '')}) %}\n{%- endfor %}\n{% if vars[\"value\"]|length > 0 %}\n{{human_reference}}\nAccording to the passage, what is an approximate price range of the given restaurant?  ||| {{vars['value']}}\n{% endif %}\n\n",
+  "choices": null
+ }
+}

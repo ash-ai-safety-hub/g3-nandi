@@ -1,0 +1,22 @@
+{
+ "question context answer": {
+  "template": "Question: {{question}}\nAnswer based on following passage.\n\n{{passage}}\n\nAnswer:\n||| {{ answers_spans.spans | join(\", \") }}",
+  "choices": null
+ },
+ "can you tell me": {
+  "template": "I am trying to figure out the answer to the question, \"{{question}}\" I found the following text-snippet has the answer. Can you tell me the answer?\n\n{{passage}} \n\n||| {{ answers_spans.spans | join(\", \") }}\n",
+  "choices": null
+ },
+ "DROP GPT3": {
+  "template": "Passage: {{passage}}\nQuestion: {{question}}\nAnswer: ||| {{ answers_spans.spans | join(\", \") }}",
+  "choices": null
+ },
+ "generate_question_with_passage_and_answer": {
+  "template": "Generate a question from the following passage that has the answer, {{ answers_spans.spans | join(\", \") }}\nPassage : {{passage}}\nQuestion :\n|||\n{{question}}",
+  "choices": null
+ },
+ "context question answer": {
+  "template": "Context: {{passage}}\nI am trying to figure out the answer to the question from the above context.  Can you tell me the answer?\nQuestion: {{question}}\nAnswer:\n||| {{ answers_spans.spans | join(\", \") }}",
+  "choices": null
+ }
+}

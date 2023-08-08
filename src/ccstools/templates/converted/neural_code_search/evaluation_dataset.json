@@ -1,0 +1,10 @@
+{
+ "generate code given a description": {
+  "template": "Description:\n{{ question }}\n\nImplementation:\n|||\n{{ answer }}\n",
+  "choices": null
+ },
+ "generate a description given code": {
+  "template": "Given the following code:\n{{ answer }}\nDescribe it:\n|||\n{{ question }}",
+  "choices": null
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "<premise>-given_the_above-generate_compressed-<entailment>": {
+  "template": "{{graph.sentence}}\n\n===\n\nGiven the above sentence, generate a compressed sentence: ||| {{compression.text}}",
+  "choices": null
+ },
+ "<premise>-given_the_above-write_headline-<entailment>": {
+  "template": "{{graph.sentence}}\n\n===\n\nGiven the above sentence, write a headline: ||| {{compression.text}}",
+  "choices": null
+ },
+ "sentence-<premise>-compressed-<entailment>": {
+  "template": "Sentence: {{graph.sentence}}\n\nCompressed sentence: ||| {{compression.text}}",
+  "choices": null
+ },
+ "<premise>-extreme_TLDR-<entailment>": {
+  "template": "{{graph.sentence}}\n\nExtreme TL;DR: ||| {{compression.text}}",
+  "choices": null
+ },
+ "write_headline-<premise>-headline-<entailment>": {
+  "template": "Write a headline for the sentence below:\n{{graph.sentence}}\n\nheadline:\n|||\n{{headline}}",
+  "choices": null
+ },
+ "<premise>-given_the_above-write_compressed_to_summarize-<entailment>": {
+  "template": "{{graph.sentence}}\n===\nGiven the above sentence, write one compressed sentence to summarize: ||| {{compression.text}}",
+  "choices": null
+ },
+ "compress-<premise>-<entailment>": {
+  "template": "Compress: {{graph.sentence}} ||| {{compression.text}}",
+  "choices": null
+ }
+}

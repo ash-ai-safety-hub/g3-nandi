@@ -1,0 +1,75 @@
+{
+ "observe_check_plausible_yes_no": {
+  "template": "Given the context,\n\n{{sentence}}\n\nobserve the following QA pair and check if the answer is plausible:\n\nQuestion: {{question}}\n\nAnswer: {{answer}} |||\n\n{{answer_choices[label]}}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "plausible_negated": {
+  "template": "I've been grappling with the temporal accuracy of this answer for a while:\n\nQ: \"{{question}}\"\n\nI have the following information: \"{{sentence}}\"\n\nA: \"{{answer}}\" \n\nThis answer is definitely not ||| {{answer_choices[label]}}",
+  "choices": [
+   "plausible",
+   "implausible"
+  ]
+ },
+ "temporal_categories_with_choices": {
+  "template": "There are five temporal categories: {{\"Event Duration\"}}, {{\"Event Ordering\"}}, {{\"Frequency\"}}, {{\"Typical Time\"}}, {{\"Stationarity\"}}.\n\nOut of the above temporal categories, which one does the question \"{{question}}\" belong to? |||\n{{answer_choices[category]}}",
+  "choices": [
+   "Event Duration",
+   "Event Ordering",
+   "Frequency",
+   "Typical Time",
+   "Stationarity"
+  ]
+ },
+ "generate_answer_from_question_and_context": {
+  "template": "{% if label %}\nI have the following passage:\n\n{{sentence}}\n\nMy query is: \"{{question}}\"\n\nI want an answer that is \"temporally plausible\". |||\n\n{{answer}}\n{% endif %}",
+  "choices": null
+ },
+ "asked_my_friend": {
+  "template": "Here's what happened: {{sentence}}\n\nI asked my friend {{question}}\n\nand they said {{answer}}\n\nShould I believe them?\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "formal_description": {
+  "template": "Given the context, the question, and the candidate answer, the task is to determine whether the candidate answer is plausible (\"yes\") or not (\"no\").\n\nContext: {{sentence}}\n\nQuestion: {{question}}\n\nCandidate answer: {{answer}}\n|||\n{{answer_choices[label]}}\n\n",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "believable": {
+  "template": "Given the context,\n\n{{sentence}}\n\nand the question,\n\n{{question}}\n\nis the following answer believable?\n\n{{answer}} |||\n\n{{answer_choices[label]}}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "plausible_true_false": {
+  "template": "True/False?\n\n\"{{answer}}\" is a plausible answer to \"{{question}}\", given \"{{sentence}}\" |||\n\n{{answer_choices[label]}}",
+  "choices": [
+   "False",
+   "True"
+  ]
+ },
+ "temporal_categories_no_choices": {
+  "template": "Which temporal category does the question \"{{question}}\" belong to? |||\n\n{{answer_choices[category]}}",
+  "choices": [
+   "Event Duration",
+   "Event Ordering",
+   "Frequency",
+   "Typical Time",
+   "Stationarity"
+  ]
+ },
+ "asked_my_friend_doubt": {
+  "template": "Here's what happened: {{sentence}}\n\nI asked my friend {{question}}\n\nand they said {{answer}}\n\nShould I doubt them?\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ }
+}

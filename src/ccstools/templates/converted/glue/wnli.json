@@ -1,0 +1,37 @@
+{
+ "confident": {
+  "template": "If it's true that\n{{sentence1}}\nhow {{\"confident\"}} should I be that\n{{sentence2}}\n{{\"very confident or not confident?\"}}\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "not confident",
+   "very confident"
+  ]
+ },
+ "entailment explained": {
+  "template": "{{\"Entailment\"}} means that the second sentence follows from the first sentence. Are the following two sentences an example of entailment?\n{{sentence1}}\n{{sentence2}}\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "mean": {
+  "template": "Assume that the following is true:\n{{sentence1}}\nDoes this mean that \"{{sentence2}}\"?\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "justified": {
+  "template": "Someone told me \"{{sentence1}}\" Now, I think that \"{{sentence2}}\" Am I justified in thinking this?\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "imply": {
+  "template": "{{sentence1}}\n{{sentence2}}\nDoes the first sentence imply the second sentence?\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ }
+}

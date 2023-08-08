@@ -1,0 +1,18 @@
+{
+ "Non-explicit Description": {
+  "template": "Take the following triple set as part of a Data-to-Text task: {{modified_triple_sets.mtriple_set[0] | join(\", \")}}. Make a lexicalization of the triple set into plain text. ||| {{lex.text | choice}}",
+  "choices": null
+ },
+ "Verbalize + Specify Commas": {
+  "template": "Verbalize the following triples separated by a comma: {{modified_triple_sets.mtriple_set[0] | join(\", \")}} ||| {{lex.text | choice}}",
+  "choices": null
+ },
+ "Explicit Graph Description": {
+  "template": "Take the following graph comprising triple sets, where each element of a triple is separated  by \"|\" and each triple set by \",\": {{modified_triple_sets.mtriple_set[0] | join(\", \")}}. Make a verbalization of the triple set into plain text. ||| {{lex.text | choice}}",
+  "choices": null
+ },
+ "Explicit Table-to-Text Description": {
+  "template": "Take the following Table to text task comprising semantic triples (RDF triples), where each element of a triple is separated  by \"|\" and each triple set by \",\": {{modified_triple_sets.mtriple_set[0] | join(\", \")}}. Make a verbalization of the triple set into plain text, which fully and accurately describes the Table. ||| {{lex.text | choice}}",
+  "choices": null
+ }
+}

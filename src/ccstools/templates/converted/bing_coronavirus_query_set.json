@@ -1,0 +1,34 @@
+{
+ "what_country ": {
+  "template": "This search query talks about the coronavirus and was published on {{Date}}. In what country was it issued? \n{{Query}}\n|||\n{{Country}}",
+  "choices": null
+ },
+ "is_implicit_or_explicit ": {
+  "template": "The user is searching for coronavirus results on Bing.com. Is the intent implicit or explicit? \n{{Query}}\n|||\n{% if IsImplicitIntent == \"True\" %}\n{{answer_choices[0] }}\n{% else %}\n{{answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "implicit",
+   "explicit"
+  ]
+ },
+ "is_explicit_country_date ": {
+  "template": "This search query about coronavirus was issued in {{Country}} on {{Date}}. Is the intent implicit or explicit? \n{{Query}}\n|||\n{% if IsImplicitIntent == \"True\" %}\n{{answer_choices[0] }}\n{% else %}\n{{answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "implicit",
+   "explicit"
+  ]
+ },
+ "is_implicit_query": {
+  "template": "Does this search engine query have an indirect relation to Covid-19? \n{{Query}}\n|||\n{% if IsImplicitIntent == \"True\" %}\n{{answer_choices[0] }}\n{% else %}\n{{answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "is_explicit_query": {
+  "template": "Does this search query on Bing.com talk about the coronavirus explicitly? \n{{Query}}\n|||\n{% if IsImplicitIntent == \"True\" %}\n{{answer_choices[0] }}\n{% else %}\n{{answer_choices[1] }}\n{% endif %}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ }
+}

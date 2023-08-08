@@ -1,0 +1,68 @@
+{
+ "decompose_top": {
+  "template": "{% if coherent_second_sentence==\"\" %}\n\nDecompose the following sentence into two separate sentences:\n\n{{coherent_first_sentence}}\n\n|||\n\n{{incoherent_first_sentence}} {{incoherent_second_sentence}} \n{% endif %}",
+  "choices": null
+ },
+ "grammar_detection_bottom": {
+  "template": "{% set poss_ans_list = [\"SINGLE_APPOSITION\", \"SINGLE_RELATIVE\", \"SINGLE_CATAPHORA\", \"SINGLE_VP_COORD\", \"PAIR_ANAPHORA\", \"SINGLE_CONN_INNER\", \"SINGLE_CONN_INNER_ANAPHORA\", \"SINGLE_S_COORD\", \"SINGLE_S_COORD_ANAPHORA\", \"SINGLE_CONN_START\", \"PAIR_CONN\", \"PAIR_CONN_ANAPHORA\"] %}\n\n{% if discourse_type != \"PAIR_NONE\" %}\nPassage 1: {{incoherent_first_sentence}} {{incoherent_second_sentence}}\n\nPassage 2: {{coherent_first_sentence}} {{coherent_second_sentence}}\n\nWhich of the following discourse phenomena have been used to turn Passage 1 into Passage 2?\n\n{% for lab in answer_choices %}\n{{ loop.index }}: {{ lab }}\n{% endfor %}\n  \n |||\n\n{{ answer_choices[poss_ans_list.index(discourse_type)] }}\n\n{% endif %}",
+  "choices": [
+   "Apposition",
+   "Relative Clauses",
+   "Cataphora",
+   "Verb Phrase Coordination",
+   "Anaphora",
+   "Inner Connectives",
+   "Both Inner Connectives and Anaphora",
+   "Sentence Coordination",
+   "Both Sentence Coordination and Anaphora",
+   "Forward Connectives",
+   "Discourse Connectives",
+   "Both Discourse Connectives and Anaphora"
+  ]
+ },
+ "decompose_remainder_2": {
+  "template": "{% if coherent_second_sentence==\"\" %}\n\nRead this sentence:\n\n{{coherent_first_sentence}}\n\nNow, read this second sentence, that covers some of the information from the first:\n\n{{incoherent_first_sentence}}\n\nWrite a sentence that covers the information from the first sentence that is missing from the second\n|||\n\n {{incoherent_second_sentence}} \n{% endif %}",
+  "choices": null
+ },
+ "fuse_instruction_top": {
+  "template": "Rewrite the following two sentences so that they flow better:\n\nfirst sentence: {{incoherent_first_sentence}}\n\nSecond Sentence: {{incoherent_second_sentence}}\n\n|||\n\n{{coherent_first_sentence}} {{coherent_second_sentence}}",
+  "choices": null
+ },
+ "fuse_instruction_bottom": {
+  "template": "Here are two sentences:\n\n\n1: {{incoherent_first_sentence}}\n\n2: {{incoherent_second_sentence}}\n\nPlease edit them so that they sound more connected to each other, perhaps by fusing the sentences together.\n|||\n\n{{coherent_first_sentence}} {{coherent_second_sentence}}",
+  "choices": null
+ },
+ "fuse_interrogative_bottom": {
+  "template": "{% if coherent_second_sentence==\"\" %}\n\nSentence 1: {{incoherent_first_sentence}}\nSentence 2: {{incoherent_second_sentence}}\n \nCould you find a way to fuse the two sentences above?\n\n|||\n\n{{coherent_first_sentence}}\n{% endif %}",
+  "choices": null
+ },
+ "fuse_top": {
+  "template": "{% if coherent_second_sentence==\"\" %}\n\nRewrite these two sentences as one sentence:\n\nFirst sentence: {{incoherent_first_sentence}} \n\nSecond sentence: {{incoherent_second_sentence}} \n\n|||\n\n{{coherent_first_sentence}}\n{% endif %}",
+  "choices": null
+ },
+ "grammar_detection_top": {
+  "template": "{% set poss_ans_list = [\"SINGLE_APPOSITION\", \"SINGLE_RELATIVE\", \"SINGLE_CATAPHORA\", \"SINGLE_VP_COORD\", \"PAIR_ANAPHORA\", \"SINGLE_CONN_INNER\", \"SINGLE_CONN_INNER_ANAPHORA\", \"SINGLE_S_COORD\", \"SINGLE_S_COORD_ANAPHORA\", \"SINGLE_CONN_START\", \"PAIR_CONN\", \"PAIR_CONN_ANAPHORA\"] %}\n{% if discourse_type != \"PAIR_NONE\" %}\nPeruse the following two passages and identify the discourse phenomenon which can be used to turn Passage 1 into Passage 2.\n\nPassage 1: {{incoherent_first_sentence}} {{incoherent_second_sentence}}\n\nPassage 2: {{coherent_first_sentence}} {{coherent_second_sentence}}\n\n{% for lab in answer_choices %}\n{{ loop.index }}: {{ lab }}\n{% endfor %}\n  \n |||\n\n{{ answer_choices[poss_ans_list.index(discourse_type)] }}\n\n{% endif %}",
+  "choices": [
+   "Apposition",
+   "Relative Clauses",
+   "Cataphora",
+   "Verb Phrase Coordination",
+   "Anaphora",
+   "Inner Connectives",
+   "Both Inner Connectives and Anaphora",
+   "Sentence Coordination",
+   "Both Sentence Coordination and Anaphora",
+   "Forward Connectives",
+   "Discourse Connectives",
+   "Both Discourse Connectives and Anaphora"
+  ]
+ },
+ "decompose_bottom": {
+  "template": "{% if coherent_second_sentence==\"\" %}\n{{coherent_first_sentence}}\n\nDecompose this sentence into two sentences\n|||\n\n{{incoherent_first_sentence}} {{incoherent_second_sentence}} \n{% endif %}",
+  "choices": null
+ },
+ "decompose_remainder_1": {
+  "template": "{% if coherent_second_sentence==\"\" %}\n\nRead this sentence:\n\n{{coherent_first_sentence}}\n\nNow, read this second sentence, that covers some of the information from the first:\n\n{{incoherent_second_sentence}}\n\nWrite a sentence that covers the information from the first sentence that is missing from the second\n|||\n\n {{incoherent_first_sentence}} \n{% endif %}",
+  "choices": null
+ }
+}

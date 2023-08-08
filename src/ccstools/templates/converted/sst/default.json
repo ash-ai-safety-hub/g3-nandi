@@ -1,0 +1,31 @@
+{
+ "sentiment_watch_movie": {
+  "template": "Does the movie review below make someone want to watch it?\n\n{{sentence}} |||\n{{answer_choices\n[0 if label < 0.5 else 1]\n}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "sentiment scoring scale": {
+  "template": "How positive is the movie review below?\nGive a score on a scale from 0 to 1.\n\n{{sentence}} |||\n{{'%0.1f'| format(label|float)}}",
+  "choices": null
+ },
+ "sentiment_watch_scale": {
+  "template": "How much does the movie review below make you want to watch it?\nGive a score on a scale from 0 to 1.\n\n{{sentence}} |||\n{{'%0.1f'| format(label|float)}}",
+  "choices": null
+ },
+ "did_reviewer_like": {
+  "template": "Does it seem like the reviewer who wrote this review liked the movie?\n\n{{sentence}} |||\n{{answer_choices[0 if label < 0.5 else 1]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "sentiment_classification": {
+  "template": "Is the movie review below positive?\n\n{{sentence}} |||\n{{answer_choices\n[0 if label < 0.5 else 1]\n}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ }
+}

@@ -1,9 +1,0 @@
-{
- "imply 2": {
-  "template": "{premise} Question: Does this imply that \"{hypothesis}\", yes or no?",
-  "choices": [
-   "No",
-   "Yes"
-  ]
- }
-}

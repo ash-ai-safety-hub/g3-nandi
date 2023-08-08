@@ -1,0 +1,22 @@
+{
+ "fill_mask": {
+  "template": "{{masked_sentence}} Fill the mask with the missing word. ||| {{obj_label}}",
+  "choices": null
+ },
+ "find_relation": {
+  "template": "Given the following paragraph : {{ masked_sentence | replace(\"[MASK]\",obj_label)}}. what is the relationship between {{obj_label}} and {{sub_label}} ?\n|||  {{ template | replace(\"[X]\",sub_label) | replace(\"[Y]\", obj_surface)}} ",
+  "choices": null
+ },
+ "replace_mask": {
+  "template": "Replace the mask with the correct word: {{masked_sentence}} ||| {{obj_label}}",
+  "choices": null
+ },
+ "write_negation": {
+  "template": "write the negation of the following statements : {{ template | replace(\"[X]\",sub_surface) | replace(\"[Y]\", obj_surface)}}  \n|||  {{ template_negated | replace(\"[X]\",sub_surface) | replace(\"[Y]\", obj_surface)}} ",
+  "choices": null
+ },
+ "negate_sentence": {
+  "template": "Negate the following statement : {{ template | replace(\"[X]\",sub_surface) | replace(\"[Y]\", obj_surface)}}  \n|||  {{ template_negated | replace(\"[X]\",sub_surface) | replace(\"[Y]\", obj_surface)}} ",
+  "choices": null
+ }
+}

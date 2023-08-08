@@ -1,0 +1,41 @@
+{
+ "n_best_answer": {
+  "template": "Answer the following question: \n\n{{question}} |||\n{{nbestanswers|choice}}",
+  "choices": null
+ },
+ "category": {
+  "template": "What is the category of the following question? \nPossible topics: {{answer_choices |join(', ')}}.\n\n{{question}} |||\n{{main_category}}\n",
+  "choices": [
+   "Society & Culture",
+   "Science & Mathematics",
+   "Health",
+   "Education & Reference",
+   "Computers & Internet",
+   "Sports",
+   "Business & Finance",
+   "Entertainment & Music",
+   "Family & Relationships",
+   "Politics & Government"
+  ]
+ },
+ "answer_to_question": {
+  "template": "Given the best answer , \"{{answer}}\", generate the question: |||\n{{question}}",
+  "choices": null
+ },
+ "using_internet_answer": {
+  "template": "Using the internet, answer the following question: \n\n{{question}} |||\n{{nbestanswers|choice}}",
+  "choices": null
+ },
+ "hint_question_answer": {
+  "template": "Answer the following question:\n{{question}} \n\nHint: The question is related to {{main_category}}. \n\n|||\n{{nbestanswers|choice}}",
+  "choices": null
+ },
+ "best_answer": {
+  "template": "What is the best answer for the following question?\n\n{{question}} |||\n{{answer}}",
+  "choices": null
+ },
+ "exam_style_prompt": {
+  "template": "{{question}} \n\nFor full credit on the open-book test, you need to answer the question.  You are allowed to use any resource including the internet. \n\n|||\n{{nbestanswers|choice}}",
+  "choices": null
+ }
+}

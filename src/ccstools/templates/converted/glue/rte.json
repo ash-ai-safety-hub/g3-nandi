@@ -1,0 +1,37 @@
+{
+ "mean": {
+  "template": "{{sentence1}}\nDoes this mean that \"{{sentence2}}\" is true? {{\"A) yes or B) no.\"}}\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "does the claim\u2026 follow the fact\u2026": {
+  "template": "Does the claim \"{{sentence2}}\" follow from the fact that \"{{sentence1}}\"? Please answer either {{\"yes\"}} or {{\"no\"}}.\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "entailment explained": {
+  "template": "We say that one sentence \"{{\"entails\"}}\" another sentence when the first sentence implies the second sentence. Consider the following two sentences:\n{{sentence1}}\n{{sentence2}}\nIs the relationship from the first to the second sentence \"{{\"entailment\"}}\" or \"{{\"not entailment\"}}\"?\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "entailment",
+   "not entailment"
+  ]
+ },
+ "imply": {
+  "template": "Does \"{{sentence1}}\" imply that \"{{sentence2}}\"? Please answer either {{\"yes\"}} or {{\"no\"}}.\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "imply separated": {
+  "template": "{{sentence1}}\nDoes this imply\n{{sentence2}}\nPlease answer {{\"A) yes or B) no.\"}}\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ }
+}

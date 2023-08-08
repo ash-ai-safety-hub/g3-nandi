@@ -1,0 +1,43 @@
+{
+ "good deal for seller no list price implicit": {
+  "template": "The following conversation is a negotiation on craigslist. The first speaker is the buyer, and the second speaker is the seller.\n\n{{utterance | join(\"\\n\\n\")}}\n\nFrom the seller's point of view, this deal could be considered\n|||\n{% set nonzero_price = [] %}\n{% for p in dialogue_acts[\"price\"] %}\n{% if p>-1 %}\n{{nonzero_price.append(p) or \"\"}}\n{% endif %}\n{% endfor %}\n{% set final_price = -1 %}\n{% if nonzero_price | length != 0 %}{% set final_price = nonzero_price[-1] %}{% endif %}\n{% if final_price == -1 %}\n{{answer_choices[2]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) == ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[0]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) < ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[1]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) > ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[0]}}\n{% endif %}",
+  "choices": [
+   "good",
+   "bad",
+   "incomplete"
+  ]
+ },
+ "good deal for seller no list price": {
+  "template": "The following conversation is a negotiation on craigslist. The first speaker is the buyer, and the second speaker is the seller.\n\n{{utterance | join(\"\\n\\n\")}}\n\nWas this a good deal for the seller? answer \"{{answer_choices[0]}}\", \"{{answer_choices[1]}}\", or \"{{answer_choices[2]}}\".\n|||\n{% set nonzero_price = [] %}\n{% for p in dialogue_acts[\"price\"] %}\n{% if p>-1 %}\n{{nonzero_price.append(p) or \"\"}}\n{% endif %}\n{% endfor %}\n{% set final_price = -1 %}\n{% if nonzero_price | length != 0 %}{% set final_price = nonzero_price[-1] %}{% endif %}\n{% if final_price == -1 %}\n{{answer_choices[2]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) == ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[0]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) < ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[1]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) > ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[1]}}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no",
+   "unknown"
+  ]
+ },
+ "gap between parties": {
+  "template": "The following conversation is a negotiation on craigslist. The first speaker is the buyer, and the second speaker is the seller. The listed price was ${{items[\"Price\"][0]}}0.\n\n{{utterance | join(\"\\n\\n\")}}\n\nHow much was the gap between the target of the buyer and the seller?\n|||\n${{(agent_info['Target'][0] - agent_info['Target'][1]) | abs}}0",
+  "choices": null
+ },
+ "good deal for seller": {
+  "template": "The following conversation is a negotiation on craigslist. The first speaker is the buyer, and the second speaker is the seller. The listed price was ${{items[\"Price\"][0]}}.\n\n{{utterance | join(\"\\n\\n\")}}\n\nWas this a good deal for the seller? Answer \"{{answer_choices[0]}}\" or \"{{answer_choices[1]}}\", or \"{{answer_choices[2]}}\".\n|||\n{% set nonzero_price = [] %}\n{% for p in dialogue_acts[\"price\"] %}\n{% if p>-1 %}\n{{nonzero_price.append(p) or \"\"}}\n{% endif %}\n{% endfor %}\n{% set final_price = -1 %}\n{% if nonzero_price | length != 0 %}{% set final_price = nonzero_price[-1] %}{% endif %}\n{% if final_price == -1 %}\n{{answer_choices[2]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) == ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[0]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) < ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[1]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) > ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[0]}}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no",
+   "unknown"
+  ]
+ },
+ "best deal": {
+  "template": "The following conversation is a negotiation on craigslist. The first speaker is the buyer, and the second speaker is the seller. The listed price was ${{items[\"Price\"][0]}}.\n\n{{utterance | join(\"\\n\\n\")}}\nQuestion: Which party got the better deal? Choose from:\n- {{answer_choices[0]}}\n- {{answer_choices[1]}}\n- {{answer_choices[2]}}\n- {{answer_choices[3]}}\n\nAnswer:\n|||\n{% set nonzero_price = [] %}\n{% for p in dialogue_acts[\"price\"] %}\n{% if p>-1 %}\n{{nonzero_price.append(p) or \"\"}}\n{% endif %}\n{% endfor %}\n{% set final_price = -1 %}\n{% if nonzero_price | length != 0 %}{% set final_price = nonzero_price[-1] %}{% endif %}\n{% if final_price == -1 %}\n{{answer_choices[3]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) == ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[2]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) < ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[0]}}\n{% elif ((final_price - agent_info[\"Target\"][0]) | abs) > ((final_price - agent_info[\"Target\"][1]) | abs) %}\n{{answer_choices[1]}}\n{% endif %}",
+  "choices": [
+   "buyer",
+   "seller",
+   "neither",
+   "unknown"
+  ]
+ },
+ "generate line": {
+  "template": "The following conversation is a negotiation on craigslist. The first speaker is the buyer, and the second speaker is the seller.\n\n{% set nonempty_utterance = [] %}\n{% for line in utterance  %}\n{% if line != \"\"  %}\n{{ nonempty_utterance.append(line) or \"\" }}\n{% endif %}\n{% endfor %}\n\n{{nonempty_utterance[:-1] | join('\\n\\n')}}\n\nQuestion: What could be the next line in the negotiation?\nAnswer:\n|||\n{{nonempty_utterance[-1]}}",
+  "choices": null
+ }
+}

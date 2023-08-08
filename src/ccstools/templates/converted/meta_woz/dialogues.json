@@ -1,0 +1,34 @@
+{
+ "predict_domain_chatbot_human_chat": {
+  "template": "What does this conversation between a Chatbot and a client talk about ? \n{% for utterance in turns %}\n{{[\"Client\", \"Chatbot\"][loop.index % 2]}}: {{utterance}}\n{% endfor %}\n|||\n{{domain.replace('_', ' ') | lower }}",
+  "choices": null
+ },
+ "predict_random_stop": {
+  "template": "{% set count = namespace(value=0) %}\n{% for i in range(range(2, turns|length) | random() - 1) %}\n{{[\"AI Assistant\", \"Client\"][i% 2]}}: {{turns[i]}}\n{% set count.value= i + 1 %}\n{% endfor %}\n{{[\"AI Assistant\", \"Client\"][ count.value % 2]}}:\n|||\n{{turns[count.value] }}\n\n",
+  "choices": null
+ },
+ "predict_blank_response_random": {
+  "template": "{% set rand_index= namespace(value=range(turns|length)|random()) %}\n{% for utterance in turns %}\n{% if loop.index0 == rand_index.value %}\n{{[\"Chatbot\", \"Human\"][loop.index0 % 2]}}: (blank)\n{% else %}\n{{[\"Chatbot\", \"Human\"][loop.index0 % 2]}}: {{utterance}}\n{% endif %}\n{% endfor %}\nFill in the blank \n|||\n{{turns[rand_index.value] }}",
+  "choices": null
+ },
+ "predict_domain_ai_human_question": {
+  "template": "This conversation is between an AI assistant and a human. What is the human inquiring about ? \n{% for utterance in turns %}\n{{[\"Human\", \" AI assistant\"][loop.index % 2]}}: {{utterance}}\n{% endfor %}\n|||\n{{domain.replace('_', ' ') | lower }}",
+  "choices": null
+ },
+ "predict_domain_ai_human_chat": {
+  "template": "This conversation is between an AI assistant and a human. what does it talk about ? \n{% for utterance in turns %}\n{{[\"Human\", \" AI assistant\"][loop.index % 2]}}: {{utterance}}\n{% endfor %}\n|||\n{{domain.replace('_', ' ') | lower }}",
+  "choices": null
+ },
+ "predict_last_statement_user_bot": {
+  "template": "{% for utterance in turns[:-1] %}\n{{[\"User\", \"Bot\"][loop.index % 2]}}: {{utterance}}\n{% endfor %}\n{{[\"User\", \"Bot\"][ turns | length % 2]}}:\n|||\n{{turns[-1]}}\n",
+  "choices": null
+ },
+ "predict_last_statement_human_chatbot": {
+  "template": "{% for utterance in turns[:-1] %}\n{{[\"Human\", \"Chatbot\"][loop.index % 2]}}: {{utterance}}\n{% endfor %}\n{{[\"Human\", \"Chatbot\"][ turns | length % 2]}}:\n|||\n{{turns[-1]}}\n",
+  "choices": null
+ },
+ "predict_last_statement_client_ai": {
+  "template": "{% for utterance in turns[:-1] %}\n{{[\"Client\", \"AI Assistant\"][loop.index % 2]}}: {{utterance}}\n{% endfor %}\n{{[\"Client\", \"AI Assistant\"][ turns | length % 2]}}:\n|||\n{{turns[-1]}}\n",
+  "choices": null
+ }
+}

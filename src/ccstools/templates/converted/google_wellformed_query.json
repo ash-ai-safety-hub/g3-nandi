@@ -1,0 +1,41 @@
+{
+ "wellformed_rating": {
+  "template": "How would you rate how well-formed is the query \"{{content}}\"? \"Well-formed\" means that a natural language system would be able to perform an accurate interpretation. Give a value between 0 and 1.\n|||\n{{ rating  | round(0) }}",
+  "choices": null
+ },
+ "is_wellformed_affirmative": {
+  "template": "John believes that the query \"{{content}}\" resembles a natural language question. Answer {{ answer_choices[0] }} if you agree with John and {{ answer_choices[1] }} if you disagree.\n|||\n{% if 0.5 < rating %}{{ answer_choices[0] }}{% else %}{{ answer_choices[1] }}{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "is_wellformed_finding_for_search": {
+  "template": "Is asking search engines \"{{content}}\" good for finding information?\n|||\n{% if 0.5 < rating %}{{ answer_choices[0] }}{% else %}{{ answer_choices[1] }}{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "is_wellformed_type_for_search": {
+  "template": "Would \"{{content}}\" be a useful query to type in a search engine?\n|||\n{% if 0.5 < rating %}{{ answer_choices[0] }}{% else %}{{ answer_choices[1] }}{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "is_wellformed_know_for_search": {
+  "template": "Given this query \"{{content}}\", would a search engine know what to look for? {{answer_choices[0]}} or {{answer_choices[1]}}?\n|||\n{% if 0.5 < rating %}{{ answer_choices[0] }}{% else %}{{ answer_choices[1] }}{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "is_wellformed_interrogative": {
+  "template": "\"{{content}}\" is an informative query, {{answer_choices[0]}} or {{answer_choices[1]}}?\n|||\n{% if 0.5 < rating %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ }
+}

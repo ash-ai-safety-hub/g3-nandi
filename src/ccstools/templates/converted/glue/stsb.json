@@ -1,0 +1,22 @@
+{
+ "rank": {
+  "template": "Rate on a scale from {{\"0.0\"}} to {{\"5.0\"}} how similar the sentences \"{{sentence1}}\" and \"{{sentence2}}\" are. ||| {{ (((5*label) | round )/5) }}",
+  "choices": null
+ },
+ "rate": {
+  "template": "Please rate how similar these two sentences are from {{\"0.0\"}} to {{\"5.0\"}}.\nSentence A: {{sentence1}}\nSentence B: {{sentence2}}\n|||\n{{ (((5*label) | round )/5) }}",
+  "choices": null
+ },
+ "examples": {
+  "template": "Please give me a score denoting the similarity of the following two sentences:\nSentence 1: {{sentence1}}\nSentence 2: {{sentence2}}\nYour score should be something like {{\"3.4\"}}, where {{\"0.0 means very dissimilar, 2.5 means kind of similar, and 5.0 means very similar\"}}.\n|||\n{{ (((5*label) | round )/5) }}",
+  "choices": null
+ },
+ "similarity": {
+  "template": "I need to know how similar these two passages are:\n- {{sentence1}}\n- {{sentence2}}\n\nQuestion: Can you give me a number from {{\"0.0 to 5.0\"}} that denotes how similar they are, where {{\"0.0\"}} means totally dissimilar and {{\"5.0\"}} means extremely similar?\nAnswer:\n|||\n{{ (((5*label) | round )/5) }}",
+  "choices": null
+ },
+ "score": {
+  "template": "I need to assign a score from {{\"0.0 to 5.0\"}} that denotes how similar the following two sentences are:\nA: {{sentence1}}\nB: {{sentence2}}\nWhat score should I assign?\n|||\n{{ (((5*label) | round )/5) }}",
+  "choices": null
+ }
+}

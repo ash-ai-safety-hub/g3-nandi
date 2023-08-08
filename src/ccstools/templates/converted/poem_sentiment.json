@@ -1,0 +1,74 @@
+{
+ "positive_or_negative_sentiment_variation_2": {
+  "template": "{{verse_text}} Is the sentiment the poet express for the poem {{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}} or {{answer_choices[3]}}? |||  {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive",
+   "neutral",
+   "mixed"
+  ]
+ },
+ "guess_sentiment_without_options_variation_2": {
+  "template": "The following poem expresses what sentiment? {{verse_text}} ||| {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive",
+   "neutral",
+   "mixed"
+  ]
+ },
+ "guess_sentiment_without_options_variation_1": {
+  "template": "{{verse_text}} The sentiment expressed in the poem is |||  {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive",
+   "neutral",
+   "mixed"
+  ]
+ },
+ "positive_or_negative_sentiment_variation_1": {
+  "template": "{{verse_text}} What is the sentiment expressed in this poem? |||  {{ answer_choices [label] }}\n",
+  "choices": [
+   "negative",
+   "positive",
+   "neutral",
+   "mixed"
+  ]
+ },
+ "most_appropriate_sentiment": {
+  "template": "{{verse_text}} The most appropriate word out of {{\"negative\"}}, {{\"positive\"}}, {{\"neutral\"}} and {{\"mixed\"}}, which express the poet's sentiment is: |||  {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive",
+   "neutral",
+   "mixed"
+  ]
+ },
+ "question_answer_format": {
+  "template": "{{verse_text}} What sentiment does this poem express? \nOptions: {{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}}, {{answer_choices[3]}}.\nAnswer:  ||| {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive",
+   "neutral",
+   "mixed"
+  ]
+ },
+ "guess_sentiment_from_given_options": {
+  "template": "Does this poem express a {{\"negative\"}}, {{\"positive\"}}, {{\"neutral\"}} or {{\"mixed\"}} sentiment? {{verse_text}} ||| {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive",
+   "neutral",
+   "mixed"
+  ]
+ },
+ "guess_sentiment_without_options": {
+  "template": "{{verse_text}} What is the sentiment that the poet wants the readers to feel through the verse mentioned above?||| {{ answer_choices [label] }}",
+  "choices": [
+   "negative",
+   "positive",
+   "neutral",
+   "mixed"
+  ]
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "Guess Answer": {
+  "template": "The answer to the question: {{question}} is inside the article: {{context}}, can you guess it ?\n\n|||\n{{answers.text | choice}}\n",
+  "choices": null
+ },
+ "Answer Question Given Context": {
+  "template": "Given the following context:\n\n{{context}}\n\nanswer the following question:\n\n{{question}} |||\n{{answers.text | choice}}",
+  "choices": null
+ },
+ "Find Answer": {
+  "template": "The following article contains an answer for the question: {{question}} , can you please find it? \n\n{{context}}|||\n{{answers.text | choice}}",
+  "choices": null
+ },
+ "Context Contains Answer": {
+  "template": "This article: {{context}} contains an answer for the question: {{question}}, what is it ?\n|||\n{{answers.text | choice}}",
+  "choices": null
+ },
+ "Given Context Answer Question": {
+  "template": "{{question}}\n\nAnswer the above question based on the context below:\n\n{{context}} |||\n{{answers.text | choice}}",
+  "choices": null
+ },
+ "What Is The Answer": {
+  "template": "What is the answer for the question: {{question}} from the following article ?\n\n{{context}}|||\n{{answers.text | choice}}\n",
+  "choices": null
+ },
+ "Answer Test": {
+  "template": "I have a test where I am given the following article, what is an answer for the question: {{question}} ?\n\n{{context}}|||\n{{answers.text | choice}}",
+  "choices": null
+ },
+ "Guess Title For Context": {
+  "template": "Given the below context:\n\n{{context}}\n\nGuess a valid title for it! |||\n{{title}}",
+  "choices": null
+ },
+ "Found Context Online": {
+  "template": "Found the following article online, use it to answer the question: {{question}}\n\n{{context}}|||\n{{answers.text | choice}}\n",
+  "choices": null
+ },
+ "Answer Friend Question": {
+  "template": "A friend asked me to answer this question: {{question}}, using the article: {{context}}, what would be the answer ?\n\n|||\n{{answers.text | choice}}\n",
+  "choices": null
+ },
+ "Read And Extract ": {
+  "template": "Read the following paragraph and extract the answer for the question: {{question}}\n\n{{context}} |||\n{{answers.text | choice}}",
+  "choices": null
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "feminism_guess_passive": {
+  "template": "{{text}} Where does the above sentence stand on feminism? |||\n{{answer_choices[label]}}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "feminism_how_describe": {
+  "template": "How would you describe the stance used in this tweet? {{answer_choices|join(\", \")}}\n\n{{text}} |||\n{{answer_choices[label]}}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "feminism_option": {
+  "template": "What option among, {{\"neutral\"}}, {{\"against\"}}, {{\"in favor\"}}, best describes the stance of this tweet regarding feminism?\n\n{{text}} |||\n{{answer_choices[label]}}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "feminism_predict_stance": {
+  "template": "Does the author express any stance about feminism in the following text?\n\n{{text}} |||\n{{answer_choices[label]}}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "feminism": {
+  "template": "Is this tweet neutral, in favor of, or against feminism?\n\n{{text}} |||\n{{answer_choices[label]}}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ },
+ "feminism_guess_passive_author": {
+  "template": "{{text}} Where does the author of the above sentence stand on feminism? |||\n{{answer_choices[label]}}",
+  "choices": [
+   "Neutral",
+   "Against",
+   "In favor"
+  ]
+ }
+}

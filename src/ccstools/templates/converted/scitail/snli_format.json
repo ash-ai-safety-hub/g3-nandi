@@ -1,0 +1,9 @@
+{
+ "Another Yes/No Entailment Framing": {
+  "template": "Given that {{sentence1}} Does it follow that {{sentence2}}\n{{ answer_choices | join(' or ') }}?\n|||{% if gold_label == \"entailment\" %}\n{{answer_choices[0]}}\n{% else %}\n{{answer_choices[1]}}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ }
+}

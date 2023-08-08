@@ -1,0 +1,42 @@
+{
+ "type-to-entity": {
+  "template": "Read the following text and answer the question.\n\nText: {% for sent in sents -%}\n{{ sent | join(\" \") }}{{\" \"}}\n{%- endfor %} \n\nQuestion: From the above text, find people, locations, organizations, times, numbers, and miscellaneous.\n\nYou should answer the question in the following way:\n\nPeople: a list of people separated with commas\n\nLocations: a list of locations separated with commas\n\nOrganizations: a list of organizations separated with commas\n\nTimes: a list of times separated with commas\n\nNumbers: a list of numbers separated with commas\n\nMiscellaneous: a list of miscellaneous items separated by commas\n|||\n{%- set people = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'PER' -%}\n{{people.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if people %}\n{{\"People: \"}}{{ people | unique | join(\", \")}}{{\".\"}}\n{% endif %}\n\n{%- set locations = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'LOC' -%}\n{{locations.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if locations %}\n{{\"Locations: \"}}{{ locations | unique | join(\", \")}}{{\".\"}}\n{% endif %}\n\n{%- set orgs = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'ORG' -%}\n{{orgs.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if orgs %}\n{{\"Organizations: \"}}{{ orgs | unique | join(\", \")}}{{\".\"}}\n{% endif %}\n\n{%- set times = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'TIME' -%}\n{{times.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if times %}\n{{\"Times: \"}}{{ times | unique | join(\", \")}}{{\".\"}}\n{% endif %}\n\n{%- set numbers = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'NUM' -%}\n{{numbers.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if numbers %}\n{{\"Numbers: \"}}{{ numbers | unique | join(\", \")}}{{\".\"}}\n{% endif %}\n\n{%- set miscs = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'MISC' -%}\n{{miscs.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if miscs %}\n{{\"Miscellaneous: \"}}{{ miscs | unique | join(\", \")}}{{\".\"}}\n{% endif %}",
+  "choices": null
+ },
+ "ner-type": {
+  "template": "{%- set names = [] -%}\n{%- set types = [] -%}\n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['name'] not in names -%}\n{{ names.append(ner['name']) | default(\"\", True) }}\n{{ types.append(ner['type']) | default(\"\", True) }}\n{%- endfor -%}\n{%- endfor -%}\nRead the following text and answer the question.\n\nText: {% for sent in sents -%}\n{{ sent | join(\" \") }}{{\" \"}}\n{%- endfor %}                                                                            \n                                                                   \nQuestion: Assign an entity type to the following entities. \n\nEntities: {{ names | join(\", \")}}{{\".\"}}\n\nThe choices are PER (Person), LOC (Location), ORG (Organization), TIME (Time), NUM (Number), and MISC (Miscellaneous).\n|||                                                                                      \n{% for name, type in zip(names, types) -%}\n{{name}}{{\": \"}}{{type}}\n{% endfor %}",
+  "choices": null
+ },
+ "find-all-locations": {
+  "template": "{%- set locations = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'LOC' -%}\n{{locations.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if locations %}\nFind all of the locations in the text below. Please list all of them separated by commas.\n\n{% for sent in sents -%}\n{{ sent | join(\" \") }}{{\" \"}}\n{%- endfor -%} \n|||\n{{ locations| unique | join(\", \")}}{{\".\"}}\n{% endif %}",
+  "choices": null
+ },
+ "find-all-organizations": {
+  "template": "{%- set organizations = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'ORG' -%}\n{{organizations.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if organizations %}\nFind all of the organizations in the text below. Please list all of them separated by commas.\n\n{% for sent in sents -%}\n{{ sent | join(\" \") }}{{\" \"}}\n{%- endfor -%} \n|||\n{{ organizations| unique | join(\", \")}}{{\".\"}}\n{% endif %}",
+  "choices": null
+ },
+ "entity-and-relation-to-text": {
+  "template": "{% if labels['relation_text'] %}\nGiven the following entities (i.e., heads and tails) and relations, make a creative text. The types are PER (Person), LOC (Location), ORG (Organization), TIME (Time), NUM (Number), and MISC (Miscellaneous).\n\n{% for  head, tail, relation in zip(labels['head'], labels['tail'], labels['relation_text']) %}\nhead: {{vertexSet[head][0]['name']}}, tail: {{vertexSet[tail][0]['name']}}, relation: {{relation}}\n{% endfor %}\n|||\n{% for sent in sents -%}\n{{ sent | join(\" \") }}{{\" \"}}\n{%- endfor -%} \n{% endif %}",
+  "choices": null
+ },
+ "ner-to-text": {
+  "template": "{%- set names = [] -%}\n{%- set types = [] -%}\n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['name'] not in names -%}\n{{ names.append(ner['name']) | default(\"\", True) }} \n{{ types.append(ner['type']) | default(\"\", True) }} \n{%- endfor -%}\n{%- endfor -%}\nGiven the following entities and their types, make a creative text. The types are PER (Person), LOC (Location), ORG (Organization), TIME (Time), NUM (Number), and MISC (Miscellaneous).\n\n{% for name, type in zip(names, types) -%}\n{{name}}{{\": \"}}{{type}}\n{% endfor %}\n|||\n{% for sent in sents -%}\n{{ sent | join(\" \") }}{{\" \"}}\n{%- endfor -%} ",
+  "choices": null
+ },
+ "find-all-times": {
+  "template": "{%- set times = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'TIME' -%}\n{{times.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if times %}\nFind all of the times in the text below. Please list all of them separated by commas.\n\n{% for sent in sents -%}\n{{ sent | join(\" \") }}{{\" \"}}\n{%- endfor -%} \n|||\n{{ times| unique | join(\", \")}}{{\".\"}}\n{% endif %}",
+  "choices": null
+ },
+ "find-all-people": {
+  "template": "{%- set people = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'PER' -%}\n{{people.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if people %}\nFind all of the people in the text below. Please list all of them separated by commas.\n\n{% for sent in sents -%}\n{{ sent | join(\" \") }}{{\" \"}}\n{%- endfor -%} \n|||\n{{ people| unique | join(\", \")}}{{\".\"}}\n{% endif %}",
+  "choices": null
+ },
+ "relation": {
+  "template": "{% if labels['relation_text'] %}\nRead the following text and answer the question.\n\nText:\n{%- for sent in sents -%}\n{{ sent | join(\" \") }}{{\" \"}}\n{%- endfor %} \n\nQuestion: Find the named entities (i.e., heads and tails) above and their relationships.\n|||\n{% for  head, tail, relation in zip(labels['head'], labels['tail'], labels['relation_text']) %}\nhead: {{vertexSet[head][0]['name']}}, tail: {{vertexSet[tail][0]['name']}}, relation: {{relation}}\n{% endfor %}\n{% endif %}",
+  "choices": null
+ },
+ "find-all-numbers": {
+  "template": "{%- set numbers = [] -%} \n{%- for ners in vertexSet -%}\n{%- for ner in ners if ner['type'] == 'NUM' -%}\n{{numbers.append(ner['name']) | default(\"\", True)}}\n{%- endfor -%}\n{%- endfor -%}\n{% if numbers %}\nFind all of the numbers in the text below. Please do not include years and also list all of them separated by commas.\n\n{% for sent in sents -%}\n{{ sent | join(\" \") }}{{\" \"}}\n{%- endfor -%} \n|||\n{{ numbers| unique | join(\", \")}}{{\".\"}}\n{% endif %}",
+  "choices": null
+ }
+}

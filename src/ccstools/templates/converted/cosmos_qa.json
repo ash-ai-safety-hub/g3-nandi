@@ -1,0 +1,114 @@
+{
+ "context_answer_to_question": {
+  "template": "Based on the context and the answer, generate a question. \n\nContext: {{context}}\n\nAnswer:\n{% if label == 0 %}\n{{answer0}}\n{% elif label == 1 %}\n{{answer1}}\n{% elif label == 2 %}\n{{answer2}}\n{% elif label == 3 %}\n{{answer3}}\n{% endif %}\n|||\n{{question}}",
+  "choices": null
+ },
+ "description_context_question_answer_text": {
+  "template": "Read the following context and choose the best option to answer the question.\nContext: {{ context }}\nQuestion: {{ question }}\nOptions: \n- {{ answer_choices | join(\"\\n - \") }}\n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "{{answer0}}",
+   "{{answer1}}",
+   "{{answer2}}",
+   "{{answer3}}"
+  ]
+ },
+ "description_context_question_text": {
+  "template": "Read the following context and answer the question.\nContext: {{ context }}\nQuestion: {{ question }}\nAnswer:\n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "{{answer0}}",
+   "{{answer1}}",
+   "{{answer2}}",
+   "{{answer3}}"
+  ]
+ },
+ "description_context_question_answer_id": {
+  "template": "Read the following context and choose the best option to answer the question.\nContext: {{ context }}\nQuestion: {{ question }}\nOptions: \nA. {{ answer0 }}\nB. {{ answer1 }}\nC. {{ answer2 }}\nD. {{ answer3 }}\n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ]
+ },
+ "context_description_question_answer_text": {
+  "template": "{{ context }}\nAccording to the above context, choose the best option to answer the following question.\nQuestion: {{ question }}\nOptions:\n- {{answer_choices | join(\"\\n - \")}}\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "{{answer0}}",
+   "{{answer1}}",
+   "{{answer2}}",
+   "{{answer3}}"
+  ]
+ },
+ "no_prompt_id": {
+  "template": "{{ context }}\n{{ question }}\nA. {{ answer0 }}\nB. {{ answer1 }}\nC. {{ answer2 }}\nD. {{ answer3 }}\n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ]
+ },
+ "context_question_description_text": {
+  "template": "{{ context }}\nQuestion: {{ question }}\nThe answer to the above question:\n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "{{answer0}}",
+   "{{answer1}}",
+   "{{answer2}}",
+   "{{answer3}}"
+  ]
+ },
+ "no_prompt_text": {
+  "template": "{{ context }}\n{{ question }}\n- {{ answer_choices | join(\"\\n - \") }}\n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "{{answer0}}",
+   "{{answer1}}",
+   "{{answer2}}",
+   "{{answer3}}"
+  ]
+ },
+ "context_description_question_answer_id": {
+  "template": "{{ context }}\nAccording to the above context, choose the best option to answer the following question.\nQuestion: {{ question }}\nOptions:\nA. {{ answer0 }}\nB. {{ answer1 }}\nC. {{ answer2 }}\nD. {{ answer3 }}\n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ]
+ },
+ "context_question_description_answer_id": {
+  "template": "{{ context }}\n{{ question }}\nPick the best answer from the following options:\nA. {{ answer0 }}\nB. {{ answer1 }}\nC. {{ answer2 }}\nD. {{ answer3 }}\n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "A",
+   "B",
+   "C",
+   "D"
+  ]
+ },
+ "context_description_question_text": {
+  "template": "{{ context }}\nAccording to the above context, answer the following question.\n{{ question }}\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "{{answer0}}",
+   "{{answer1}}",
+   "{{answer2}}",
+   "{{answer3}}"
+  ]
+ },
+ "context_question_description_answer_text": {
+  "template": "{{ context }}\n{{ question }}\nPick the best answer from the following options:\n- {{ answer_choices | join(\"\\n - \") }}\n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "{{answer0}}",
+   "{{answer1}}",
+   "{{answer2}}",
+   "{{answer3}}"
+  ]
+ },
+ "only_question_answer": {
+  "template": "{{question}} \n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "{{answer0}}",
+   "{{answer1}}",
+   "{{answer2}}",
+   "{{answer3}}"
+  ]
+ }
+}

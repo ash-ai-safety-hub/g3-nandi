@@ -1,0 +1,28 @@
+{
+ "verbose-to-simplification": {
+  "template": "{% set real_simplifications = [] %}{% for text in simplifications %}{% if text|length < original|length %}{{real_simplifications.append(text) | default(\"\", True)}}{% endif %}{% endfor %}\n{% if real_simplifications %}\nText: {{original}}\n\nHow would I simplify this? \n\n|||\n\n{{real_simplifications | choice}}\n{% endif %}",
+  "choices": null
+ },
+ "simplification-to-verbose": {
+  "template": "{% set real_simplifications = [] %}{% for text in simplifications %}{% if text|length < original|length %}{{real_simplifications.append(text) | default(\"\", True)}}{% endif %}{% endfor %}\n{% if real_simplifications %}\nMake the below sentence more verbose:\n\n{{real_simplifications | choice}}\n\n|||\n\n{{original}}\n{% endif %}",
+  "choices": null
+ },
+ "choose-verbose": {
+  "template": "{% set rand_num = range(0,2) | choice  %}\n{% set real_simplifications = [] %}{% for text in simplifications %}{% if text|length < original|length %}{{real_simplifications.append(text) | default(\"\", True)}}{% endif %}{% endfor %}\n{% if real_simplifications %}\nOne of the following two sentences is more verbose than the other. Which one is it?\n{% if rand_num %}\nA: {{real_simplifications | choice}}\n\nB: {{original}}\n{% else %}\nA: {{original}}\n\nB: {{real_simplifications | choice}}\n{% endif %}\n|||\n{{ answer_choices[rand_num] }}\n{% endif %}",
+  "choices": [
+   "A",
+   "B"
+  ]
+ },
+ "choose-simplification": {
+  "template": "{% set rand_num = range(0,2) | choice %}\n{% set real_simplifications = [] %}{% for text in simplifications %}{% if text|length < original|length %}{{real_simplifications.append(text) | default(\"\", True)}}{% endif %}{% endfor %}\n{% if real_simplifications %}\nOne of the following two sentences is more simple than the other. Which one is it?\n{% if rand_num %}\nA: {{real_simplifications | choice}}\n\nB: {{original}}\n{% else %}\nA: {{original}}\n\nB: {{real_simplifications | choice}}\n{% endif %}\n|||\n{{ answer_choices[1-rand_num] }}\n{% endif %}",
+  "choices": [
+   "A",
+   "B"
+  ]
+ },
+ "verbose-to-simplification-implicit": {
+  "template": "{% set real_simplifications = [] %}{% for text in simplifications %}{% if text|length < original|length %}{{real_simplifications.append(text) | default(\"\", True)}}{% endif %}{% endfor %}\n{% if real_simplifications %}\nI'd like to explain to my child \"{{original}}\". How would I do so?\n\n|||\n\n{{real_simplifications | choice}}\n{% endif %}",
+  "choices": null
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "domain_q": {
+  "template": "{% set mapping = {\"books\": 0, \"electronics\": 1, \"grocery\": 2, \"movies\": 3, \"restaurants\":4 , \"tripadvisor\": 5} %}\nPossible categories:\n- {{ [\"books\", \"electronics\", \"grocery\", \"movies\", \"restaurants\", \"tripadvisor\"]  | join(\"\\n- \") }}\n\nContext:\n{{context}}\n\nWhich of the category corresponds to the context?\n\n|||\n\n{{answer_choices[mapping[domain]]}}",
+  "choices": [
+   "books",
+   "electronics",
+   "grocery",
+   "movies",
+   "restaurants",
+   "tripadvisor"
+  ]
+ },
+ "domain_hint_og_task": {
+  "template": "{{question}}\n\nAnswer using extracts from the following context. If you can't find an answer, return {{\"Unanswerable\"}}\n\nContext:\n{{context}}\n\nHint: The context domain is {{domain}}\n\n|||\n{% if (answers[\"text\"]  | length) == 0 %}\n{{ \"Unanswerable\" }}\n{% else %}\n{{answers[\"text\"][0]}}\n{% endif %}",
+  "choices": null
+ },
+ "exam_style_prompt": {
+  "template": "In today's exam on {{domain}}, answer the following question with the help of the context. If the question cannot be answered, say Unanswerable.\n\nQuestion: \n{{question}}\n\nContext:\n{{context}}\n\n|||\n{% if (answers[\"text\"]  | length) == 0 %}\n{{ \"Unanswerable\" }}\n{% else %}\n{{answers[\"text\"][0]}}\n{% endif %}",
+  "choices": null
+ },
+ "answer_q_with_context_first": {
+  "template": "Context:\n{{context}}\n\nAnswer the following question with extracts from the context: {{question}}\n\n|||\n{% if (answers[\"text\"]  | length) == 0 %}\n{{ \"Unanswerable\" }}\n{% else %}\n{{answers[\"text\"][0]}}\n{% endif %}",
+  "choices": null
+ },
+ "answer_q_with_context_after": {
+  "template": "{{question}}\n\nAnswer using extracts from the following context. If you can't find an answer, return {{\"Unanswerable\"}}\n\nContext:\n{{context}}\n\n|||\n{% if (answers[\"text\"]  | length) == 0 %}\n{{ \"Unanswerable\" }}\n{% else %}\n{{answers[\"text\"][0]}}\n{% endif %}",
+  "choices": null
+ },
+ "q_subj_score_with_context": {
+  "template": "Context:\n{{context}}\n\nQuestion:\n{{question}}\n\nHow would you rate the subjectivity of the question (on a 1 to 5 scale with 1 being the most subjective)?\n\n|||\n\n{{answer_choices[question_subj_level -1]}}",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "q_subj_score": {
+  "template": "Question:\n{{question}}\n\nOn a scale of 1 to 5 (1 being the most subjective), how subjective is the question?\n\n|||\n\n{{answer_choices[question_subj_level -1]}}",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "exam_style_without_hint": {
+  "template": "To get full credit in today's test,  answer the following question with the help of the context. If the question cannot be answered, say Unanswerable.\n\nQuestion: \n{{question}}\n\nContext:\n{{context}}\n\n|||\n{% if (answers[\"text\"]  | length) == 0 %}\n{{ \"Unanswerable\" }}\n{% else %}\n{{answers[\"text\"] | join(\" \\n \")}}\n{% endif %}",
+  "choices": null
+ },
+ "domain_q_after_context": {
+  "template": "{% set mapping = {\"books\": 0, \"electronics\": 1, \"grocery\": 2, \"movies\": 3, \"restaurants\":4 , \"tripadvisor\": 5} %}\nContext:\n{{context}}\n\nWhich of {{\"books, electronics, grocery, movies, restaurants or tripadvisor\"}} corresponds to the context?\n\n|||\n\n{{answer_choices[mapping[domain]]}}",
+  "choices": [
+   "books",
+   "electronics",
+   "grocery",
+   "movies",
+   "restaurants",
+   "tripadvisor"
+  ]
+ }
+}

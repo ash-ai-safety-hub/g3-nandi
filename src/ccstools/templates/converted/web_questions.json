@@ -1,0 +1,22 @@
+{
+ "get_the_answer": {
+  "template": "Give me the correct facts to answer this: {{question}} ||| {{answers | choice}}",
+  "choices": null
+ },
+ "potential-correct-answer": {
+  "template": "Give me a possible correct answer to the question \"{{ question }}\" ||| {{ answers | choice }}",
+  "choices": null
+ },
+ "whats_the_answer": {
+  "template": "What's the answer to that question: {{question}} ||| {{answers | choice}}",
+  "choices": null
+ },
+ "short_general_knowledge_q": {
+  "template": "Short general knowledge question: {{question}} ||| {{answers | choice}}",
+  "choices": null
+ },
+ "question-answer": {
+  "template": "{{ question|capitalize }} ||| {{ answers | choice }}",
+  "choices": null
+ }
+}

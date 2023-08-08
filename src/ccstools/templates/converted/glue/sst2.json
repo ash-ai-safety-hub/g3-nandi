@@ -1,0 +1,37 @@
+{
+ "positive negative after": {
+  "template": "{{sentence}}\nQuestion: Was that sentence {{\"positive\"}} or {{\"negative\"}}? Answer: ||| {{ answer_choices[label] }}",
+  "choices": [
+   "negative",
+   "positive"
+  ]
+ },
+ "review": {
+  "template": "I'm reading a review that says \"{{sentence}}\".\n\nDo you think the review is {{\"positive\"}} or {{\"negative\"}}? ||| {{ answer_choices[label] }}",
+  "choices": [
+   "negative",
+   "positive"
+  ]
+ },
+ "said": {
+  "template": "Someone just said to me \"{{sentence}}\".\n\nDo you think they are {{\"sad\"}} or {{\"happy\"}}? ||| {{ answer_choices[label] }}",
+  "choices": [
+   "sad",
+   "happy"
+  ]
+ },
+ "following positive negative": {
+  "template": "Does the following sentence have a {{\"positive\"}} or {{\"negative\"}} sentiment?\n{{sentence}}\n|||\n{{ answer_choices[label] }}",
+  "choices": [
+   "negative",
+   "positive"
+  ]
+ },
+ "happy or mad": {
+  "template": "Someone sent me an email with the sentence \"{{sentence}}\". Do you think they are feeling {{\"good\"}} or {{\"bad\"}}? ||| {{ answer_choices[label] }}",
+  "choices": [
+   "bad",
+   "good"
+  ]
+ }
+}

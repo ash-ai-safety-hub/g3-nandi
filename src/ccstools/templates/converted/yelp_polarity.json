@@ -1,0 +1,65 @@
+{
+ "experience_good_bad": {
+  "template": "{{ text }}\nOverall, the experience is ||| {{ answer_choices[label] }}",
+  "choices": [
+   "bad",
+   "good"
+  ]
+ },
+ "rating_high_low": {
+  "template": "{{ text }}\nBased on that, my rating for this place is ||| {{ answer_choices[label] }}",
+  "choices": [
+   "low",
+   "high"
+  ]
+ },
+ "regret_yes_or_no": {
+  "template": "{{ text }}\nDid I regret it? ||| {{ answer_choices[label] }}",
+  "choices": [
+   "Yes",
+   "No"
+  ]
+ },
+ "come_again": {
+  "template": "{{ text }}\nIf you ask me whether I will come again, my answer is ||| {{ answer_choices[label] }}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "format_come_again": {
+  "template": "Review:\n{{ text }}\n\nWill you come here again? |||\n{{ answer_choices[label] }}",
+  "choices": [
+   "No",
+   "Yes"
+  ]
+ },
+ "like_dislike": {
+  "template": "{{ text }}\nThat being said, I ||| {{ answer_choices[label] }}",
+  "choices": [
+   "dislike this place.",
+   "like this place."
+  ]
+ },
+ "format_good_bad": {
+  "template": "Review:\n{{ text }}\n\nOverall rating: |||\n{{ answer_choices[label] }}",
+  "choices": [
+   "Bad",
+   "Good"
+  ]
+ },
+ "place_good_bad": {
+  "template": "{{ text }}\nIn a nutshell, this place is ||| {{ answer_choices[label] }}",
+  "choices": [
+   "bad",
+   "good"
+  ]
+ },
+ "like_dislike_2": {
+  "template": "{{ text }}\nIf you ask me whether I like this place? The answer is ||| {{ answer_choices[label] }}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ }
+}

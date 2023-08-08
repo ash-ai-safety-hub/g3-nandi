@@ -1,0 +1,37 @@
+{
+ "match_profile_question": {
+  "template": "{% set class = [\"Human\", \"Bot\"] | random %} {% if (0 < (dialog | selectattr(\"sender_class\", \"equalto\", \"Bot\") | list | length)) and (0 < (dialog | selectattr(\"sender_class\", \"equalto\", \"Human\") | list | length)) %}\nWould a person self-describing with such statements:\n{% for bp in user_profile %}\n- \"{{ bp | join('') }}\",\n{% endfor %}\nsay things like:\n{% for utterance in dialog %}\n{% if class == utterance[\"sender_class\"] %}\n- \"{{ utterance[\"text\"] }}\",\n{% endif %}{% endfor %}\nin a conversation?|||\n{% if \"Human\" == class %}{{ answer_choices[0] }}{% else %}{{ answer_choices[1] }}{% endif %}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "match_profile_guess": {
+  "template": "{% set class = [\"Human\", \"Bot\"] | random %} {% if (0 < (dialog | selectattr(\"sender_class\", \"equalto\", \"Bot\") | list | length)) and (0 < (dialog | selectattr(\"sender_class\", \"equalto\", \"Human\") | list | length)) %}\nI wonder if somebody describing herself, or himself, using these statements:\n{% for bp in user_profile %}\n- \"{{ bp | join('') }}\",\n{% endfor %}\ncould utter things like:\n{% for utterance in dialog %}\n{% if class == utterance[\"sender_class\"] %}\n- \"{{ utterance[\"text\"] }}\",\n{% endif %}{% endfor %}\nin a conversation...\nWhat's your guess: {{ answer_choices[0] }} or {{ answer_choices[1] }}?|||\n{% if \"Human\" == class %}{{ answer_choices[0] }}{% else %}{{ answer_choices[1] }}{% endif %}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "match_profile_agree": {
+  "template": "{% set class = [\"Human\", \"Bot\"] | random %} {% if (0 < (dialog | selectattr(\"sender_class\", \"equalto\", \"Bot\") | list | length)) and (0 < (dialog | selectattr(\"sender_class\", \"equalto\", \"Human\") | list | length)) %}\nSomebody using the following self-describing statements:\n{% for bp in user_profile %}\n- {{ bp | join('') }}\n{% endfor %}\nmight possibly say things like:\n{% for utterance in dialog %}\n{% if class == utterance[\"sender_class\"] %}\n- {{ utterance[\"text\"] }}\n{% endif %}{% endfor %}\nDo you agree?|||\n{% if \"Human\" == class %}{{ answer_choices[0] }}{% else %}{{ answer_choices[1] }}{% endif %}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "match_profile": {
+  "template": "{% set class = [\"Human\", \"Bot\"] | random %} {% if (0 < (dialog | selectattr(\"sender_class\", \"equalto\", \"Bot\") | list | length)) and (0 < (dialog | selectattr(\"sender_class\", \"equalto\", \"Human\") | list | length)) %}\n{% for bp in user_profile %}\n- \"{{ bp | join('') }}\"\n{% endfor %}\nThis profile matches a person saying things like:\n{% for utterance in dialog %}\n{% if class == utterance[\"sender_class\"] %}\n- \"{{ utterance[\"text\"] }}\"\n{% endif %}{% endfor %}\n{{ answer_choices[0] }} of {{ answer_choices[1] }}?|||\n{% if \"Human\" == class %}{{ answer_choices[0] }}{% else %}{{ answer_choices[1] }}{% endif %}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ },
+ "match_profile_expected": {
+  "template": "{% set class = [\"Human\", \"Bot\"] | random %} {% if (0 < (dialog | selectattr(\"sender_class\", \"equalto\", \"Bot\") | list | length)) and (0 < (dialog | selectattr(\"sender_class\", \"equalto\", \"Human\") | list | length)) %}\nGiven the following profile:\n{% for bp in user_profile %}\n- \"{{ bp | join('') }}\"\n{% endfor %}\nwould these utterances be expected:\n{% for utterance in dialog %}\n{% if class == utterance[\"sender_class\"] %}\n- \"{{ utterance[\"text\"] }}\"\n{% endif %}{% endfor %}\nfrom a person in a conversation?|||\n{% if \"Human\" == class %}{{ answer_choices[0] }}{% else %}{{ answer_choices[1] }}{% endif %}\n{% endif %}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ }
+}

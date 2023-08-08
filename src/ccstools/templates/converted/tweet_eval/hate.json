@@ -1,0 +1,37 @@
+{
+ "author_hate": {
+  "template": "Does this tweet convey the author's hatred towards something or someone?\n\n{{text}} |||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "hate_no_yes": {
+  "template": "Does this tweet convey hate: yes or no?\n\n{{text}} |||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "hate_question": {
+  "template": "Is this a hateful tweet? \n{{text}}\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ },
+ "hate_options": {
+  "template": "Does this tweet convey {{\"hate\"}} or {{\"non-hate\"}}?\n\n{{text}} |||\n{{answer_choices[label]}}",
+  "choices": [
+   "non-hate",
+   "hate"
+  ]
+ },
+ "hate_exam": {
+  "template": "In this test, you need to answer with either yes or no. \n\nQ: Is this a hateful tweet? \n{{text}}\n\nA: \n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "no",
+   "yes"
+  ]
+ }
+}

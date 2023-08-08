@@ -1,0 +1,38 @@
+{
+ "Given concepts - type 2": {
+  "template": "Ignoring the order of the concepts: {{ concepts | join(\", \") }}; \nGenerate a sentence with all the concepts :\n|||\n{{target}}",
+  "choices": null
+ },
+ "Put together": {
+  "template": "Put the concepts together to form a sentence: {{ concepts | join(\", \") }}.\n|||\n{{target}}",
+  "choices": null
+ },
+ "choice in concept centric sentence generation": {
+  "template": "Construct a sentence with the word {{ concepts | choice }}. \n\nHint: Use {{concepts | join(\", \")}} to restrict the output sentence.\n|||\n{{target}}",
+  "choices": null
+ },
+ "random task template prompt": {
+  "template": "{% set seq = [ \n'From the concepts mentioned below, generate a sentence:', \n'Convert the concepts to a sentence:', \n'Given the list of concepts, write a sentence:'\n] %} \n{{ seq | choice }}\n{{ concepts | join(\", \") }}\n|||\n{{target}}",
+  "choices": null
+ },
+ "topics from the sentence": {
+  "template": "What are the topics in the sentence: {{target}}\n|||\n{{ concepts | join(\", \") }}",
+  "choices": null
+ },
+ "sentence to concepts": {
+  "template": "We have the sentence: {{target}}; \nExtract all the key concepts: \n|||\n{{ concepts | join(\", \") }}",
+  "choices": null
+ },
+ "topic to sentence": {
+  "template": "Can you write a sentence about the topic {{concepts | choice}}?\n|||\n{{target}}",
+  "choices": null
+ },
+ "Example prompt": {
+  "template": "Humans can easily string together abstract concepts to form a coherent sentence. \nFor example, with the concepts {{ concepts | join(\", \") }}, a simple sentence can be  \n|||\n{{target}}",
+  "choices": null
+ },
+ "Given concepts type 1": {
+  "template": "Given the list of concepts: {{ concepts | join(\", \") }}; \nGenerate a sentence with all the concepts :\n|||\n{{target}}",
+  "choices": null
+ }
+}

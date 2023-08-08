@@ -1,0 +1,30 @@
+{
+ "Verbose instructions": {
+  "template": "Below is a passage, followed by a series of questions and answers about the passage. Answer the last question based on the information contained in the passage. If there is no answer in the passage, say \"unknown\".\n\nPassage: {{story}}\n\nQ: {{question}} \nA: ||| {% if answer[\"answer_start\"] != -1 %}\n{{answer[\"input_text\"]}}\n{% else %}\nunknown\n{% endif %}",
+  "choices": null
+ },
+ "What is the answer": {
+  "template": "What is the answer to the last question in the dialogue below? If there is no answer in the passage, say \"unknown\".\n\nPassage: {{story}}\n\nQ: {{question}} \nA: ||| {% if answer[\"answer_start\"] != -1 %}\n{{answer[\"input_text\"]}}\n{% else %}\nunknown\n{% endif %}",
+  "choices": null
+ },
+ "Complete the dialogue": {
+  "template": "Complete the dialogue based on the information contained in the passage. If there is no answer in the passage, say \"unknown\".\n\nPassage: {{story}}\n\nQ: {{question}} \nA: ||| {% if answer[\"answer_start\"] != -1 %}\n{{answer[\"input_text\"]}}\n{% else %}\nunknown\n{% endif %}",
+  "choices": null
+ },
+ "Answer the last question": {
+  "template": "Answer the last question based on the information contained in the passage. If there is no answer in the passage, say \"unknown\".\n\nPassage: {{story}}\n\nQ: {{question}} \nA: ||| {% if answer[\"answer_start\"] != -1 %}\n{{answer[\"input_text\"]}}\n{% else %}\nunknown\n{% endif %}",
+  "choices": null
+ },
+ "extract_answer": {
+  "template": "In the passage below, extract the part which answers the last question. If there is no answer in the passage, say \"unknown\".\n\nPassage: {{story}}\n\nQ: {{question}}\nA: |||\n{% if answer[\"answer_start\"] != -1 %}\n{{story[answer[\"answer_start\"] : answer[\"answer_end\"] ]}}\n{% else %}\nunknown\n{% endif %}",
+  "choices": null
+ },
+ "Help me": {
+  "template": "Help me complete the dialogue about this passage. If there is no answer in the passage, say \"unknown\".\n\nPassage: {{story}}\n\nQ: {{question}} \nA: ||| {% if answer[\"answer_start\"] != -1 %}\n{{answer[\"input_text\"]}}\n{% else %}\nunknown\n{% endif %}",
+  "choices": null
+ },
+ "GPT-3 Style": {
+  "template": "{{story}}\n\nQ: {{question}} \nA: ||| {% if answer[\"answer_start\"] != -1 %}\n{{answer[\"input_text\"]}}\n{% else %}\nunknown\n{% endif %}",
+  "choices": null
+ }
+}

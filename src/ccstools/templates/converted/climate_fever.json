@@ -1,0 +1,59 @@
+{
+ "first_evidence_and_claim_itemization": {
+  "template": "Here's a statement and accompanying evidence. Does the evidence {{answer_choices[0]}}, {{answer_choices[1]}}, or {{answer_choices[2]}} the statement?\n\nStatement: {{claim}}\n\nEvidence: {{evidences[0][\"evidence\"].strip(\".\").strip('\"')}}.\n|||\n{{ answer_choices[evidences[0][\"evidence_label\"]] }}",
+  "choices": [
+   "support",
+   "refute",
+   "not provide enough information for"
+  ]
+ },
+ "claim_and_all_supporting_evidences": {
+  "template": "For the given claim, do the accompanying statements {{answer_choices[0]}} or {{answer_choices[1]}} it? If there are some of each, say \"{{answer_choices[3]}}\". If there is not enough information to conclude, say \"{{answer_choices[2]}}\".\n\nClaim: {{claim}}\n\nStatements:\n- {{ evidences | map(attribute=\"evidence\") | map(\"trim\", \"\\\".\")  | join(\".\\n- \") }}.\n|||\n{{ answer_choices[claim_label] }}",
+  "choices": [
+   "support",
+   "refute",
+   "not enough information",
+   "disputed"
+  ]
+ },
+ "fifth_evidence_and_claim_itemization": {
+  "template": "Following is a statement made on climate change.\nStatement: {{claim}}\n\nIf I provide the evidence \"{{evidences[4][\"evidence\"].strip(\".\").strip('\"')}}\",  will it {{answer_choices[0]}}, {{answer_choices[1]}}, or {{answer_choices[2]}} the claim?\n|||\n{{ answer_choices[evidences[4][\"evidence_label\"]] }}",
+  "choices": [
+   "support",
+   "refute",
+   "not provide enough information for"
+  ]
+ },
+ "fourth_evidence_and_claim_itemization": {
+  "template": "Does the statement \"{{evidences[3][\"evidence\"].strip(\".\").strip('\"')}}\" {{answer_choices[0]}}, {{answer_choices[1]}}, or {{answer_choices[2]}} the claim that \"{{claim}}' |||\n{{ answer_choices[evidences[3][\"evidence_label\"]] }}",
+  "choices": [
+   "support",
+   "refute",
+   "not provide enough information for"
+  ]
+ },
+ "third_evidence_and_claim_itemization": {
+  "template": "While searching about climate change, I came across a claim that says \"{{claim}}\". Should I use the following evidence to {{answer_choices[0]}} or {{answer_choices[1]}} the claim? If there is not enough information, say \"not enough information\".\nEvidence: {{evidences[2][\"evidence\"].strip(\".\").strip('\"')}}.\n|||\n{{ answer_choices[evidences[2][\"evidence_label\"]] }}",
+  "choices": [
+   "support",
+   "refute",
+   "not enough information"
+  ]
+ },
+ "second_evidence_and_claim_itemization": {
+  "template": "If I argue that \"{{claim}}\" would the following evidence {{answer_choices[0]}}, {{answer_choices[1]}}, or {{answer_choices[2]}} the claim?\nEvidence: {{evidences[1][\"evidence\"].strip(\".\").strip('\"')}}.\n|||\n{{ answer_choices[evidences[1][\"evidence_label\"]] }}",
+  "choices": [
+   "support",
+   "refute",
+   "not provide enough information for"
+  ]
+ },
+ "third_evidence_claim_pair": {
+  "template": "Considering the following claim:\n{{claim}}.\nDoes the following statement {{answer_choices[0]}}, {{answer_choices[1]}}, or {{answer_choices[2]}} the claim?\n{{evidences[2][\"evidence\"].strip(\".\").strip('\"')}}.\n|||\n{{ answer_choices[evidences[2][\"evidence_label\"]] }}",
+  "choices": [
+   "support",
+   "refute",
+   "not provide enough information for"
+  ]
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "What is the answer": {
+  "template": "What is the answer to the last question in the dialogue below? If there is no answer in the passage, say \"unknown\".\n\nPassage: {{context}}\n\nQ: {{question}} \nA: ||| {{answer[\"texts\"][0]}}",
+  "choices": null
+ },
+ "GPT-3 Style": {
+  "template": "{{context}}\n\nQ: {{question}} \nA: ||| {{answer[\"texts\"][0]}}",
+  "choices": null
+ },
+ "Verbose instructions": {
+  "template": "Below is a passage, followed by a series of questions and answers about the passage. Answer the last question based on the information contained in the passage. If there is no answer in the passage, say \"unknown\".\n\nPassage: {{context}}\n\nQ: {{question}} \nA: ||| {{answer[\"texts\"][0]}}",
+  "choices": null
+ },
+ "Answer the last question": {
+  "template": "Answer the last question based on the information contained in the passage. If there is no answer in the passage, say \"unknown\".\n\nPassage: {{context}}\n\nQ: {{question}} \nA: ||| {{answer[\"texts\"][0]}}",
+  "choices": null
+ },
+ "Complete the dialogue": {
+  "template": "Complete the dialogue based on the information contained in the passage. If there is no answer in the passage, say \"unknown\".\n\nPassage: {{context}}\n\nQ: {{question}} \nA: ||| {{answer[\"texts\"][0]}}",
+  "choices": null
+ },
+ "Help me": {
+  "template": "Help me complete the dialogue about this passage. If there is no answer in the passage, say \"unknown\".\n\nPassage: {{context}}\n\nQ: {{question}} \nA: ||| {{answer[\"texts\"][0]}}",
+  "choices": null
+ }
+}
