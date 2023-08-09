@@ -1,9 +1,9 @@
 {
- "consider": {
-  "template": "Consider the following premise: \"{{premise}}\" Choice 1: {{choice1}} Choice 2: {{choice2}} Q: Which one is more likely to be the {{question}}, choice 1 or choice 2? ||| {% if label != -1 %}{{ answer_choices[label] }}{%endif%}",
+ "CCS 1": {
+  "template": "Consider the following premise: ''' {{premise}} ''' Choice 1: {{choice1}}\nChoice 2: {{choice2}}\nQ: Which one is more likely to be the {{question}}, choice 1 or choice 2?\n|||\n{% if label != -1 %}{{ answer_choices[label] }}{% endif %}",
   "choices": [
-    "{{choice1}}",
-    "{{choice2}}"
+    "Choice 1",
+    "Choice 2"
   ]
  }
 }

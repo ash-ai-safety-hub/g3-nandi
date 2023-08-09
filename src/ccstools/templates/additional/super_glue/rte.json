@@ -1,0 +1,9 @@
+{
+ "CCS 1": {
+  "template": "{{premise}}\nQuestion: Does this imply that \"{{hypothesis}}\", yes or no?\n|||\n{{answer_choices[label]}}",
+  "choices": [
+   "yes",
+   "no"
+  ]
+ }
+}

@@ -1,55 +1,55 @@
 {
- "CCS consider 1": {
-  "template": "Consider the following example: ''' {{content}} '''\Choice 1: {{answer_choices[0]}}. Choice 2: {{answer_choices[1]}}.Between choice 1 and choice 2, the topic of this example is ||| {{answer_choices[label]}}",
+ "CCS 1": {
+  "template": "Consider the following example: ''' {{content}} '''\nChoice 1: {{answer_choices[0]}}. Choice 2: {{answer_choices[1]}}.Between choice 1 and choice 2, the topic of this example is ||| {{answer_choices[label]}}",
   "choices": [
    "{{label0}}",
    "{{label1}}"
   ]
  },
- "CCS consider 2": {
-  "template": "Consider the following example: ''' {{content}} '''\nChoice 1: {{answer_choices[0]}}. Choice 2: {{answer_choices[1]}}.Between choice 1 and choice 2, what is the topic of this example? ||| {{answer_choices[label]}}",
+ "CCS 2": {
+  "template": "Consider the following example: ''' {{content}} '''\nChoice 1: {{answer_choices[0]}}. Choice 2: {{answer_choices[1]}}.Between choice 1 and choice 2, what is the topic of this example?\n|||\n{{answer_choices[label]}}",
   "choices": [
    "{{label0}}",
    "{{label1}}"
   ]
  },
- "CCS consider 3": {
-  "template": "Consider the following example: ''' {{content}} '''\nWhich is the topic of this example, choice 1: {{answer_choices[0]}} or choice 2: {{answer_choices[1]}}? ||| {{answer_choices[label]}}",
+ "CCS 3": {
+  "template": "Consider the following example: ''' {{content}} '''\nWhich is the topic of this example, choice 1: {{answer_choices[0]}} or choice 2: {{answer_choices[1]}}?\n|||\n{{answer_choices[label]}}",
   "choices": [
    "{{label0}}",
    "{{label1}}"
   ]
  },
- "CCS direct 1": {
+ "CCS 4": {
   "template": "{{content}}\nChoice 1: {{answer_choices[0]}}. Choice 2: {{answer_choices[1]}}.Between choice 1 and choice 2, the topic of this example is ||| {{answer_choices[label]}}",
   "choices": [
    "{{label0}}",
    "{{label1}}"
   ]
  },
- "CCS direct 2": {
-  "template": "{{content}}\nChoice 1: {{answer_choices[0]}}. Choice 2: {{answer_choices[1]}}.Between choice 1 and choice 2, what is the topic of this example? ||| {{answer_choices[label]}}",
+ "CCS 5": {
+  "template": "{{content}}\nChoice 1: {{answer_choices[0]}}. Choice 2: {{answer_choices[1]}}.Between choice 1 and choice 2, what is the topic of this example?\n|||\n{{answer_choices[label]}}",
   "choices": [
    "{{label0}}",
    "{{label1}}"
   ]
  },
- "CCS direct 3": {
-  "template": "{{content}}\nWhich is the topic of this example, choice 1: {{answer_choices[0]}} or choice 2: {{answer_choices[1]}}? ||| {{answer_choices[label]}}",
+ "CCS 6": {
+  "template": "{{content}}\nWhich is the topic of this example, choice 1: {{answer_choices[0]}} or choice 2: {{answer_choices[1]}}?\n|||\n{{answer_choices[label]}}",
   "choices": [
    "{{label0}}",
    "{{label1}}"
   ]
  },
- "CCS direct 4": {
-  "template": "{{content}}\nWhat category does the paragraph belong to, choice 1: {{answer_choices[0]}} or choice 2: {{answer_choices[1]}}? ||| {{answer_choices[label]}}",
+ "CCS 7": {
+  "template": "{{content}}\nWhat category does the paragraph belong to, choice 1: {{answer_choices[0]}} or choice 2: {{answer_choices[1]}}?\n|||\n{{answer_choices[label]}}",
   "choices": [
    "{{label0}}",
    "{{label1}}"
   ]
  },
- "CCS direct 5": {
-  "template": "{{content}}\nWhich label best describes this paragraph, choice 1: {{answer_choices[0]}} or choice 2: {{answer_choices[1]}}? ||| {{answer_choices[label]}}",
+ "CCS 8": {
+  "template": "{{content}}\nWhich label best describes this paragraph, choice 1: {{answer_choices[0]}} or choice 2: {{answer_choices[1]}}?\n|||\n{{answer_choices[label]}}",
   "choices": [
    "{{label0}}",
    "{{label1}}"

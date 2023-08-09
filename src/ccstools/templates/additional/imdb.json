@@ -1,12 +1,12 @@
 {
- "consider sentiment as statement": {
+ "CCS 1": {
   "template": "Consider the following example: ''' {{content}} ''' Between {{answer_choices[0]}} and {{answer_choices[1]}}, the sentiment of this example is ||| {{answer_choices[label]}}",
   "choices": [
    "negative",
    "positive"
   ]
  },
- "consider sentiment as question": {
+ "CCS 2": {
   "template": "Consider the following example: ''' {{content}} ''' Between {{answer_choices[0]}} and {{answer_choices[1]}}, which is the sentiment of this example? ||| {{answer_choices[label]}}",
   "choices": [
    "Negative",

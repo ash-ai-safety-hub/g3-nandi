@@ -10,7 +10,12 @@ support being written to disk.
 """
 from __future__ import annotations
 
-__all__ = ['PromptTemplate', 'load_templates']
+__all__ = [
+    'CCS_TEMPLATE_NAMES',
+    'PromptTemplate',
+    'load_templates',
+    'load_ccs_templates',
+]
 
 from collections.abc import Iterator
 from dataclasses import dataclass
@@ -27,13 +32,111 @@ except ImportError:
 
 _StrPathT = 'str | os.PathLike[str]'
 
-ENV = Environment()
-TEMPLATES_ROOTS = [files('ccstools.templates').joinpath('converted'),
-                   files('ccstools.templates').joinpath('additional')]
+CCS_TEMPLATE_NAMES = {
+    ('ag_news', None): ['CCS 1',
+                        'CCS 2',
+                        'CCS 3',
+                        'CCS 4',
+                        'CCS 5',
+                        'CCS 6',
+                        'CCS 7',
+                        'CCS 8'],
+    ('amazon_polarity', None): ['Is_this_review',
+                                'User_recommend_this_product',
+                                'Is_this_product_review_positive',
+                                'Is_this_review_negative',
+                                'convey_negative_or_positive_sentiment',
+                                'negative_or_positive_tone',
+                                'user_satisfied',
+                                'would_you_buy',
+                                'flattering_or_not',
+                                'CCS 1',
+                                'CCS 2'],
+    ('super_glue', 'boolq'): ['after_reading',
+                              'GPT-3 Style',
+                              'I wonder…',
+                              'yes_no_question',
+                              'could you tell me…',
+                              'exam',
+                              'based on the following passage',
+                              'exercise',
+                              'based on the previous passage',
+                              'valid_binary'],
+    ('super_glue', 'copa'): ['exercise',
+                             'i_am_hesitating',
+                             'plausible_alternatives',
+                             'C1 or C2? premise, so/because…',
+                             'best_option',
+                             'more likely',
+                             'cause_effect',
+                             'choose',
+                             'CCS 1'],
+    ('dbpedia_14', None): ['CCS 1',
+                           'CCS 2',
+                           'CCS 3',
+                           'CCS 4',
+                           'CCS 5',
+                           'CCS 6',
+                           'CCS 7',
+                           'CCS 8'],
+    ('imdb', None): ['Movie Expressed Sentiment 2',
+                     'Reviewer Opinion bad good choices',
+                     'Sentiment with choices ',
+                     'Reviewer Sentiment Feeling',
+                     'Writer Expressed Sentiment',
+                     'Movie Expressed Sentiment',
+                     'Text Expressed Sentiment',
+                     'Negation template for positive and negative',
+                     'Reviewer Enjoyment Yes No',
+                     'Reviewer Expressed Sentiment',
+                     'Reviewer Enjoyment',
+                     'CCS 1',
+                     'CCS 2'],
+    ('piqa', None): ['what_is_the_correct_ending',
+                     'pick_correct_choice_with_choice_given_before_goal',
+                     'pick_correct_choice_index',
+                     'Correct the solution',
+                     'finish_sentence_with_correct_choice',
+                     'Does this solution make sense? sol2',
+                     'choose the most appropriate solution',
+                     'Correct the solution if false: from sol 2',
+                     'no prompt needed',
+                     'Does this solution make sense? sol1',
+                     'Correct the solution if false: from sol 1'],
+    ('glue', 'qnli'): ['have all you need',
+                       'based only on',
+                       'imply',
+                       'want to know',
+                       'possible to answer'],
+    ('super_glue', 'rte'): ['MNLI crowdsource',
+                            'guaranteed true',
+                            'can we infer',
+                            'GPT-3 style',
+                            'does this imply',
+                            'should assume',
+                            'does it follow that',
+                            'based on the previous passage',
+                            'justified in saying',
+                            'must be true',
+                            'CCS 1'],
+    ('story_cloze', '2016'): ['Answer Given options',
+                              'Choose Story Ending',
+                              'Movie What Happens Next',
+                              'Story Continuation and Options',
+                              'Generate Ending',
+                              'Novel Correct Ending',
+                              'CCS 1',
+                              'CCS 2',
+                              'CCS 3']
+}
+
+_ENV = Environment()
+_TEMPLATES_ROOTS = [files('ccstools.templates').joinpath('converted'),
+                    files('ccstools.templates').joinpath('additional')]
 
 
 def _iter_default_roots() -> Iterator[Path]:
-    for root in TEMPLATES_ROOTS:
+    for root in _TEMPLATES_ROOTS:
         with as_file(root) as path:
             yield path
 
@@ -102,7 +205,7 @@ class PromptTemplate:
         else:
             choices = None
 
-        jinja_template = ENV.from_string(self.template)
+        jinja_template = _ENV.from_string(self.template)
         if choices:
             full_prompt = jinja_template.render(**example,
                                                 answer_choices=choices)
@@ -178,3 +281,14 @@ def load_templates(dataset: str,
             + '\nbut they either do not exist or are empty.')
 
     return templates
+
+
+def load_ccs_templates() -> dict[str, dict[str, PromptTemplate]]:
+    """Load all CCS templates."""
+
+    ccs_templates = {}
+    for dataset, template_filter in CCS_TEMPLATE_NAMES.items():
+        templates = load_templates(*dataset)
+        ccs_templates[dataset] = {name: templates[name]
+                                  for name in template_filter}
+    return ccs_templates
