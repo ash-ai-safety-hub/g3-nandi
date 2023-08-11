@@ -1,13 +1,13 @@
 {
  "CCS 1": {
-  "template": "Consider the following example: ''' {{content}} ''' Between {{answer_choices[0]}} and {{answer_choices[1]}}, the sentiment of this example is ||| {{answer_choices[label]}}",
+  "template": "Consider the following example: ''' {{text}} ''' Between {{answer_choices[0]}} and {{answer_choices[1]}}, the sentiment of this example is ||| {{answer_choices[label]}}",
   "choices": [
    "negative",
    "positive"
   ]
  },
  "CCS 2": {
-  "template": "Consider the following example: ''' {{content}} ''' Between {{answer_choices[0]}} and {{answer_choices[1]}}, which is the sentiment of this example? ||| {{answer_choices[label]}}",
+  "template": "Consider the following example: ''' {{text}} ''' Between {{answer_choices[0]}} and {{answer_choices[1]}}, which is the sentiment of this example? ||| {{answer_choices[label]}}",
   "choices": [
    "Negative",
    "Positive"
