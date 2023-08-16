@@ -174,7 +174,8 @@ class PromptTemplate:
 
     def __call__(self,
                  example: dict[str, Any],
-                 prefix: str = '') -> PromptTemplateOutput:
+                 prefix: str = '',
+                 suffix: str = '') -> PromptTemplateOutput:
         """Generate the prompt for a given example.
 
         Parameters
@@ -182,8 +183,9 @@ class PromptTemplate:
         example : dict[str, Any]
             The example to generate the prompt for.
         prefix : str, optional
-            An additional prefix to add to the start of the prompt, if
-            provided.
+            An additional prefix to add to the start of the prompt.
+        suffix : str, optional
+            An additional suffix to add to the start of the prompt.
 
         Returns
         -------
@@ -219,7 +221,7 @@ class PromptTemplate:
             answer = choices[example['label']]
 
         return PromptTemplateOutput(
-            prompt=prefix+prompt,
+            prompt=prefix+prompt+suffix,
             answer=answer,
             choices=choices
         )
