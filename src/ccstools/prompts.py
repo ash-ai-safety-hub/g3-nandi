@@ -17,9 +17,9 @@ __all__ = [
     'load_ccs_templates',
 ]
 
+import json
 from collections.abc import Iterator
 from dataclasses import dataclass
-import json
 from pathlib import Path
 from typing import Any
 
@@ -135,6 +135,10 @@ _TEMPLATES_ROOTS = [files('ccstools.templates').joinpath('converted'),
                     files('ccstools.templates').joinpath('additional')]
 
 
+def _render_template(source: str, context: dict[str, Any]) -> str:
+    return _ENV.from_string(source).render(context)
+
+
 def _iter_default_roots() -> Iterator[Path]:
     for root in _TEMPLATES_ROOTS:
         with as_file(root) as path:
@@ -201,27 +205,27 @@ class PromptTemplate:
                 `example['label']`.
 
         """
+        render_arguments = {**example}
+
         if self.choices:
-            choices = tuple(choice.format(**example)
-                            for choice in self.choices)
+            render_arguments['answer_choices'] = choices = tuple(
+                _render_template(choice, render_arguments)
+                for choice in self.choices
+            )
         else:
             choices = None
 
-        jinja_template = _ENV.from_string(self.template)
-        if choices:
-            full_prompt = jinja_template.render(**example,
-                                                answer_choices=choices)
-        else:
-            full_prompt = jinja_template.render(**example)
-        prompt, *rest = map(str.strip, full_prompt.split('|||'))
+        full_prompt = _render_template(self.template, render_arguments)
+        prompt, sep, answer = map(str.strip, full_prompt.partition('|||'))
 
-        try:
-            answer = rest[0]
-        except IndexError:
+        if not sep:
             answer = choices[example['label']]
 
+        rendered_prefix = _render_template(prefix, render_arguments)
+        rendered_suffix = _render_template(suffix, render_arguments)
+
         return PromptTemplateOutput(
-            prompt=prefix+prompt+suffix,
+            prompt=rendered_prefix+prompt+rendered_suffix,
             answer=answer,
             choices=choices
         )
@@ -280,7 +284,8 @@ def load_templates(dataset: str,
         raise TemplateLoadingError(
             'No templates loaded, tried looking in:\n'
             + '\n'.join(f'- {filename}' for filename in dataset_filenames)
-            + '\nbut they either do not exist or are empty.')
+            + '\nbut they either do not exist or are empty.'
+        )
 
     return templates
 

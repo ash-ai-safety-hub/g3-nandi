@@ -1,13 +1,22 @@
 from __future__ import annotations
 
-__all__ = ['balance_filter_map_dataset']
+__all__ = ['balance_filter_map_dataset', 'add_prompts']
 
-from collections.abc import Callable
-from tqdm.auto import tqdm
+from collections.abc import Callable, Iterable
 from typing import Any, TYPE_CHECKING
+
+from tqdm.auto import tqdm
+
 
 if TYPE_CHECKING:
     import datasets
+    import transformers
+
+    from ccstools.prompts import Template
+
+    from typing import TypeVar
+
+    _T = TypeVar('_T')
 
 
 def balance_filter_map_dataset(
@@ -83,3 +92,77 @@ def balance_filter_map_dataset(
         progress_bar.update(len(mapped_dataset) - progress_bar.n)
 
     return mapped_dataset
+
+
+def add_prompts(example: dict[str, Any],
+                *,
+                tokenizer: transformers.PreTrainedTokenizer,
+                templates: Iterable[Template],
+                max_length: int,
+                prefix: str = '',
+                suffix: str = '') -> dict[str, Any] | None:
+    """Add tokenized prompts to a given dataset example.
+
+    Given a tokenizer and a set of prompts, this applies all of the
+    templates to the input example, and tokenizes them into a single
+    batched tensor.
+
+    In particular, this adds the following entries to the input example:
+    - 'prompts' : list[dict[str, torch.Tensor]]
+        A list of each prompt tokenized.
+    - 'answered_prompts' : list[dict[str, torch.Tensor]]
+        A list of tokenized batches, where each batch corresponds to a
+        single prompt with each possible answer appended
+    - 'answers' : list[dict[str, torch.Tensor]]
+        A list of tokenized batches, where each batch corresponds to all
+        possible answers to a single prompt (without the prompt at the
+        beginning).
+
+    A maximum token length can be specified, such that if any prompt is
+    longer than this maximum length, the input is rejected and the
+    function returns `None`.
+    Thus, this can be used with `balance_filter_map_dataset`.
+
+    Parameters
+    ----------
+    example : dict[str, Any]
+        The example to add prompts to.
+    tokenizer : transformers.PreTrainedTokenizer
+        The tokenizer to use to tokenize the prompts.
+    templates : Iterable[Template]
+        A list of templates that generate the prompts to be added.
+    max_length : int
+        The maximum length a generated prompt can be (number of tokens).
+    prefix : str, optional
+        An optional prefix to add to each prompt.
+    suffix : str, optional
+        An optional suffix to add to each prompt.
+
+    Returns
+    -------
+    dict[str, Any] or None
+        The example with extra entries for the added prompts, unless any
+        prompt is too long, in which case `None` is returned.
+
+    """
+    answered_prompts = example['answered_prompts'] = []
+    prompts = example['prompts'] = []  # without answers
+    choices = example['choices'] = []
+    for template in templates:
+        template_output = template(example, prefix=prefix, suffix=suffix)
+        assert template_output.choices
+
+        answered_prompt = tokenizer([f'{template_output.prompt} {choice}'
+                                     for choice in template_output.choices],
+                                    padding=True,
+                                    return_length=True)
+
+        length = answered_prompt.pop('length')
+        if max(length) > max_length:
+            return None
+
+        answered_prompts.append(answered_prompt)
+        prompts.append(tokenizer(template_output.prompt))
+        choices.append(tokenizer(template_output.choices, padding=True))
+
+    return example
