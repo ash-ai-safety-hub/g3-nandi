@@ -47,17 +47,22 @@ def balance_filter_map_dataset(
         have been generated.
     **kwargs : Any
         Any other arguments to pass to `Dataset.map`.
-        This should not contain: `batched`, `batch_size` or `num_proc`.
+        This should not contain: `num_proc`.
 
     """
-    for illegal_key in ('batched', 'batch_size', 'num_proc'):
+    # TODO can this be parallalised?
+    ILLEGAL_KEYS = ('num_proc',)
+    for illegal_key in ILLEGAL_KEYS:
         if illegal_key in kwargs:
             raise ValueError(f'Illegal keyword argument: `{illegal_key}`')
 
-    # TODO can this be parallalised?
-    count_per_label = [0] * dataset.features['label'].num_classes
+    batched = kwargs.pop('batched', False)
+    batch_size = kwargs.pop('batch_size', 1000)
 
-    with tqdm(total=examples_per_label * len(count_per_label),
+    num_classes = dataset.features['label'].num_classes
+    remaining_per_label = [examples_per_label] * num_classes
+
+    with tqdm(total=examples_per_label * num_classes,
               desc='Generating dataset',
               disable=not show_progress) as progress_bar:
         # hack so that `Dataset.map` can generate a fingerprint
@@ -69,23 +74,42 @@ def balance_filter_map_dataset(
         def apply_function(batch: dict[str, list[Any]],
                            *args: Any,
                            **kwargs: Any) -> dict[str, list[Any]]:
-            # unbatch example
-            example = {key: value[0] for key, value in batch.items()}
+            if any(remaining_per_label):
+                # unbatch example, if required
+                if not batched:
+                    example = {key: value[0] for key, value in batch.items()}
+                else:
+                    example = batch
 
-            if count_per_label[example['label']] < examples_per_label:
                 mapped_example = function(example, *args, **kwargs)
                 if mapped_example is not None:
-                    count_per_label[example['label']] += 1
-                    wrapped_progress_bar.bar.update(1)
+                    bar = wrapped_progress_bar.bar
+                    if batched:
+                        removed = False
+                        to_keep = []
+                        for i, label in enumerate(mapped_example['label']):
+                            if remaining_per_label[label]:
+                                remaining_per_label[label] -= 1
+                                to_keep.append(i)
+                            else:
+                                removed = True
+                        bar.update(len(to_keep))
+                        if removed:
+                            return {k: [v[i] for i in to_keep]
+                                    for k, v in mapped_example.items()}
+                        else:
+                            return mapped_example
+                    elif remaining_per_label[mapped_example['label']]:
+                        remaining_per_label[mapped_example['label']] -= 1
+                        bar.update(1)
+                        # rebatch mapped example
+                        return {k: [v] for k, v in mapped_example.items()}
 
-                    # rebatch mapped example
-                    return {k: [v] for k, v in mapped_example.items()}
-
-            return {key: [] for key in example}  # empty batch
+            return {key: [] for key in batch}  # empty batch
 
         mapped_dataset = dataset.map(apply_function,
                                      batched=True,
-                                     batch_size=1,
+                                     batch_size=batch_size if batched else 1,
                                      **kwargs)
 
         # useful for cached datasets
