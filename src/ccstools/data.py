@@ -78,24 +78,30 @@ def balance_filter_map_dataset(
             if not batched:
                 example = {key: value[0] for key, value in batch.items()}
 
-            if any(remaining_per_label.values()):
+            if any(remaining_per_label):
                 mapped_example = function(example, *args, **kwargs)
                 if mapped_example is not None:
                     bar = wrapped_progress_bar.bar
-                    try:
-                        bar.update(len(mapped_example['label']))
-                    except TypeError:
-                        bar.update(1)
+                    if batched:
+                        removed = False
+                        to_keep = []
+                        for i, label in enumerate(mapped_example['label']):
+                            if remaining_per_label[label]:
+                                remaining_per_label[label] -= 1
+                                to_keep.append(i)
+                            else:
+                                removed = True
+                        bar.update(len(to_keep))
+                        if removed:
+                            return {k: [v[i] for i in to_keep]
+                                    for k, v in mapped_example.items()}
+                        else:
+                            return mapped_example
+                    elif remaining_per_label[mapped_example['label']]:
                         remaining_per_label[mapped_example['label']] -= 1
-                    else:
-                        for label in mapped_example['label']:
-                            remaining_per_label[label] -= 1
-
-                    # rebatch mapped example, if required
-                    if not batched:
+                        bar.update(1)
+                        # rebatch mapped example
                         return {k: [v] for k, v in mapped_example.items()}
-                    else:
-                        return mapped_example
 
             return {key: [] for key in example}  # empty batch
 
