@@ -120,7 +120,7 @@ def train_test_split(
 
     try:
         if 0 < test_size < 1:
-            test_size = round(size * train_size)
+            test_size = round(size * test_size)
     except TypeError:
         pass
 
