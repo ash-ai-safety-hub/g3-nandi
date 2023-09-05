@@ -1,20 +1,22 @@
 from __future__ import annotations
 
-__all__ = ['balance_filter_map_dataset', 'add_prompts']
+__all__ = ['balance_filter_map_dataset', 'add_prompts', 'make_binary']
 
 from collections.abc import Callable, Iterable
 from typing import Any, TYPE_CHECKING
 
+from datasets import ClassLabel
+import numpy as np
 from tqdm.auto import tqdm
 
 
 if TYPE_CHECKING:
+    from typing import Sequence, TypeVar
+
     import datasets
     import transformers
 
     from ccstools.prompts import Template
-
-    from typing import TypeVar
 
     _T = TypeVar('_T')
 
@@ -190,3 +192,37 @@ def add_prompts(example: dict[str, Any],
         choices.append(tokenizer(template_output.choices, padding=True))
 
     return example
+
+
+def make_binary_example(example: dict[str, Any],
+                        class_label: ClassLabel,
+                        new_label_columns: Sequence[str],
+                        rng: np.random.Generator) -> dict[str, Any]:
+    label = example['label']
+
+    other = rng.integers(class_label.num_classes - 1, dtype=int)
+    if other >= label:
+        other += 1
+
+    new_label = rng.integers(2, dtype=int)
+    example['label'] = new_label
+    example[new_label_columns[new_label]] = class_label.int2str(label)
+    example[new_label_columns[1-new_label]] = class_label.int2str(other)
+
+    return example
+
+
+def make_binary(dataset: datasets.Dataset,
+                new_label_columns: Sequence[str] = ('label0', 'label1'),
+                seed: int | None = None) -> datasets.Dataset:
+    assert len(new_label_columns) == 2
+
+    rng = np.random.default_rng(seed)
+    dataset = dataset.map(make_binary_example,
+                          fn_kwargs={'class_label': dataset.features['label'],
+                                     'new_label_columns': new_label_columns,
+                                     'rng': rng})
+
+    features = dataset.features.copy()
+    features['label'] = ClassLabel(names=new_label_columns)
+    return dataset.cast(features)
