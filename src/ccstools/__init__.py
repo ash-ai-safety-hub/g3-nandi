@@ -12,6 +12,7 @@ __all__ = [
 
     'add_prompts',
     'balance_filter_map_dataset',
+    'make_binary',
 
     'get_model_type',
     'load_model',
@@ -42,6 +43,7 @@ from ccstools.ccs import (
 from ccstools.data import (
     add_prompts,
     balance_filter_map_dataset,
+    make_binary,
 )
 from ccstools.models import (
     get_model_type,

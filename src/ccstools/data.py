@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-__all__ = ['balance_filter_map_dataset', 'add_prompts']
+__all__ = ['balance_filter_map_dataset', 'add_prompts', 'make_binary']
 
 from collections.abc import Callable, Iterable
 from typing import Any, TYPE_CHECKING
