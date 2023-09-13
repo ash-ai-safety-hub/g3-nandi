@@ -58,8 +58,8 @@ def balance_filter_map_dataset(
         if illegal_key in kwargs:
             raise ValueError(f'Illegal keyword argument: `{illegal_key}`')
 
-    batched = kwargs.get('batched', False)
-    batch_size = kwargs.get('batch_size', 1000)
+    batched = kwargs.pop('batched', False)
+    batch_size = kwargs.pop('batch_size', 1000)
 
     num_classes = dataset.features['label'].num_classes
     remaining_per_label = [examples_per_label] * num_classes
