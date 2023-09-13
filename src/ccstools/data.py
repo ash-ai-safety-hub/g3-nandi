@@ -80,6 +80,8 @@ def balance_filter_map_dataset(
                 # unbatch example, if required
                 if not batched:
                     example = {key: value[0] for key, value in batch.items()}
+                else:
+                    example = batch
 
                 mapped_example = function(example, *args, **kwargs)
                 if mapped_example is not None:
