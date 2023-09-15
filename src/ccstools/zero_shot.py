@@ -147,7 +147,7 @@ def get_logprobs_nli(
     with torch.no_grad():
         output = model(**prompts, output_hidden_states=True)
 
-    assert output.logits.shape == (2, 3)
+    assert output.logits.shape[1] == 3
     logprobs = output.logits.log_softmax(-1)
 
     if return_hidden_states:
