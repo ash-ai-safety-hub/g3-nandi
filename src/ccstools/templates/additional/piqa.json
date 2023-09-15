@@ -1,0 +1,30 @@
+{
+ "Correct the solution": {
+  "template": "Given a goal and a wrong solution, rewrite it to give a correct solution.\nGoal: {{goal}} \nSolution: {{[sol1, sol2][1 - label]}}\nCorrected solution:\n|||\n{{[sol1, sol2][label]}}\n",
+  "choices": [
+   "{{sol1}}",
+   "{{sol2}}"
+  ]
+ },
+ "Correct the solution if false: from sol 2": {
+  "template": "Given a sentence, correct it if it doesn't make sense. If it makes sense, just return it as the answer.\nInput: {{goal}} {{sol2[0].lower() + sol2[1:]}}\nOutput:\n|||\n{{goal}} {{[sol1[0].lower() + sol1[1:], sol2[0].lower() + sol2[1:]][label]}}\n",
+  "choices": [
+   "{{sol1[0].lower() + sol1[1:]}}",
+   "{{sol2[0].lower() + sol2[1:]}}"
+  ]
+ },
+ "no prompt needed": {
+  "template": "{{goal}}\n|||\n{{[sol1[0].lower() + sol1[1:], sol2[0].lower() + sol2[1:]][label]}}",
+  "choices": [
+   "{{sol1[0].lower() + sol1[1:]}}",
+   "{{sol2[0].lower() + sol2[1:]}}"
+  ]
+ },
+ "Correct the solution if false: from sol 1": {
+  "template": "Sentence: {{goal}} {{sol1[0].lower() + sol1[1:]}}\nIf the sentence does not make sense, correct it so that it does make sense. Otherwise, just copy it.\nAnswer:\n|||\n{{goal}} {{[sol1[0].lower() + sol1[1:], sol2[0].lower() + sol2[1:]][label]}}\n",
+  "choices": [
+   "{{sol1[0].lower() + sol1[1:]}}",
+   "{{sol2[0].lower() + sol2[1:]}}"
+  ]
+ }
+}
