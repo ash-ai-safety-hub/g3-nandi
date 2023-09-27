@@ -23,8 +23,8 @@ __all__ = [
     'load_templates',
 
     'add_logprobs',
-    'evaluate_logprobs',
     'get_logprobs',
+    'predict_from_logprobs',
 ]
 
 from ccstools import (
@@ -57,6 +57,6 @@ from ccstools.prompts import (
 )
 from ccstools.zero_shot import (
     add_logprobs,
-    evaluate_logprobs,
     get_logprobs,
+    predict_from_logprobs,
 )

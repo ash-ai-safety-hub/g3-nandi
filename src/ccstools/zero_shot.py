@@ -7,7 +7,7 @@ Functions for running zero-shot experiments.
 
 from __future__ import annotations
 
-__all__ = ['get_logprobs', 'add_logprobs', 'evaluate_logprobs']
+__all__ = ['get_logprobs', 'add_logprobs', 'predict_from_logprobs']
 
 from typing import Any, TYPE_CHECKING
 
@@ -328,10 +328,9 @@ def add_logprobs(example: dict[str, Any],
     return example
 
 
-def evaluate_logprobs(logprobs: torch.Tensor,
-                      labels: torch.Tensor,
-                      calibrate: bool = True) -> float:
-    """Evaluate log-probabilities against target labels.
+def predict_from_logprobs(logprobs: torch.Tensor,
+                          calibrate: bool = True) -> torch.Tensor:
+    """Predict labels from log-probabilities.
 
     We assume that the log-probabilites contains at least 3 dimensions,
     the first being the index, the second corresponding to the prompt,
@@ -354,14 +353,6 @@ def evaluate_logprobs(logprobs: torch.Tensor,
     ----------
     logprobs : torch.Tensor
         A tensor of log-probabilities.
-    labels : torch.Tensor
-        A tensor of the target labels.
-    prompt_dim : int or str, default: 'prompt'
-        The log-probabilities are first averaged over all of the prompts
-        used. This parameter specifies the dimension over which this
-        averaging takes place.
-    answer_dim : int or str, default: 'answer'
-        The dimension corresponding to the two different answers.
     calibrate : bool, default: True
         Whether to calibrate the predicted labels to be 50:50.
 
@@ -374,11 +365,10 @@ def evaluate_logprobs(logprobs: torch.Tensor,
     PROMPT_DIM, ANSWER_DIM, NLI_LABEL_DIM = 1, 2, 3
     CONTRADICTION, ENTAILMENT = 0, -1
 
-    assert len(logprobs) == len(labels)
-    assert logprobs.ndim in (3, 4)
+    assert logprobs.dim() in (3, 4)
     assert logprobs.size(2) == 2
 
-    if logprobs.ndim == 4:
+    if logprobs.dim() == 4:
         assert logprobs.size(3) == 3
         logprobs = (logprobs.select(NLI_LABEL_DIM, ENTAILMENT)
                     - logprobs.select(NLI_LABEL_DIM, CONTRADICTION))
@@ -387,5 +377,4 @@ def evaluate_logprobs(logprobs: torch.Tensor,
                    - logprobs.select(ANSWER_DIM, 0))
     mean_differences = differences.mean(PROMPT_DIM)
     calibration_correction = mean_differences.median() if calibrate else 0
-    predictions = mean_differences - calibration_correction > 0
-    return (predictions == labels).sum().item() / len(labels)
+    return mean_differences - calibration_correction > 0

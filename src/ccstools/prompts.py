@@ -130,7 +130,7 @@ CCS_TEMPLATE_NAMES = {
                               'CCS 3']
 }
 
-_ENV = Environment()
+_ENV = Environment(keep_trailing_newline=True)
 _TEMPLATES_ROOTS = [files('ccstools.templates').joinpath('converted'),
                     files('ccstools.templates').joinpath('additional')]
 
