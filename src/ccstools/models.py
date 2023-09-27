@@ -27,6 +27,7 @@ ENCODER_DECODER_MODELS = (
 )
 ENCODER_ONLY_MODELS = (
     'DeBERTa',
+    'deberta',
     'roberta',
 )
 
