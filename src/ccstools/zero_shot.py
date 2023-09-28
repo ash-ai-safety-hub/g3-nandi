@@ -106,6 +106,8 @@ def get_logprobs_lm(
                   [[length - 2, length - 1] for length in lengths]]
             for state in hidden_states
         ]
+        final_hidden_states = [state.to(model.dtype)
+                               for state in final_hidden_states]
         return logprobs, final_hidden_states
     else:
         return logprobs
@@ -159,6 +161,8 @@ def get_logprobs_nli(
                   [[length - 2, length - 1] for length in lengths]]
             for state in hidden_states
         ]
+        final_hidden_states = [state.to(model.dtype)
+                               for state in final_hidden_states]
         return logprobs, final_hidden_states
     else:
         return logprobs

@@ -26,7 +26,6 @@ ENCODER_DECODER_MODELS = (
     'unifiedqa',
 )
 ENCODER_ONLY_MODELS = (
-    'DeBERTa',
     'deberta',
     'roberta',
 )
